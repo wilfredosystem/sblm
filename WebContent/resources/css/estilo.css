@@ -1,0 +1,2987 @@
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,form
+	{
+	margin: 0 0 0 0;
+	padding: 0 0 0 0;
+	border: 0;
+	outline: 0;
+	font-size: 100%;
+	vertical-align: baseline;
+}
+
+body {
+	padding: 0.5% 0.5% 0.5% 0.5%;
+	font-family: arial;
+	font-size: 11px;
+	color: #000000;
+	font-weight: bold;
+	background-color: #dde5eb;
+}
+
+form {
+	padding: 0;
+	margin: 0;
+}
+
+/********PARA DAR FORMATO A LOS TEXTOS DE LOS CAMPOS********/
+input,textArea,select,option {
+	font: normal 12px Arial, Helvetica, sans-serif;
+	color: #545454;
+	font-weight: bold;
+}
+
+
+.ui-datatable .ui-column-filter{
+width:70px;
+}
+/*******ESTILO PLANTILLA*****/
+#contenidoPrincipal_Contenedor {
+	width: 814px;
+	margin: 10px auto 0 auto;
+}
+
+.contenidoPrincipal_Cabecera {
+	width: 814px;
+	height: 96px;
+	background-image: url("../images/paginaMaestra/cabecera.png");
+}
+.contenidoPrincipal_IconoUltCon {
+	float:left;
+	margin-left:470px;
+	margin-top:50px;
+	width: 18px;
+	height: 18px;
+	background-image: url("../images/paginaMaestra/iconoCabeceraUltimaConexion.png");
+}
+
+.contenidoPrincipal_perfil {
+	float:left;
+	margin-left:5px;
+	margin-top:50px;
+	width: 145px;
+	height: 30px; 
+}
+.contenidoPrincipal_hora {
+	float:left;
+	margin-left:5px;
+	margin-top:50px;
+	width: 110px;
+	height: 30px;
+	
+}
+.contenidoPrincipal_lineaCabecera {
+	float:left;
+	margin-left:10px;
+	margin-top:65px;
+	width: 1px;
+	height: 17px;
+	background-image: url("../images/paginaMaestra/cabeceraLinea.png");
+}
+
+.contenidoPrincipal_IconoModificarPerfil {
+	float:left;
+	margin-left:20px;
+	margin-top:50px;
+	
+}
+
+.contenidoPrincipal_FondoPrincipal { /*blanco*/
+	float: left;
+	width: 814px;
+	height: auto;
+	background-color: #fff;
+}
+
+.contenidoPrincipal_Barramenus {
+	float: left;
+	width: 814px;
+	height: auto;
+	background-color: #fff;
+}
+
+.contenidoPrincipal_gadget {
+	float: left;
+	margin-top: 3px;
+	margin-right: 2px;
+	width: 31px;
+	height: 30px;
+	background-image: url(../images/man_tipoCambio/super_inc_menu.png);
+	background-repeat: no-repeat;
+	
+}
+
+.contenidoPrincipal_menus {
+	float: left;
+	width: auto;
+	height: auto;
+	margin-top: 3px;
+}
+
+.contenidoPrincipal_menuSalir {
+	float: right;
+	width: auto;
+	height: auto;
+	margin-top: 3px;
+}
+
+.contenidoPrincipal_btnMenu {
+	background: transparent url('../images/contenedor/menu.png') no-repeat
+		center;
+	background-color: #fde871;
+	margin-top: 3px;
+	margin-right: 2px;
+	float: left;
+	width: 31px;
+	height: 30px;
+	border: none;
+}
+
+.contenidoPrincipal_btnAdministracion {
+	background: transparent url('../images/contenedor/administracion.png')
+		no-repeat center;
+	background-color: #fde871;
+	margin-top: 2px;
+	margin-right: 2px;
+	float: left;
+	width: 125px;
+	height: 30px;
+	border: none;
+}
+
+.contenidoPrincipal_btnMantenimiento {
+	background: transparent url('../images/contenedor/mantenimiento.png')
+		no-repeat center;
+	background-color: #fde871;
+	margin-top: 2px;
+	float: left;
+	width: 125px;
+	height: 30px;
+	border: none;
+}
+
+.contenidoPrincipal_btnSalir {
+	background: transparent url('../images/contenedor/salir.png') no-repeat
+		center;
+	background-color: #484847;
+	width: 61px;
+	height: 30px;
+	border: none;
+	float: left;
+}
+
+.contenidoPrincipal_fondoIdentificador {
+	float: left;
+	margin-top: 40px;
+	margin-left: 15px;
+	margin-bottom: 5px;
+	width: 783px;
+	height: 74px;
+	background-color: #ffc600;
+}
+
+.contenidoPrincipal_SubFondo { /*tamanho de contenido*/
+	float: left;
+	margin-left: 15px;
+	padding-bottom: 30px;
+	width: 783px;
+	height: auto;
+	background-color: #fde871;
+	margin-bottom: 30px;
+}
+
+.contenidoPrincipal_lblTituloSubContenido {
+	font-family: Arial;
+	color: #fff;
+	font-size: 20px;
+	padding: 0;
+	margin: 0;
+}
+
+.contenidoPrincipal_lblSubTituloSubContenido {
+	font-size: 12px;
+	font-family: Arial;
+	color: #000;
+	padding: 0;
+	margin: 0;
+}
+
+.contenidoPrincipal_SubContenido {
+	float: left;
+	margin-left: 22px;
+	margin-top: 24px;
+}
+
+.contenidoPrincipal_subFondo_Icono {
+	float: left;
+	margin-top: 60px;
+	margin-left: 33px;
+	width: 25px;
+	height: 23px;
+	background-image: url(../images/dgaiMonitoreo/iconSubTituloDgai.png);
+	background-repeat: no-repeat;
+}
+
+.contenidoPrincipal_subFondo_lblTitulox {
+	float: left;
+	margin-top: 69px;
+	margin-left: 5px;
+	font-size: 12px;
+	font-family: Arial;
+	width: 70px;
+	color: #000;
+}
+
+.contenidoPrincipal_fondo_formulario {
+	float: left;
+	margin-left: 31px;
+	width: 724px;
+	height: auto;
+	background-color: #fdd738;
+	font-family: arial, normal;
+	color: white;
+}
+/**fin contenedor general**/
+
+/*********estilos para pagina login*********/
+#contenedor {
+	width: 337px;
+	margin: 38px auto 0 auto;
+}
+
+.contenidoLogin {
+	width: 337px;
+	height: 350px;
+	background-image: url(../images/usuario/fondoLogin.png);
+	margin-left: 0px;
+	margin-top: 0px;
+}
+.login01 {
+	margin: 0 0 0 0;
+	padding: 0 0 0 0;
+	width: 337px;
+	height: 117px;
+	background-image: url(../images/principal/parte01.png);
+}
+
+.login02 { 
+	float: left;
+	height: 51px;
+	width: 337px;
+	background-image: url(../images/principal/parte02.png);
+}
+
+.login03 { 
+	float: left;
+	height: 26px;
+	width: 337px;
+	background-image: url(../images/principal/parte03.png);
+}
+
+.login04 {
+	float: left;
+	height: 52px;
+	width: 337px;
+	background-image: url(../images/principal/parte04.png);
+}
+
+.login05 { 
+	float: left;
+	height: 22px;
+	width: 337px;
+	background-image: url(../images/principal/parte05.png);
+}
+
+.login06_1 { 
+	float: left;
+	width: 33px;
+	height: 50px;
+	margin-left: 50px;
+	
+}
+
+.ui-icon.entrar {
+	margin-left: -17px;
+	margin-top: -22px;
+	height: 50px;
+	width: 124px;
+	background-image: url(../images/principal/parte06_2.png);
+}
+
+.login06_4 {
+	float:left;
+	margin-left:180px; 
+	margin-top:-30px; 
+}
+
+.login06_4 a {
+	color: white;
+	padding-top: 30px;
+	text-decoration: none;
+}
+
+.login07 {
+	float: left;
+	width: 337px;
+	height: 64px;
+	background-image: url(../images/principal/parte08.png);
+}
+
+#botonEnviar { 
+	float: left;
+	height: 16px;
+	width: 124px;
+	xmargin-left: 120px;
+	background-image: url(../images/principal/parte06_2.png);
+}
+
+/**imgen fondo recuperar pass**/
+.ui-icon.recuperaPass { /* 	margin-left:-17px; */
+	/* 	margin-top:-22px; */
+	height: 50px;
+	width: 124px;
+	background-image: url(../images/principal/parte06_4.png);
+}
+
+/***************Estilo de Tipo de Cambio*******************/
+/* #contenedor3 { */
+/* 	width: 814px; */
+/* 	margin: 36px auto 0 auto; */
+/* } */
+
+/* .cabecera { */
+/* 	width: 814px; */
+/* 	height: 96px; */
+/* 	background-image: url("../images/man_tipoCambio/super_01.png"); */
+/* } */
+
+/* .fondo { blanco */
+/* 	width: 814px; */
+/* 	height: 580px; */
+/* 	background-color: #fff; */
+/* 	position: absolute; */
+/* 	z-index: 1; */
+/* } */
+
+/* .btnGadget { */
+/* 	z-index: 4; */
+/* 	background: transparent url('../images/contenedor/menu.png') no-repeat */
+/* 		center; */
+/* 	background-color: #fde871; */
+/* 	width: 31px; */
+/* 	height: 30px; */
+/* 	border: none; */
+/* } */
+
+.administrador_tipocambioIcono {
+	float: left;
+	background-image: url("../images/tipoCambio/iconTipocambio.png");
+	background-repeat: no-repeat;
+	margin-left: 22px;
+	margin-top: 16px;
+	width: 34px;
+	height: 34px;
+}
+.administrador_tipocambioIconoInterior {
+	float: left;
+	margin-top: 60px;
+	margin-left: 33px;
+	width: 25px;
+	height: 23px;
+	background-image: url(../images/tipoCambio/iconInteriorTipocambio.png);
+	background-repeat: no-repeat;
+}
+
+/* .mant_menu_tipoCambioP { */
+/* 	position: absolute; */
+/* 	margin-top: 3px; */
+/* 	width: 31px; */
+/* 	height: 30px; */
+/* 	background-image: url(../images/man_tipoCambio/super_inc_menu.png); */
+/* 	background-repeat: no-repeat; */
+/* 	position: absolute; */
+/* 	z-index: 2; */
+/* } */
+
+/* .mant_menu_tipoCambio { */
+/* 	position: absolute; */
+/* 	margin-top: 3px; */
+/* 	margin-left: 34px; */
+/* 	width: 121px; */
+/* 	height: 30px; */
+/* 	background-image: */
+/* 		url(../images/man_tipoCambio/super_inco_adminstracion.png); */
+/* 	background-repeat: no-repeat; */
+/* 	position: absolute; */
+/* 	z-index: 2; */
+/* } */
+
+/* .mant_menu_tipoCambio2 { */
+/* 	position: absolute; */
+/* 	margin-top: 3px; */
+/* 	margin-left: 158px; */
+/* 	width: 121px; */
+/* 	height: 30px; */
+/* 	background-image: */
+/* 		url(../images/man_tipoCambio/super_inco_mantenimiento.png); */
+/* 	background-repeat: no-repeat; */
+/* 	position: absolute; */
+/* 	z-index: 2; */
+/* } */
+
+/* .mant_salir { */
+/* 	position: absolute; */
+/* 	margin-top: 3px; */
+/* 	margin-left: 753px; */
+/* 	width: 61px; */
+/* 	height: 30px; */
+/* 	background-image: url(../images/man_tipoCambio/super_inco_salir.png); */
+/* 	background-repeat: no-repeat; */
+/* 	position: absolute; */
+/* 	z-index: 2; */
+/* } */
+
+/* .mant_menu_identificador { */
+/* 	position: absolute; */
+/* 	margin-top: 70px; */
+/* 	margin-left: 15px; */
+/* 	width: 783px; */
+/* 	height: 74px; */
+/* 	background-color: #ffc600; */
+/* 	position: absolute; */
+/* 	z-index: 2; */
+/* } */
+
+/* .mant_iden_icono { */
+/* 	position: absolute; */
+/* 	margin-top: 24px; */
+/* 	margin-left: 31px; */
+/* 	width: 153px; */
+/* 	height: 45px; */
+/* 	background-image: url(../images/man_tipoCambio/tipo_cambio.png); */
+/* 	background-repeat: no-repeat; */
+/* 	position: absolute; */
+/* 	z-index: 3; */
+/* } */
+
+.mant_subFondo {
+	float:left;
+	margin-top: 0px;
+	margin-left: 0px;
+	width: 750px;
+	height: auto;
+	background-color: #fde871;
+	
+}
+
+/* .mant_subFondo_icoRegla { */
+/* 	position: absolute; */
+/* 	margin-top: 61px; */
+/* 	margin-left: 31px; */
+/* 	width: 75px; */
+/* 	height: 27px; */
+/* 	background-image: url(../images/man_tipoCambio/reglas.png); */
+/* 	background-repeat: no-repeat; */
+/* 	position: absolute; */
+/* 	z-index: 3; */
+/* } */
+
+.mant_subFondo_formulario {
+	float:left;
+	width: 504px;
+	height: auto;
+	background-color: #fdd738;
+	
+}
+
+.mant_subFondo_formulario2 {
+	float:left;
+	margin-top: 0px;
+	margin-left: 5px;
+	width: 213px;
+	height: 111px;
+	background-color: #fdd738;
+	
+}
+
+.mant_subFondo_icoInfo {
+	float:right;
+	margin-top: 18px;
+	margin-right:30px;
+	width: 110px;
+	height: 35px;
+	background-image: url(../images/man_tipoCambio/perfil_informacion.png);
+	background-repeat: no-repeat;
+	
+}
+
+.mant_tipoCambioTitulo {
+	position: absolute;
+	margin-top: 68px;
+	margin-left: 20px;
+	width: 90px;
+	height: 35px;
+	color: #32CD32;
+	font-family: arial, normal, sans-serif, Georgia, arial;
+	font-size: 12px;
+	font: bold;
+	z-index: 4;
+	text-align: right;
+}
+
+.mant_tipoCambioValor {
+	position: absolute;
+	margin-top: 68px;
+	margin-left: 120px;
+	width: 80px;
+	height: 35px;
+	font-size: 20px;
+	font-family: arial, Georgia, fantasy;
+	font: bold;
+	color: #006400;
+	z-index: 8;
+}
+
+.mant_subFondo_btnguardar {
+	float:left;
+	margin-top: 5px;
+	margin-left: 0px;
+	width: 722px;
+	height: 50px;
+	background-color: #ffc600;
+}
+
+
+
+.mant_tbTipoCambio {
+	float: left;
+	width: 435px;
+	height: auto;
+	margin-top: 12px;
+	margin-left: 35px;
+	margin-bottom: 35px;
+	font-size: 12px;
+	font-family: arial;
+}
+
+
+.fila_tipocambio {
+	font-family: arial, normal;
+	float: left;
+	margin-top: 60px;
+	margin-left: 40px;
+	width: 400px;
+	height: 26px;
+	border-style: none;
+	border-width: 0;
+}
+
+.tipo_cambio {
+	float: left;
+	width: 100px;
+	height: 26px;
+	border-style: none;
+	border-width: 0;
+	padding-top:5px;
+}
+
+.estilo_textbox1 {
+	float:left;
+	width: 130px; 
+	height: 26px;
+	box-shadow: 0px 1px 1px #ffc600;
+	border-style: none;
+	color: white;
+	border-width: 0;
+	border: 0px;
+}
+
+.mant_btnguardar {
+	float:left;
+	margin-top: 10px;
+	margin-left: 40px;
+	width: 73px;
+	height: 34px;
+}
+.btnguardarTipoCambio {
+	float:left;
+	width: 73px;
+	height: 34px;
+	margin: 0px;
+	font-size: 11px;
+}
+
+/******************/
+#menuAbierto_contenedor {
+	width: 814px;
+	margin: 38px auto 0 auto;
+}
+
+.menuAbierto_cabecera {
+	width: 814px;
+	height: 96px;
+	background-image: url("../images/man_tipoCambio/super_01.png");
+}
+
+.menuAbierto_fondo { /*blanco*/
+	width: 814px;
+	height: 904px;
+	background-color: #fff;
+	position: absolute;
+	z-index: 1;
+}
+
+.menuOpen_btnSalir {
+	background: transparent url('../images/contenedor/icoSalir.png')
+		no-repeat center left;
+	margin-top: 2px;
+	float: right;
+	width: 61px;
+	height: 29px;
+	border: none;
+	float: right;
+}
+
+.menuOpen_btnMenu {
+	background: transparent url('../images/contenedor/menu.png') no-repeat
+		center;
+	background-color: #fde871;
+	margin-top: 3px;
+	margin-left: 260px;
+	float: left;
+	width: 31px;
+	height: 30px;
+	border: none;
+}
+
+.menuOpen_subfondo {
+	background-color: #ffc600;
+	margin-left: 0px;
+	margin-top: 3px;
+	width: 260px;
+	height: 440px;
+}
+
+.cuadradoBlanco {
+	margin-left: 20px;
+	margin-top: 10px;
+	width: 30px;
+	height: 25px;
+	background-color: white;
+	position: absolute;
+}
+
+.cuadradoTransparente {
+	margin-left: 20px;
+	margin-top: 10px;
+	width: 30px;
+	height: 25px;
+	position: absolute;
+}
+
+.menuOpen_subfondMes { /* 	background-color: green; */
+	margin-left: 0px;
+	margin-top: 10px;
+	width: 250px;
+	height: 40px;
+	position: absolute;
+}
+
+.menuOpen_subfondoRevisado { /* 	background-color: blue; */
+	margin-left: 0px;
+	margin-top: 61px;
+	width: 250px;
+	height: 40px;
+	position: absolute;
+}
+
+.menuOpen_subfondoCancelado { /* 	background-color: red; */
+	margin-left: 0px;
+	margin-top: 102px;
+	width: 250px;
+	height: 40px;
+	position: absolute;
+}
+
+.menuOpen_subfondoPendiente { /* 	background-color: black; */
+	margin-left: 0px;
+	margin-top: 143px;
+	width: 250px;
+	height: 40px;
+	position: absolute;
+}
+
+.menuOpen_subfcrema {
+	background-color: #fde871;
+	margin-top: -349px;
+	margin-left: 0px;
+	width: 260px;
+	height: 28px
+}
+
+.fondoDetalleNotificacion { /* 	background-color: black; */
+	margin-top: -249px;
+	margin-left: 0px;
+	width: 260px;
+	height: 28px
+}
+
+.menuOpen_subfcrema2 {
+	background-color: #fde871;
+	margin-top: 181px;
+	margin-left: 0px;
+	width: 260px;
+	height: 28px;
+}
+.foto_user {
+	background-image: url("../images/contenedor/imagen.png");
+	float: left;
+	margin-left:20px;
+	margin-top: -15px;
+	width: 53px;
+	height: 56px;
+	background-color: blue;
+}
+
+.detalle_user {
+	float: left;
+	margin-left:15px;
+	margin-top: -15px;
+	font-stretch:condensed;
+	height: 56px;
+	
+}
+.lblNombre {
+	float: left;
+	margin-left: 0px;
+	margin-top: 0px;
+	font-size: 17px;
+	width: 170px;
+	color: #ffffff;
+}
+
+.lblArea {
+	float: left;
+	margin-left: 0px;
+	margin-top: 0px;
+	font-size: 13px;
+	width: 170px;
+	color: #ffffff;
+	
+}
+
+.lblId {
+	float: left;
+	margin-left: 0px;
+	margin-top: 0px;
+	font-size: 12px;
+	width: 170px;
+	color: #ffffff;
+}
+
+
+
+.notif {
+	background-image: url("../images/contenedor/notificacion.png");
+	background-repeat: no-repeat;
+	margin-left: 20px;
+	margin-top: -227px;
+	width: 75px;
+	height: 8px;
+}
+
+.fondonotif {
+	margin-left: 215px;
+	margin-top: -15px;
+	width: 30px;
+	height: 20px;
+	background-color: #616877;
+}
+
+.lblnotif {
+	font-size: 12px;
+	font-family: arial;
+	margin-top: 3px;
+}
+
+.menuOpen_tipoCambio {
+	background-image: url("../images/contenedor/tipo_cambio.png");
+	background-repeat: no-repeat;
+	margin-left: 20px;
+	margin-top: 186px;
+	width: 72px;
+	height: 26px;
+}
+
+.menuOpen_lblTipoCambio {
+	float: left;
+	margin-left: 160px;
+	font-size: 25px;
+	font-family: arial, bold;
+	margin-top: -27px;
+	color: #2da100;
+}
+
+.menuOpen_ultimo {
+	background-image: url("../images/contenedor/ultimo.png");
+	background-repeat: no-repeat;
+	margin-left:22px;
+	margin-top: 20px;
+	width: 109px;
+	height: 26px;
+}
+
+.demo {
+	
+	width: 300px;
+		height: 450px; 
+	position: absolute;
+	z-index: 5;
+}
+
+/* .ui-widget-header ui-corner-all{ */
+
+/* } */
+
+/***************Estilo Perfiles*******************/
+#perfil_Contenedor {
+	width: 814px;
+	margin: 36px auto 0 auto;
+}
+
+.perfil_Cabecera {
+	width: 814px;
+	height: 96px;
+	background-image: url("../images/man_tipoCambio/super_01.png");
+}
+
+.perfil_FondoPrincipal { /*blanco*/
+	width: 814px;
+	height: auto;
+	background-color: #fff;
+	position: absolute;
+	z-index: 1;
+}
+
+.perfil_btnMenu {
+	background: transparent url('../images/contenedor/menu.png') no-repeat
+		center;
+	background-color: #fde871;
+	margin-top: 3px;
+	margin-right: 2px;
+	float: left;
+	width: 31px;
+	height: 30px;
+	border: none;
+}
+
+.perfil_btnAdministracion {
+	background: transparent url('../images/contenedor/administracion.png')
+		no-repeat center;
+	background-color: #fde871;
+	margin-top: 2px;
+	margin-right: 2px;
+	float: left;
+	width: 125px;
+	height: 30px;
+	border: none;
+}
+
+.perfil_btnMantenimiento {
+	background: transparent url('../images/contenedor/mantenimiento.png')
+		no-repeat center;
+	background-color: #fde871;
+	margin-top: 2px;
+	float: left;
+	width: 125px;
+	height: 30px;
+	border: none;
+}
+
+.perfil_btnSalir {
+	background: transparent url('../images/contenedor/salir.png') no-repeat
+		center;
+	background-color: #484847;
+	margin-top: 2px;
+	margin-left: 462px;
+	float: left;
+	width: 61px;
+	height: 30px;
+	border: none;
+	float: left;
+}
+
+.perfil_fondoIdentificador {
+	position: absolute;
+	margin-top: 40px;
+	margin-left: 15px;
+	width: 783px;
+	height: 74px;
+	background-color: #ffc600;
+	position: absolute;
+	z-index: 2;
+}
+
+
+.perfilModulo_IconoIdentificador {
+	float: left;
+	margin-left: 22px;
+	margin-top: 16px;
+	width: 34px;
+	height: 34px;
+	background-image: url("../images/perfil/iconoPerfil.png");
+	background-repeat: no-repeat;
+}
+
+.contenidoPrincipal_subFondo_IconoPerfil {
+	float: left;
+	margin-top: 60px;
+	margin-left: 33px;
+	width: 25px;
+	height: 23px;
+	background-image: url(../images/perfil/iconoInteriorPerfil.png);
+	background-repeat: no-repeat;
+}
+.perfil_lblIdentificador {
+	float: left;
+	margin-left: 80px;
+	margin-top: -40px;
+	font-size: 20px;
+	font-family: Arial;
+	font-stretch: condensed;
+	color: #ffffff;
+	font-size: 25px;
+}
+
+.perfil_SubFondo { /*Falta definir con el tamaÃ±o de la tabla*/
+	float: left;
+	margin-top: 80px;
+	margin-left: 15px;
+	padding-bottom: 30px;
+	margin-bottom: 30px;
+	width: 783px;
+	height: auto;
+	background-color: #fde871;
+}
+
+.perfil_subFondo_Icono {
+	position: absolute;
+	margin-top: 61px;
+	margin-left: 31px;
+	width: 75px;
+	height: 27px;
+	background-image: url(../images/perfil/perfil_icono.png);
+	background-repeat: no-repeat;
+	position: absolute;
+	z-index: 3;
+}
+
+.perfil_fondo_formulario1 {
+	width: 504px;
+	height: auto;
+	background-color: #fdd738;
+	float: left;
+	font-family: arial, normal;
+	color: white;
+}
+
+.perfil_icono_step1 {
+	margin-top: 33px;
+	margin-left: 31px;
+	width: 103px;
+	height: 22px;
+	background-image: url(../images/perfil/PrimerPaso.png);
+	background-repeat: no-repeat;
+	position: absolute;
+	z-index: 4;
+}
+
+.btnNuevoRegistro {
+	margin-top: 30px;
+	margin-left: 410px;
+	width: 58px;
+	height: 19px;
+	background-repeat: no-repeat;
+	position: absolute;
+	z-index: 12;
+}
+
+.btnMas {
+	margin-top: 20px;
+	margin-left: 190px;
+	width: 18px;
+	height: 19px;
+	position: absolute;
+	z-index: 10;
+}
+
+.filaPerfil {
+	width: 400px;
+	height: 26px;
+	margin-top: 80px;
+	padding-left: 35px;
+	font-size: 12px;
+	font-family: arial;
+}
+
+.lblPerfil {
+	float: left;
+	width: 80px;
+	height: 26px;
+	text-align: left;
+}
+
+.txtPerfil {
+	float: left;
+	width: 184px;
+	height: 16px;
+	font-size: 13px;
+	font-family: arial;
+}
+
+.filaDescripcion {
+	padding-left: 35px;
+	width: 350px;
+	height: 26px;
+	margin-top: 10px;
+	font-size: 12px;
+	font-family: arial;
+}
+
+.lblDescripcion {
+	float: left;
+	width: 80px;
+	height: 26px;
+	text-align: left;
+}
+
+.txtDescripcion {
+	float: left;
+	width: 184px;
+	height: 16px;
+	font-size: 13px;
+	font-family: arial;
+}
+
+.filaEstadoPerfil {
+	padding-left: 35px;
+	width: 350px;
+	height: 36px;
+	margin-top: 10px;
+	font-size: 11px;
+	font-family: arial;
+}
+
+.lblEstadoPerfil {
+	float: left;
+	width: 80px;
+	height: 26px;
+	text-align: left;
+}
+
+.cboEstadoPerfil {
+	float: left;
+	width: 184px;
+	height: 36px;
+}
+
+.perfil_icono_step2 {
+	margin-top: 10px;
+	margin-left: 31px;
+	width: 174px;
+	height: 22px;
+	background-image: url(../images/perfil/SegundoPaso.png);
+	background-repeat: no-repeat;
+	z-index: 6;
+}
+
+.cboModulo {
+	margin-top: 50px;
+	font-size: 14px;
+	float: left;
+	border: 1px;
+}
+
+.rdEstado td,tr,tbody {
+	border-style: none;
+	border-color: white;
+}
+
+.perfil_fondo_formulario2 {
+	float: left;
+	margin-left: 5px;
+	width: 210px;
+	height: 130px;
+	background-color: #fdd738;
+	z-index: 3;
+}
+
+.tablaPerfil {
+	float: left;
+	font-size: 11px;
+	margin-top: 12px;
+	margin-left: 35px;
+	width: 430px;
+	
+}
+.tablaPerfilActualizar {
+	float: left;
+	font-size: 11px;
+	margin-top: 12px;
+	margin-left: 35px;
+	width: 430px;
+}
+
+.tablaPerfil2 {
+	float: left;
+	width: 435px;
+	height: auto;
+	padding-left: 40px;
+	padding-bottom: 30px;
+}
+.perfil_icono_informacion {
+	float :left;
+	margin-top: 10px;
+	margin-left: 85px;
+	width: 110px;
+	height: 35px;
+	background-image: url(../images/perfil/perfil_informacion.png);
+	background-repeat: no-repeat;
+	
+}
+.perfilDetaTotal {
+	float :left;
+	margin-top: 10px;
+	margin-left: 5px;
+	width: 120px;
+	height: 65px;
+	
+}
+
+.lblcreado {
+	color: #029c05;
+	font-family: arial ;
+	font-style: normal;
+	font-size: 12px;
+	float: right;
+	margin-top: 0px;
+	margin-right: 5px;
+}
+
+.lblIdentificar {
+	
+	font-size: 12px;
+	color: #029c05;
+	font-family: arial;
+	font-size: 12px;
+	color: #029c05;
+	font-family: arial;
+	float: right;
+	margin-top: 0px;
+	margin-right: 5px;
+	text-align: right;
+}
+
+.lblFechaCreacion {
+	font-size: 10px;
+	color: #029c05;
+	font-family: arial;
+	float: right;
+	margin-top: 0px;
+	margin-right: 5px;
+}
+
+.imagen_informacion {
+	float:left;
+	width: 40px;
+	height: 39px;
+	margin-left: 5px;
+}
+
+.perfil_fondoGuardar {
+	float: left;
+	margin-left: 0px;
+	text-align: left;
+	padding-top: 10px;
+	padding-left: 50px;
+	width: auto;
+	height: 55px;
+	background-color: #fdd738;
+	z-index: 3;
+}
+
+.perfil_btnGuardar {
+	background-image: url("../images/perfil/btn_guardar.png");
+	background-repeat: no-repeat;
+	width: 71px;
+	height: 34px;
+	border: 0px;
+	margin-top: 10px;
+	float: left;
+	margin-left: 40px;
+}
+
+
+.tablePerfil {
+	width: 71px;
+	height: 34px;
+}
+
+/***************** Estilo Modulo***********************/
+.paginaModulo_IconoIdentificador {
+	float: left;
+	background-image: url("../images/modulo/icono_paginaModulo.png");
+	background-repeat: no-repeat;
+	margin-left: 22px;
+	margin-top: 16px;
+	width: 34px;
+	height: 34px;
+}
+
+
+.contenidoPrincipal_subFondo_IconoModulo {
+	float: left;
+	margin-top: 60px;
+	margin-left: 33px;
+	width: 25px;
+	height: 23px;
+	background-image: url(../images/modulo/icono_moduloInterior.png);
+	background-repeat: no-repeat;
+}
+
+
+.modulo_sub {
+	float:left;
+	width: 504px;
+	height: auto;
+	background-color: #fed738;
+	
+}
+
+.perfil_fondo_formularioModulo {
+	margin-top: 91px;
+	margin-left: 31px;
+	width: 504px;
+	height: 350px;
+	background-color: #fss;
+	position: absolute;
+	z-index: 3;
+	font-family: arial, normal;
+	color: white;
+}
+
+.filaModulo {
+	padding-left: 40px;
+	width: 350px;
+	height: 26px;
+	margin-top: 60px;
+	font-size: 12px;
+	font-family: arial;
+}
+
+.lblModulo {
+	float: left;
+	width: 70px;
+	height: 26px;
+	text-align: left;
+}
+
+.txtModulo {
+	float: left;
+	width: 184px;
+	height: 16px;
+	font-size: 13px;
+	font-family: arial;
+}
+
+.filaEstadoModulo {
+	padding-left: 40px;
+	width: 350px;
+	height: 36px;
+	margin-top: 10px;
+	font-size: 12px;
+	font-family: arial;
+}
+
+.lblEstadoModulo {
+	float: left;
+	width: 70px;
+	height: 26px;
+	text-align: left;
+}
+
+.cboEstadoModulo {
+	float: left;
+}
+
+.filaBotonModulo {
+	float: left;
+	padding-left: 40px;
+	width: 350px;
+	height: 36px;
+	margin-top: 12px;
+	font-size: 12px;
+	font-family: arial;
+}
+.paginaTabla {
+	float: left;
+	
+	cwidth: 200px;
+	height: auto;
+	margin-top: 12px;
+	margin-left: 35px;
+	margin-bottom: 35px;
+	font-size: 12px;
+	font-family: arial;
+}
+
+.modulo_sub2 {
+	float:left;
+	margin-left: 5px;
+	width: 211px;
+	height: 170px;
+	background-color: #FED738;
+	
+}
+
+.lblNumeroModulos {
+	float:left;
+	margin-top: 10px; 
+	margin-left: 100px;
+	color: #029c05;
+	width: 50px;
+	height: 35px;
+}
+
+.lblCantidadModulos {
+	float:left;
+	margin-top: 6px;
+	margin-left: 5px;
+	color: #029c05;
+	width: 15px;
+	height: 35px;
+	font-size: 34px;
+}
+
+.lblUltimoModulo {
+	float:left;
+	margin-top: 10px;
+	margin-left: 48px;
+	color:#00c305;
+	width: 150px;
+	font-size:12px;
+}
+.lblUltimoModuloDetalle {
+	float:left;
+	margin-top: 0px;
+	margin-left: 48px;
+	color:#00c305;
+	width: 123px;
+	height: 35px;
+	font-size:15px;
+	font-weight: bold;
+	text-align: right;
+}
+
+.tablaModulo {
+	float: left;
+	font-size: 11px;
+	margin-top: 12px;
+	margin-left: 35px;
+	margin-bottom: 35px;
+	width: 435px;
+	
+}
+
+.modulo_fondo_btnGuardar {
+	position: absolute;
+	margin-top: 238px;
+	width: 504px;
+	height: 50px;
+	background-color: #ffc600;
+	position: absolute;
+	z-index: 4;
+}
+
+.modulo_btnGuardar {
+	position: absolute;
+	margin-top: 6px;
+	margin-left: 10px;
+	width: 83px;
+	height: 43px;
+	background-image: url("../images/man_tipoCambio/btn_guardar.png");
+	background-repeat: no-repeat;
+	position: absolute;
+	z-index: 4;
+}
+
+.ui-state-default .icon-delete {
+	background-image: url(../icons/user_delete.png);
+}
+
+.ui-state-default .icon-add {
+	background-image: url(../icons/user_add.png);
+}
+
+.ui-state-default .icon-edit {
+	background-image: url(../icons/user_edit.png);
+}
+.ui-state-default .icon-ver {
+	background-image: url(../icons/user_edit.png);
+}
+.ui-state-default .icon-save {
+	background-image: url(../icons/disk.png);
+}
+
+.ui-state-default .icon-cancel {
+	background-image: url(../icons/cancel.png);
+}
+
+.ui-icon.iconoGadget {
+	background-image: url(../images/man_tipoCambio/super_inc_menu.png);
+	xmargin-right: 4px;
+}
+
+
+/***************ESTILO PAGINAS***************/
+.administrador_paginasContenedor {
+	float: left;
+	width: 724px;
+	height: auto;
+	background-color: #fde871;
+	font-family: arial, normal;
+	color: #000;
+}
+
+.administrador_paginasIcono {
+	float: left;
+	background-image: url("../images/paginaModulo/icono_paginaModulo.png");
+	background-repeat: no-repeat;
+	margin-left: 22px;
+	margin-top: 16px;
+	width: 34px;
+	height: 34px;
+}
+
+.administrador_paginasIconoSubcont {
+	float: left;
+	margin-top: 60px;
+	margin-left: 33px;
+	width: 25px;
+	height: 23px;
+	background-image: url(../images/paginaModulo/iconoPaginaInte.png);
+	background-repeat: no-repeat;
+}
+
+.paginaInterior1 {
+	float: left;
+	background-color: #fed738;
+	width: 505px;
+	height: auto;
+}
+
+.filaPagina {
+	float: left;
+	width: 300px;
+	margin-top: 25px;
+	margin-top: 60px;
+	padding-left: 35px;
+}
+
+.lblPagina {
+	float: left;
+	width: 80px;
+	height: 26px;
+	text-align: left;
+}
+
+.txtPagina {
+	float: left;
+	width: 184px;
+	height: 16px;
+	font-size: 13px;
+	font-family: arial;
+}
+
+.filaDescripcionPagina {
+	float: left;
+	width: 300px;
+	margin-top: 25px;
+	margin-top: 15px;
+	padding-left: 35px;
+}
+
+.lblDescripcion {
+	float: left;
+	width: 80px;
+	height: 26px;
+	text-align: left;
+}
+
+.txtDescripcion {
+	float: left;
+	width: 184px;
+	height: 16px;
+	font-size: 13px;
+	font-family: arial;
+}
+
+.filaEstadoPagina {
+	float: left;
+	width: 300px;
+	margin-top: 25px;
+	margin-top: 15px;
+	padding-left: 35px;
+}
+
+.lblEstadoPagina {
+	float: left;
+	width: 80px;
+	height: 26px;
+	text-align: left;
+}
+
+.filaModuloPagina {
+	float: left;
+	width: 300px;
+	margin-top: 15px;
+	padding-left: 35px;
+}
+.msgModulopagina {
+	float: left;
+	width:150px;
+	margin-top: 15px;
+}
+
+.lblModuloPagina {
+	float: left;
+	width: 80px;
+	height: 26px;
+	text-align: left;
+}
+
+.paginaInterior2 {
+	float: left;
+	background-color: #fed738;
+	margin-left: 5px;
+	width: 212px;
+	height: auto;
+	font-size: 12px;
+}
+
+.administrador_paginasIconoInformacion {
+	float: left;
+	background-image: url("../icons/iconoInformacion.png");
+	background-repeat: no-repeat;
+	margin-left: 90px;
+	margin-top: 22px; 
+	width: 18px;
+	height: 18px;
+}
+
+.lblInformacionPag {
+	margin-top: 22px;
+	margin-right: 30px;
+	float: right;
+}
+
+
+.lblUltimaPag {
+	float: left;
+	color: #00c305;
+	width: 130px;
+	height: 35px;
+	margin-top: 25px;
+	margin-left: 53px;
+	text-align: right;
+}
+
+
+.lblCreadorPag {
+	float: left;
+	color: #029c05;
+	width: 100px;
+	height: 50px;
+	margin-top: 15px;
+	margin-left: 40px;
+	text-align: right;
+	font-size: 11px;
+	
+}
+
+.lblFotoCreadorPag {
+	float: left;
+	width: 35px;
+	height: 30px;
+	margin-top: 15px;
+	margin-left: 5px;
+/* 	background-color: #00f; */
+}
+.lblDescripcionPagina {
+	float: left;
+	margin-left: 150px;
+	text-align: right;
+	margin-bottom: 20px;
+	
+}
+
+
+/********************ESTILO DGAI**************************/
+.dgaiMonitoreo_IconoIdentificador {
+	float: left;
+	background-image: url("../images/dgaiMonitoreo/iconTituloDgai.png");
+	background-repeat: no-repeat;
+	margin-left: 22px;
+	margin-top: 16px;
+	width: 34px;
+	height: 34px;
+}
+
+.btnDerivacion {
+	float: left;
+	margin-left: 357px;
+	margin-top: 60px;
+	text-decoration: none;
+	color: #000;
+	width: 85px;
+	height: 30px;
+	background-color: #ffc600;
+	text-align: center;
+}
+
+.btnDespacho {
+	float: left;
+	margin-left: 5px;
+	margin-top: 60px;
+	text-decoration: none;
+	color: #000;
+	width: 85px;
+	height: 30px;
+	background-color: #fed02e;
+	text-align: center;
+	padding: 0 auto 0 auto;
+}
+
+.btnConsultas {
+	float: left;
+	margin-left: 5px;
+	margin-top: 60px;
+	text-decoration: none;
+	color: #000;
+	width: 85px;
+	height: 30px;
+	background-color: #fed02e;
+	text-align: center;
+}
+
+.btncentrado {
+	margin-top: 7px;
+}
+
+.dgaiMonitoreo_Contenido {
+	float: left;
+	width: 724px;
+	height: auto;
+	background-color: #fff;
+	font-family: arial, normal;
+	color: #000;
+}
+
+.dgaiMonitoreo_descripDespacho {
+	float: left;
+	width: 724px;
+	margin-top: 40px;
+	height: 60px;
+	color: #000;
+}
+
+.ui-datatable td,.ui-datatable th {
+    white-space: normal;
+}
+
+/***PANEL DESPACHO***/
+.dgaiMonitoreo_iconDespacho {
+	float: left;
+	width: 52px;
+	height: 49px;
+	margin-left: 15px;
+	background-image: url("../images/dgaiMonitoreo/iconUser.png");
+}
+
+.dgaiMonitoreo_descDespacho_detalle {
+	float: left;
+	margin-left: 15px;
+}
+
+.dgaiMonitoreo_fechaDespacho {
+	float: left;
+	margin-left: 280px;
+}
+
+.dgaiMonitoreo_fechaIcono {
+	float: left;
+	width: 30px;
+	height: 31px;
+	background-image: url("../images/dgaiMonitoreo/iconFecha.png");
+}
+
+.dgaiMonitoreo_totalDespacho {
+	float: left;
+	margin-left: 15px;
+}
+
+/***PANEL DERIVACION***/
+.dgaiMonitoreo_descripDerivacion {
+	float: left;
+	width: 724px;
+	margin-top: 40px;
+	height: 120px;
+	color: #000;
+}
+
+.dgaiMonitoreo_iconContDerivacion {
+	float: left;
+	width: 80px;
+	height: 60px;
+	text-align: center;
+}
+
+.dgaiMonitoreo_iconDerivacion {
+	float: left;
+	width: 52px;
+	height: 49px;
+	margin-left: 15px;
+	background-image: url("../images/dgaiMonitoreo/iconDerivacion.png");
+	background-repeat: no-repeat;
+}
+
+.dgaiMonitoreo_descDerivacion_detalle {
+	float: left;
+	margin-left: 15px;
+	width: 380px;
+	height: 80px;
+}
+
+.dgaiMonitoreo_totalExpDerivacion {
+	margin-left: 10px;
+	float: left;
+	
+}
+
+.dgaiMonitoreo_ExpPendientes {
+	float: left;
+	width: 50px;
+	margin-left: 15px;
+}
+
+.dgaiMonitoreo_botones {
+	float: left;
+	margin-left: 505px;
+	margin-top: 15px;
+	margin-bottom: 15px;
+}
+
+.btnDespachar {
+	float: left;
+	margin-left: 0px;
+}
+
+.btnRechazar {
+	float: left;
+	margin-left: 8px;
+}
+
+.dgaiMonitoreo_botonesDer {
+	float: right;
+	margin-left: 515px;
+	margin-top: 15px;
+	margin-bottom: 15px;
+}
+
+.btnRecepciona {
+	float: left;
+	margin-left: 0px;
+}
+
+.btnDeriva {
+	float: left;
+	margin-left: 8px;
+}
+/***PANEL CONSULTAS***/
+.dgaiMonitoreo_Consultas {
+	float: left;
+	width: 724px;
+	margin-top: 40px;
+	height: 60px;
+	color: #000;
+}
+
+.dgaiMonitoreo_iconConsultas {
+	float: left;
+	width: 22px;
+	height: 22px;
+	margin-left: 15px;
+	background-image: url("../images/dgaiMonitoreo/iconConsultas.png");
+}
+
+.dgaiMonitoreo_rangoFechas {
+	float: left;
+	margin-left: 300px;
+}
+
+.dgaiMonitoreo_lblRangoFechas {
+	float: left;
+	margin-left: 15px;
+}
+
+/**DIALOGO DERIVACION**/
+.dgaiMonitoreo_dlgTitulo {
+	background-color: ffc600;
+}
+
+.dgaiMonitoreo_iconDlgDerivacion {
+	float: left;
+	width: 26px;
+	height: 26px;
+	margin-left: 15px;
+	background-image: url("../images/dgaiMonitoreo/iconDlgDerivar.png");
+	background-repeat: no-repeat;
+}
+
+.dgaiMonitoreo_TituloContador {
+	float: left;
+	margin-top: 10px;
+	width: 320px;
+	margin-left: 10px;
+}
+
+.dgaiMonitoreo_detalleDlg {
+	margin-top: 10px;
+	margin-left:50px;
+	float: left;
+	height: 110px;
+}
+.dgai_DlgDetalle {
+	margin: 30px;
+	font-size:11px;
+	float: left;
+	height: 110px;
+	
+}
+
+.dgaiMonitoreo_DlgTablaDer {
+	margin-top: 10px;
+	margin-left:50px;
+	float: left;
+	height: auto;
+}
+.dgaiMonitoreo_botonEnviarDlgDer {
+	margin-top: 10px;
+	margin-left:315px;
+	float: left;
+	
+}
+.dgaiMonitoreo_notificacionDlg {
+	margin-top: 5px;
+	width: 260px;
+	float: left;
+	margin-left: 50px;
+}
+
+.ui-menubar {
+	background: #fde871;
+}
+
+.ui-icon.iconoAdministracion {
+	background-image: url(../icons/iconoAdministracion.png);
+	margin-right: 4px;
+}
+
+.ui-icon.iconoMantenimiento {
+	background-image: url(../icons/iconoMantenimiento.png);
+	margin-right: 4px;
+}
+
+.ui-icon.iconoMesaPartes {
+	background-image: url(../icons/iconoMesaPartes.png);
+	margin-right: 4px;
+}
+/**DIALOGO RECEPCIONA**/
+
+.dgaiMonitoreo_iconDlgRecepcion {
+	float: left;
+	width: 26px;
+	height: 26px;
+	margin-left: 15px;
+	background-image: url("../images/dgaiMonitoreo/iconDlgRecepciona.png");
+	background-repeat: no-repeat;
+}
+/**DIALOGO DESPACHAR**/
+
+.dgaiMonitoreo_iconDlgDespachar {
+	float: left;
+	width: 26px;
+	height: 26px;
+	margin-left: 15px;
+	background-image: url("../images/dgaiMonitoreo/iconDlgDespachar.png");
+	background-repeat: no-repeat;
+}
+/**DIALOGO DESPACHAR**/
+
+.dgaiMonitoreo_iconDlgRechazar {
+	float: left;
+	width: 26px;
+	height: 26px;
+	margin-left: 15px;
+	background-image: url("../images/dgaiMonitoreo/iconDlgRechazar.png");
+	background-repeat: no-repeat;
+}
+
+
+/*********ESTILO MENSAJE ACCESO RESTRINGIDO********/
+.contenidoPrincipal {
+	float: left;
+	width: 337px;
+	height: 372px;
+}
+
+.cuadroMensaje_superiortotal {
+	float: left;
+	width: 337px;
+	height: 5px;
+	background-image: url(../images/usuario/fondoSupLogin.png);
+	margin-left: 0px;
+}
+
+.cuadroMensaje_total {
+	width: 337px;
+	height: 400px;
+	background-image: url(../images/usuario/fondoLogin.png);
+	margin-left: 0px;
+	margin-top: 0px;
+}
+
+.loginSBLM {
+	float: left;
+	width: 277px;
+	height: 58px;
+	background-image: url(../images/usuario/loginSBLM.png);
+	background-repeat: no-repeat;
+	margin-left: 29px;
+	margin-top: 24px;
+}
+
+.simboloRestringido {
+	float: left;
+	width: 88px;
+	height: 88px;
+	background-image: url(../images/usuario/simboloRestringido.png);
+	background-repeat: no-repeat;
+	margin-left: 127px;
+	margin-top: 20px;
+}
+
+.btnVolverRestringido {
+	float: left;
+	width: 125px;
+	height: 51px;
+	background-image: url(../images/usuario/btnVolverRestringido.png);
+	background-repeat: no-repeat;
+	margin-top: 28px;
+	margin-left: 104px;
+}
+
+.lblAccesoRestringido {
+	float: left;
+	xwidth: 130px;
+	height: 30px;
+	color: #ffc600;
+	font-size: 26px;
+	margin-top: 17px;
+	margin-left: 54px;
+}
+
+.lblNuevoLogueo {
+	float: left;
+	xwidth: 180px;
+	height: 20px;
+	color: #fff;
+	font-size: 20px;
+	margin-top: 17px;
+	margin-left: 84px;
+}
+
+.pieLogin {
+	float: left;
+	background-image: url(../images/usuario/pieLogin.png);
+	background-repeat: no-repeat;
+}
+
+
+
+
+/******ESTILOS FRANCO******/
+
+/************************************************************************ESTILOS FRANCO********************************************************************/
+
+/************************************************************************ESTILOS FRANCO********************************************************************/
+
+/*******estilo para admin_auditoria****/
+#contenedor2 {
+	width: 814px;
+	margin: 38px auto 0 auto;
+}
+
+
+
+.admin_audi_01 {
+	width: 814px;
+	height: 96px;
+	background-image: url(../images/admin_auditoria/super_01.png);
+}
+
+.admin_audi_02 { /*FONDO BLANCO*/
+	width: 814px;
+	height: 596px;
+	background-color: #fff;
+	position: absolute;
+	z-index: 1;
+}
+
+
+.admin_audi_03 {
+	position: absolute;
+	margin-top: 3px;
+	width: 31px;
+	height: 30px;
+	background-image: url(../images/admin_auditoria/auditoria_ico01.png);
+	background-repeat: no-repeat;
+	position: absolute;
+	z-index: 2;
+}
+
+.admin_audi_04 {
+	position: absolute;
+	margin-top: 3px;
+	margin-left: 35px;
+	width: 124px; /*121+3*/
+	height: 30px;
+	background-image: url(../images/admin_auditoria/auditoria_ico02.png);
+	background-repeat: no-repeat;
+	z-index: 2;
+}
+
+.admin_audi_05 {
+	position: absolute;
+	margin-left: 160px;
+	margin-top: 3px;
+	width: 128px; /*125+3*/
+	height: 30px;
+	background-image: url(../images/admin_auditoria/auditoria_ico03.png);
+	background-repeat: no-repeat;
+	z-index: 2;
+}
+
+.admin_audi_06 {
+	position: absolute;
+	margin-left: 754px;
+	margin-top: 3px;
+	width: 61px;
+	height: 30px;
+	background-image: url(../images/admin_auditoria/auditoria_ico04.png);
+	z-index: 2;
+}
+
+.admin_audi_07 {
+	position: absolute;
+	margin-top: 66px;
+	margin-left: 16px;
+	width: 783px;
+	height: 74px;
+	background-image: url(../images/admin_auditoria/super_02.png);
+	z-index: 2;
+}
+
+.admin_audi_08 { /*FONDO naranja*/
+	margin-top: 144px;
+	margin-left: 16px;
+	width: 783px;
+	height: 596px;
+	background-color: #fde871;
+	position: absolute;
+	z-index: 2;
+}
+
+.admin_audi_09 {
+	position: absolute;
+	margin-top: 212px;
+	margin-left: 48px;
+	width: 720px;
+	height: 191px;
+	background-image: url(../images/admin_auditoria/fondo_03.png);
+	z-index: 2;
+}
+
+.admin_audi_contenedor_superior {
+	position: absolute;
+	margin-top: 0px;
+	margin-left: 0px;
+	padding-left:0px;
+	width: 700px;
+	height: 190px;
+/* 	background-color:white; */
+	z-index: 3;
+}
+
+.admin_audi_informacion {
+	position: absolute;
+	margin-top: 0px;
+	margin-left: 500px;
+	padding-left:0px;
+	width: 200px;
+	height: 190px;
+/* 	background-color:red; */
+	z-index: 3;
+}
+
+.admin_audi_filtro0 {
+	position: absolute;
+	margin-top: 0px;
+	margin-left: 0px;
+	padding-left: 0px;
+	padding-top:-5px;
+	margin-bottom:0px;
+	width: 500px;
+	height: 50px;
+/* 	background-color:blue; */
+	z-index: 4;
+}
+.admin_audi_filtro1 {
+	position: absolute;
+	margin-top: 15px;
+	margin-left: 50px;
+	width: 400px;
+	height: 50px;
+/* 	background-color:black; */		
+	z-index: 3;
+}
+
+.admin_audi_filtro1_ {
+	position: absolute;
+	margin-top: 60px;
+	margin-left: 50px;
+	width: 400px;
+	height: 50px;
+/* 	background-color:black; */
+	z-index: 3;
+}
+
+.admin_audi_filtro2 {
+	position: absolute;
+	margin-top: 55px;
+	margin-left: 50px;
+	margin-bottom:0px;
+	padding-left: 0px;	
+	width: 500px;
+	height: 120px;
+/*  	background-color:purple;  */
+	z-index: 2;
+}
+
+
+.admin_audi_btnGuardar {
+	position: absolute;
+	margin-top: -5px;
+	margin-left:30px;
+	width: 725px; 
+	height: 50px;
+	background-color:#ffc600;
+/* 	position: absolute; */
+/* 	z-index: 3; */
+	}
+
+
+.admin_audi_tabla {
+/* 	position: absolute; */
+	float:left;
+	margin-top: 70px;
+	margin-left: 30px;
+	padding-left: 0px;
+	width: 720px;
+	height: auto;
+/* 	background-color:black; */
+	
+}
+
+.admin_audi_10 {
+	position: absolute;
+	width: 720px;
+	height: 191px;
+	z-index: 2;
+	
+}
+
+.fondoBlancoAuditoria { /*FONDO BLANCO*/
+	width: 814px;
+	height: 815px;
+	background-color: #fff;
+	position: absolute;
+	z-index: 2;
+}
+
+.fondoAmarilloAuditoria { 
+	margin-top: 0px;
+	margin-left: 15px;
+	width: 814px;
+	height: 800px;
+	position: absolute;
+	z-index: 3;	
+	background-color: #fde871;
+}
+
+.cabeceraAdminitracionAuditoria {
+	position: absolute;
+	margin-top: 0px;
+	margin-left: 16px;
+	width: 783px;
+	height: 74px;
+	background-image: url(../images/admin_auditoria/super_02.png);
+	z-index: 2;
+}
+
+.filtroAuditoria { 
+	margin-top: 10px;
+	margin-left: 30px;
+	width: 724px;
+	height: 200px;
+	jjposition: absolute;
+/* 	z-index: 2; */
+
+
+}
+
+.filtroAuditoriaIzquierda { 
+	margin-top: 0px;
+	margin-left: 0px;
+	width:  505px;
+	height: 190px;
+	position: absolute;
+/* 	z-index: 3;	 */
+	background-color: #fed738;
+}
+
+.filtroAuditoriaDerecha { 
+	margin-top: 0px;
+	margin-left: 510px;
+	width: 215px;
+	height: 190px;
+	position: absolute;
+	background-color: #fed738;
+	
+}
+
+.informacionfiltroDerecha { 
+	margin-top: 0px;
+	margin-left: 100px;
+}
+
+
+
+
+
+.conectadosfiltroDerecha { 
+	margin-top: 0px;
+	margin-left: 95px;
+	width: 105px;
+	height: 50px;
+}
+
+.textoconectadosfiltroDerecha { 
+	float:left;
+	width: 80px;
+	height: 50px;
+}
+
+.numeroconectadosfiltroDerecha { 
+	float:left;
+	width: 25px;
+	height: 50px;
+}
+
+
+.usuarioTopfiltroDerecha { 
+	margin-top: 0px;
+	margin-left: 25px;
+	width: 175px;
+	height: 70px;
+	
+}
+
+.detalleTopfiltroDerecha { 
+	float:left;
+	width: 110px;
+	height: 60px;
+}
+
+.spacerTopfiltroDerecha { 
+	float:left;
+	width: 5px;
+	height: 60px;
+}
+
+.fotoTopfiltroDerecha { 
+	float:left;
+	width: 60px;
+	height: 60px;
+	
+}
+
+
+.contenedorNotificaciones{ /*FONDO naranja*/
+width: 814px;
+	margin: 38px auto 0 auto;
+ 	background-color: black; 
+}
+
+.fondoBlancoNotificacion { /*FONDO BLANCO*/
+	width: 814px;
+	height: 777px;
+	background-color: #fff;
+	position: absolute;
+	z-index: 1;
+}
+
+.cabecerasuarioNotificaciones {
+	margin-top: 50px;
+	margin-left: 0px;
+	padding-left: 0px;
+	width: 785px;
+	height: 110px;
+}
+
+.imagenCabecera{ 
+	margin-top: 0px;
+	margin-left: 18px;
+	width: 105px;
+	height: 110px;
+	position: absolute;
+	z-index: 3;
+ 	background-color: white; 
+}
+
+.nombreCabecera{ 
+	margin-top: 0px;
+	margin-left: 120px;
+	width: 440px;
+	height: 110px;
+	position: absolute;
+	z-index: 3;
+	background-color: #ffc600;
+}
+
+.separacionCabecera { 
+	margin-top: 0px;
+	margin-left: 560px;
+	width: 115px;
+	height: 110px;
+	position: absolute;
+	z-index: 3;
+	background-color: #ffc600;
+}
+
+.nroCabecera { 
+	margin-top: 0px;
+	margin-left: 620px;
+	width: 176px;
+	height: 110px;
+	position: absolute;
+	z-index: 3;
+	background-color: #ffc600;
+}
+
+
+.detalleNroCabecera { 
+	margin-top: 30px;
+	margin-left: 0px;
+	width: 90px;
+	height: 40px;
+	position: absolute;
+	z-index: 3;
+/* 	background-color: black; */
+}
+
+.imagenNroCabecera { 
+	margin-top: 35px;
+	margin-left: 100px;
+	width: 40px;
+	height: 27px;
+	position: absolute;
+	padding-top:3px;
+	z-index: 3;
+	text-align:center;
+	font-size:18px;
+	background-color: #5E6473; 
+}
+
+.comboxNotificaciones {
+	margin-top: 20px;
+	margin-left: 307px;
+	padding-left: 0px;
+	width: 500px;
+	height: 20px;
+	text-align: center;
+}
+.xxx {
+	
+	z-index: 113;
+}
+
+.cabeceraTablaUsuarioNotificaciones {
+	margin-top: 10px;
+	margin-left: 18px;
+	padding-left: 0px;
+	width: 800px;
+	height: 69px;
+	
+/* 	background-color: black; */
+}
+
+.imagenCabeceraTablaUsuario { 
+	margin-top: 0px;
+	margin-left: 0px;
+	width: 85px;
+	height: 69px;
+	position: absolute;
+	z-index: 3;
+/* 	background-color: green; */
+}
+
+.contenidoCabeceraTablaUsuario { 
+	margin-top: 0px;
+	margin-left: 93px;
+	width: 690px;
+	height: 69px;
+	position: absolute;
+	z-index: 3;	
+	background-color: #fde871;
+}
+
+
+.tablaNotificacion { 
+	margin-top: 0px;
+	margin-left: -2px;
+	width: 808px;
+	margin-bottom: 35px;
+	
+}
+
+.imagenRowTabla { 
+	background-color: white;
+	height:50px;
+	
+}
+
+
+.rowNotificaciones {
+	float:left;
+	margin-left: 0px;
+	padding-left: 0px;
+	height: 39px;
+	width: auto;
+/* 	background-color: green; */
+}
+
+.rowNotificaciones1 {
+	
+	margin-top:-58px;
+	margin-left: 0px;
+	padding-left: 5px;
+	height: 39px;
+	padding-top:50px;
+}
+.column1Notificaciones { 
+	float:left;
+	margin-top: 17px;
+	margin-left: 12px;
+	width: 400px; 
+	
+/* 	background-color: white;  */
+}
+
+.column2Notificaciones{ /*FONDO naranja*/
+float:left;
+	margin-top: 5px;
+	margin-left:200px;
+	width: 30px;
+	height: 50px;
+	background-color: #fde871;
+/* 	background-color: black;  */
+}
+
+
+
+.ui-datatable.borderless .ui-datatable-data tr,
+.ui-datatable.borderless .ui-datatable-data-empty tr,
+.ui-datatable.borderless .ui-datatable-data td,
+.ui-datatable.borderless .ui-datatable-data-empty td {
+    border-style: none;
+}
+
+.noheader.ui-datatable table thead {
+    display: none;
+}
+
+.cellSpacingTableClass table { 
+    border-collapse: separate; 
+    border-spacing: 5px; 
+    border-collapse: expression('separate', cellSpacing = '5px');
+}
+
+
+.mystyle.ui-datatable .ui-datatable-header{
+background-color: #003946 !important;
+
+}
+
+.ui-datatable-header{
+	
+	background-color: #003946 !important;
+	
+}
+
+/*Monitoreo Mesa partes*/
+
+.fondoBlancoMesaPartes { /*FONDO BLANCO*/
+	width: 814px;
+	height: auto;
+	background-color: #fff;
+}
+.cabeceraMesaPartes {
+	position: absolute;
+	margin-top: 67px;
+	margin-left: 15px;
+	padding-left: 0px;
+	width: 783px;
+	height: 75px;
+	background-color:#ffc600;
+	z-index: 1;
+	
+}
+
+.iconoMesaPartesCabecera { 
+	margin-top: 25px;
+	margin-left: 20px;
+	float:left;
+	width: 31px;
+	height: 25px;
+	background-image: url(../images/monitoreoMesaPartes/iconoMesaPartes.png);
+	background-repeat: no-repeat;
+/* 	background-color: white;  */
+}
+
+.descripcionMesaPartesCabecera { 
+	margin-top: -5px;
+	margin-left: 85px;
+	width: 250px;
+	height: 20px;
+	position: absolute;
+	z-index: 3;
+/* 	background-color: white;  */
+}
+
+.cuerpoMesaPartes { /*FONDO naranja*/
+	margin-top: 144px;
+	margin-left: 16px;
+	width: 783px;
+	height: auto;
+	background-color: #fde871;
+	z-index: 2;
+}
+
+
+.imagenAtendidosMesaPartes { 
+	margin-top: 60px;
+	margin-left: 31px;
+	width: 100px;
+	height: 100px;
+	position: absolute;
+	z-index: 2;
+	background-image: url(../images/monitoreoMesaPartes/iconoAtendidos.png);
+	background-repeat: no-repeat;
+/* 	background-color: white;  */
+}
+
+.botonAtendido { 
+	text-align:center;
+	margin-top: 60px;
+	margin-left: 545px;
+	width: 100px;
+	height: 30px;
+	position: absolute;
+	text-decoration:none;
+	color:#000;
+	z-index: 3;
+}
+
+.botonPendiente { 
+	text-align:center;
+	margin-top: 60px;
+	margin-left: 655px;
+	width: 100px;
+	height: 30px;
+	position: absolute;  
+	text-decoration:none;
+	color:#000;
+	z-index: 3;
+}
+
+.fondoBlancoCuerpoMesaPartes { /*FONDO BLANCO*/
+    
+	margin-left: 30px;
+	margin-top:90px;
+	width: 725px;
+	height: auto;
+	background-color: #fff;
+	z-index: 2;
+}
+
+
+.ui-menubar  {
+background: #fde871;
+}
+
+.ui-icon.iconoAdministracion {
+	background-image: url(../images/menuBar/iconoAdministracionMenuMar.png);
+	margin-right: 4px;
+	
+}
+
+.ui-icon.iconoMantenimiento {
+	background-image: url(../images/menuBar/iconoMantenimientoMenuBar.png);
+	margin-right: 4px;
+	
+}
+.ui-icon.iconoMesaPartes {
+	background-image: url(../images/menuBar/iconoMesaPartesMenuBar.png);
+	margin-right: 4px;
+	
+}
+
+/*Monitoreo Mesa partes*/
+
+.fondoBlancoMesaPartes { /*FONDO BLANCO*/
+	width: 814px;
+	height: auto;
+	background-color: #fff;
+}
+.cabeceraMesaPartes {
+	position: absolute;
+	margin-top: 67px;
+	margin-left: 15px;
+	padding-left: 0px;
+	width: 783px;
+	height: 75px;
+	background-color:#ffc600;
+	z-index: 1;
+	
+}
+
+.iconoMesaPartesCabecera { 
+	margin-top: 25px;
+	margin-left: 20px;
+	float:left;
+	width: 31px;
+	height: 25px;
+	background-image: url(../images/monitoreoMesaPartes/iconoMesaPartes.png);
+	background-repeat: no-repeat;
+/* 	background-color: white;  */
+}
+
+.descripcionMesaPartesCabecera { 
+	margin-top: -5px;
+	margin-left: 85px;
+	width: 250px;
+	height: 20px;
+	position: absolute;
+	z-index: 3;
+/* 	background-color: white;  */
+}
+
+.cuerpoMesaPartes { /*FONDO naranja*/
+	margin-top: 144px;
+	margin-left: 16px;
+	width: 783px;
+	height: auto;
+	background-color: #fde871;
+	z-index: 2;
+}
+
+
+.imagenAtendidosMesaPartes { 
+	margin-top: 60px;
+	margin-left: 31px;
+	width: 100px;
+	height: 100px;
+	position: absolute;
+	z-index: 2;
+	background-image: url(../images/monitoreoMesaPartes/iconoAtendidos.png);
+	background-repeat: no-repeat;
+/* 	background-color: white;  */
+}
+
+.botonAtendido { 
+	text-align:center;
+	margin-top: 60px;
+	margin-left: 545px;
+	width: 100px;
+	height: 30px;
+	position: absolute;
+	text-decoration:none;
+	color:#000;
+	z-index: 3;
+}
+
+.botonPendiente { 
+	text-align:center;
+	margin-top: 60px;
+	margin-left: 655px;
+	width: 100px;
+	height: 30px;
+	position: absolute;  
+	text-decoration:none;
+	color:#000;
+	z-index: 3;
+}
+
+.fondoBlancoCuerpoMesaPartes { /*FONDO BLANCO*/
+    
+	margin-left: 30px;
+	margin-top:90px;
+	width: 725px;
+	height: auto;
+	background-color: #fff;
+	z-index: 2;
+}
+
+
+.ui-menubar  {
+background: #fde871;
+}
+
+.ui-icon.iconoAdministracion {
+	background-image: url(../images/menuBar/iconoAdministracionMenuMar.png);
+	margin-right: 4px;
+	
+}
+
+.ui-icon.iconoMantenimiento {
+	background-image: url(../images/menuBar/iconoMantenimientoMenuBar.png);
+	margin-right: 4px;
+	
+}
+.ui-icon.iconoMesaPartes {
+	background-image: url(../images/menuBar/iconoMesaPartesMenuBar.png);
+	margin-right: 4px;
+	
+}
+/***************Estilo Usuario*******************/
+
+.u_icono_identificador {
+	margin-top: 24px;
+	margin-left: 31px;
+	float:left;
+	width: 36px;
+	height: 29px;
+	background-image: url(../images/usuario/iconoCabeceraUsuario.png);
+	background-repeat: no-repeat;
+}
+
+.u_imagenUsuario {
+	margin-top: 50px;
+	margin-left: 35px;
+	width: 120px;
+	height: 140px;
+/* 	background-color: white; */
+	float: left;
+}
+
+.u_nuevoUsuario {
+	float:left;
+	margin-top: 25px;
+	margin-left: 95px;
+	width: 60px;
+	height: 30px;
+	
+}
+.u_imagenPrevia {
+	width: 120px;
+	height: 120px;
+	margin-left: 30px;
+	margin-top: 20px;
+/* 	background-color: white; */
+	float: left;
+	z-index: 2;
+}
+
+.u_inferiorImagenPrevia {xx
+	width: 20px;
+	height: 20px;
+	margin-left: 30px;
+	margin-top: 50px;
+/* 	background-color: white; */
+	float: left;
+}
+
+.u_buttonUpload {
+	-webkit-transform: rotate(180deg);
+	-moz-transform: rotate(180deg);
+	-o-transform: rotate(180deg);
+	-ms-transform: rotate(180deg);
+	transform: rotate(180deg);
+	width: 50px;
+	height: 50px;
+	z-index: 0;
+	position: absolute;
+	margin-left: 500px;
+	margin-top: 180px;
+}
+
+.u_panelGrid1 {
+	
+	margin-top: 40px;
+	margin-left: 0px;
+	padding-top: 0px;
+	width: 440px;
+	height: w00px;
+/* 	background-color: blue; */
+	float:left;
+}
+
+.u_panelGrid2 {
+	
+	margin-top: 0px;
+	margin-left: 0px;
+	padding-top: 20px;
+	width: 440px;
+	height: 120px;
+/* 	background-color: green; */
+	float:left;
+	
+}
+
+.u_panelGrid3 {
+	float:left;
+	margin-top: 40px;
+	margin-left: 0px;
+	width: 440px;
+	height: 120px;
+/* 	background-color: red; */
+}
+
+
+
+.u_iconoLapizUsuario {
+	margin-top: 0px;
+	margin-left: 50px;
+	width: 16px;
+	height: 16px;
+	background-image: url("../images/usuario/lapizEditarUsuario.png");	
+	
+}
+
+
+.contenidoPrincipal_SubFondoUsuario { 
+	
+	margin-left: 15px;
+	padding-bottom: 25px;
+	width: 783px;
+	height: auto;
+	background-color: white;
+}
+
+.u_fondo_interno { /*Falta definir con el tama�o de la tabla*/
+	margin-left: 0px;
+	margin-top: 0px;
+	float:left;
+	width: 625px;
+	height: 500px;
+	background-color: #fde871;
+	z-index: 0;
+}
+
+.u_fondo_interno2 { /*Falta definir con el tama�o de la tabla*/
+	margin-left: 630px;
+	margin-top: 122px;
+	width: 153px;
+	height: 518px;
+	background-color: #fde871;
+	background-repeat: no-repeat;
+}
+
+.u_fondo_interno2Edicion { /*Falta definir con el tama�o de la tabla*/
+	margin-left: 630px;
+	margin-top: 122px;
+	width: 153px;
+	height: 500px;
+	background-color: #fde871;
+	background-repeat: no-repeat;
+}
+
+.u_fondo_btnGuardar {
+	float:left;
+	margin-top: 65px;
+	width: 625px;
+	height: 50px;
+	background-color: #ffc600;
+}
+
+.dialogMonitoreo{
+	float:left;
+	width: 400px;
+	height: 50px;
+/* 	background-color: white; */
+}
+
+
+
+
+/******************/
+/******************/
+
+/* .ui-button{ */
+/*       background: none; */
+/*  } */
+ 
+ 
+
+/* .ui-button.ui-state-hover, .ui-button.ui-state-active{ */
+/*      border: none; */
+/* } */
+
+/* .customStyleButton { */
+/* 	background: transparent #fff */
+/* 		no-repeat center; */
+/* 	background-color: #fff; */
+/* /* 	background-color: #fff; */ 
+/* } */
+
+.ui-datatable td,.ui-datatable th {
+    white-space: normal;
+}
+
+template-upload ui-state-error{
+		display: none;
+	}
+}
+
+.process_msg .ui-dialog .ui-dialog-titlebar {
+   display:none !important;
+}
+
+ .ui-fileupload .start {
+        display: none;
+    }
+    .ui-fileupload .cancel {
+        display: none;
+    }
+    .ui-fileupload .progress {
+        display: none;
+    }

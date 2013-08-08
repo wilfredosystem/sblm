@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<h:head>
+
+	<title>Modulos - SBLM</title>
+</h:head>
+<h:body>
+	<ui:composition template="./paginaMaestra.xhtml">
+		<ui:define name="content">
+
+
+			<div class="contenidoPrincipal_FondoPrincipal">
+				<div class="contenidoPrincipal_fondoIdentificador">
+					<!-- TITULO SUBCONTENIDO -->
+					<div class="paginaModulo_IconoIdentificador"></div>
+					<div class="contenidoPrincipal_SubContenido">
+						<label class="contenidoPrincipal_lblTituloSubContenido">Administraci&oacute;n</label><br />
+						<label class="contenidoPrincipal_lblSubTituloSubContenido">Modulos</label>
+					</div>
+				</div>
+
+
+				<div class="contenidoPrincipal_SubFondo">
+					<div class="contenidoPrincipal_subFondo_IconoModulo"></div>
+					<div id="lblSubtitulo"
+						class="contenidoPrincipal_subFondo_lblTitulox">Modulos</div>
+
+					<div class="contenidoPrincipal_fondo_formulario">
+						<!-- CONTENIDO MODIFICABLE -->
+						<div class="administrador_paginasContenedor">
+							<div class="modulo_sub">
+								<h:form>
+									<div class="btnNuevoRegistro">
+										<p:commandLink id="ajax" update=":frmModulo"
+											actionListener="#{moduloMB.limpiarCampos}"
+											style="margin-right:20px;">
+											<p:graphicImage
+												value="/resources/images/perfil/nuevo_mas.png"
+												alt="Limpiar formulario" title="limpiar" />
+										</p:commandLink>
+									</div>
+								</h:form>
+								<h:form id="frmModulo">
+									<p:growl id="growlModu" showDetail="true" sticky="false"
+										life="3000" />
+
+									<div>
+
+										<div class="filaModulo">
+											<h:outputLabel class="lblModulo" value="Modulo:" />
+											<p:inputText id="txtModulo" styleClass="txtModulo"
+												value="#{moduloMB.modulo.nombremodulo}" />
+										</div>
+
+										<div class="filaEstadoModulo">
+											<h:outputLabel class="lblEstadoModulo" value="Estado:" />
+											<div class="cboEstadoModulo">
+												<p:selectOneMenu value="#{moduloMB.modulo.estado}"
+													id="cbxEstadoModulo" style="width: 190px;">
+													<f:selectItem itemLabel="Seleccione estado" itemValue="0" />
+													<f:selectItem itemLabel="Activo" itemValue="true" />
+													<f:selectItem itemLabel="Inactivo" itemValue="false" />
+												</p:selectOneMenu>
+											</div>
+										</div>
+										<div class="filaBotonModulo">
+											<p:commandButton value="Guardar" id="btnGuardarModulo"
+												oncomplete="validacioModulo();"  update=":frmModulo"/>
+										</div>
+									</div>
+
+
+								</h:form>
+
+								<h:form id="frmModulo2">
+									<div class="tablaModulo">
+
+										<p:dataTable id="tbModulo" var="objetomodulo"
+											value="#{moduloMB.modulos}" rowKey="#{objetomodulo.idmodulo}"
+											selection="#{moduloMB.modulo}" selectionMode="single"
+											paginator="true" rows="5" style="font-size: 10px;">
+											<p:ajax event="rowSelect" listener="#{moduloMB.onRowSelect}"
+												update=":frmModulo" />
+
+											<p:column headerText="Modulo" style="text-align: center;">
+												<h:outputText value="#{objetomodulo.nombremodulo}" />
+											</p:column>
+											<p:column headerText="Estado" style="text-align: center;">
+												<h:outputText
+													value="#{(objetomodulo.estado) ? 'Activo' : 'Inactivo'}" />
+											</p:column>
+											<p:column style="text-align: center;" width="30">
+
+												<p:commandButton update=":frmEliminar, :frmModulox, :frmModulo"
+													oncomplete="dlgEliminar.show();" image="icon-delete"
+													title="Eliminar">
+													<f:setPropertyActionListener value="#{objetomodulo}"
+														target="#{moduloMB.modulo}" />
+
+												</p:commandButton>
+											</p:column>
+										</p:dataTable>
+									</div>
+								</h:form>
+							</div>
+							<h:form id="frmdlgGuardarModulo">
+								
+								<p:confirmDialog message="¿Desea Guardar este modulo?"
+									header="Registro Modulo" severity="alert"
+									widgetVar="dlgRegistrarModulo">
+
+									<p:commandButton value="&nbsp;Aceptar"
+										update=":frmModulo2 , :frmModulo ,:frmMaestra"
+										actionListener="#{moduloMB.registrarModulo}"
+										oncomplete="dlgRegistrarModulo.hide()" image="icon-save">
+
+									</p:commandButton>
+									<p:commandButton value="&nbsp;Cancelar" update=":frmModulo2 "
+										oncomplete="dlgRegistrarModulo.hide()" image="icon-cancel" />
+
+								</p:confirmDialog>
+							</h:form>
+							<h:form id="frmModulox">
+								<div class="modulo_sub2">
+									<div class="mant_subFondo_icoInfo"></div>
+
+									<div class="lblNumeroModulos">
+										<h:outputText value=" Modulos creados" />
+									</div>
+									<div class="lblCantidadModulos">
+										<h:outputText value=" #{moduloMB.numModulos}" />
+									</div>
+									<div class="lblUltimoModulo">
+										<h:outputText value="&Uacute;ltimo modulo creado" />
+									</div>
+									
+									<div class="lblUltimoModuloDetalle">
+										<h:outputText value="#{moduloMB.ultimoModulo}" />
+									</div>
+								</div>
+							</h:form>
+
+
+
+
+							<h:form id="frmEliminar">
+								<p:confirmDialog id="dlgEliminar"
+									message="¿Desea eliminar este modulo?" header="Eliminar Modulo"
+									severity="alert" widgetVar="dlgEliminar">
+
+									<p:commandButton value="&nbsp;Aceptar"
+										update=":frmModulo2:tbModulo , :frmModulo,  dlgEliminar, :frmModulox, :frmMaestra"
+										actionListener="#{moduloMB.eliminarModulo}"
+										oncomplete="dlgEliminar.hide()" image="icon-save">
+
+									</p:commandButton>
+									<p:commandButton value="&nbsp;Cancelar"
+										update=":frmModulo2:tbModulo " oncomplete="dlgEliminar.hide()"
+										image="icon-cancel" />
+
+								</p:confirmDialog>
+
+							</h:form>
+
+						</div>
+					</div>
+
+				</div>
+
+
+
+			</div>
+
+		</ui:define>
+	</ui:composition>
+</h:body>
+</html>

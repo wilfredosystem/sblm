@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<h:head>
+	<title>SBLM</title>
+</h:head>
+<h:body>
+	<ui:composition template="./paginaMaestra.xhtml">
+		<ui:define name="content">
+
+			<div class="contenidoPrincipal_FondoPrincipal">
+
+				<div class="contenidoPrincipal_fondoIdentificador">
+					<!-- TITULO SUBCONTENIDO -->
+					<div class="administrador_tipocambioIcono"></div>
+					<div class="contenidoPrincipal_SubContenido">
+						<label class="contenidoPrincipal_lblTituloSubContenido">Administracion</label><br />
+						<label class="contenidoPrincipal_lblSubTituloSubContenido">Tipo
+							Cambio</label>
+					</div>
+				</div>
+				<div class="contenidoPrincipal_SubFondo">
+
+					<div class="administrador_tipocambioIconoInterior"></div>
+					<div id="lblSubtitulo"
+						class="contenidoPrincipal_subFondo_lblTitulox">Tipo cambio</div>
+					<div class="contenidoPrincipal_fondo_formulario">
+						<!-- CONTENIDO MODIFICABLE -->
+						<div class="mant_subFondo">
+
+							<div class="mant_subFondo_formulario">
+								<h:form>
+									<div class="btnNuevoRegistro">
+										<p:commandLink update=":frmTipoCambio"
+											action="#{tipocambioMB.limpiarCampos}"
+											style="margin-right:20px;">
+											<p:graphicImage
+												value="/resources/images/perfil/nuevo_mas.png"
+												alt="Limpiar formulario" title="limpiar" />
+										</p:commandLink>
+									</div>
+								</h:form>
+								<h:form id="frmTipoCambio">
+									<div class="fila_tipocambio">
+										<div class="tipo_cambio">Tipo de cambio:</div>
+										<div class="estilo_textbox1">
+											<p:inputText id="idTipoCambio"
+												value="#{tipocambioMB.tipoCam.tipocambio}" />
+										</div>
+									</div>
+									<div class="mant_btnguardar">
+										<p:commandButton styleClass="btnguardarTipoCambio"
+											id="btnregistroTipoCambio" value="Guardar"
+											oncomplete="validacioTipoCambio();" />
+									</div>
+								</h:form>
+								<h:form>
+									
+									<p:growl id="growlRegistrar" sticky="false" life="4000"  />
+									<p:confirmDialog message="¿Desea Guardar Tipo de Cambio?"
+										header="Registro Tipo Cambio" severity="alert"
+										widgetVar="dlgRegistrarTipoCambio">
+
+										<p:commandButton value="&nbsp;Aceptar"
+											update=":frmTablaTipoCambio:tbTipoCambio,growlRegistrar,:frmInfoTipoCambio"
+											actionListener="#{tipocambioMB.registrarTipoCambio}"
+											oncomplete="dlgRegistrarTipoCambio.hide();" image="icon-save">
+
+										</p:commandButton>
+										<p:commandButton value="&nbsp;Cancelar"
+											update=":frmTipoCambio "
+											oncomplete="dlgRegistrarTipoCambio.hide()"
+											image="icon-cancel" />
+									</p:confirmDialog>
+								</h:form>
+								<h:form id="frmTablaTipoCambio">
+									<div class="mant_tbTipoCambio">
+										<p:dataTable id="tbTipoCambio" var="tipocam"
+											value="#{tipocambioMB.tipocambios}"
+											rowKey="#{tipocam.idtipocambio}"
+											selection="#{tipocambioMB.tipoCam}" selectionMode="single"
+											paginator="true" rows="5" style="font-size: 10px;">
+											<p:ajax event="rowSelect"
+												listener="#{tipocambioMB.onRowSelect}"
+												update=":frmTipoCambio" />
+
+											<p:column headerText="Tipo Cambio"
+												style="text-align: center;">
+												<h:outputText value="#{tipocam.tipocambio}" />
+											</p:column>
+											<p:column headerText="Fecha Registro"
+												style="text-align: center;">
+												<h:outputText value="#{tipocam.fecha}" >
+												<f:convertDateTime pattern="EEE dd 'de' MMMM 'de' yyyy 'a las ' hh:mm a" />
+												</h:outputText>
+											</p:column>
+
+										</p:dataTable>
+									</div>
+								</h:form>
+							</div>
+							<h:form id="frmInfoTipoCambio">
+								<div class="mant_subFondo_formulario2">
+									<div class="mant_subFondo_icoInfo"></div>
+									<div class="mant_tipoCambioTitulo">
+										<h:outputText value="Tipo de cambio #{tipocambioMB.mes}" />
+									</div>
+									<div class="mant_tipoCambioValor">
+										<h:outputText id="idTip" style="color: #006400;"
+											value="S./ #{tipocambioMB.resultadoTipoCambio}" />
+									</div>
+								</div>
+							</h:form>
+
+
+						</div>
+
+
+
+					</div>
+
+				</div>
+			</div>
+		</ui:define>
+	</ui:composition>
+
+</h:body>
+</html>
