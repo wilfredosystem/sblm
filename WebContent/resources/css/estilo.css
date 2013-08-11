@@ -29,9 +29,38 @@ input,textArea,select,option {
 	font-weight: bold;
 }
 
+.informacion1 {
+	color: #403100;
+	font-size: 11pt;
+}
 
-.ui-datatable .ui-column-filter{
-width:70px;
+.informacion2 {
+	font-size: 9pt;
+	color: #806300;
+}
+
+.informacion3 {
+	font-size: 7pt;
+	color: #bf9400;
+}
+
+.informacion4 {
+	color: #168039;
+	font-size: 11pt;
+}
+
+.informacion5 {
+	color: #45BF56;
+	font-size: 9pt;
+}
+
+.informacion6 {
+	color: #044D29;
+	font-size: 24pt;
+}
+
+.ui-datatable .ui-column-filter {
+	width: 70px;
 }
 /*******ESTILO PLANTILLA*****/
 #contenidoPrincipal_Contenedor {
@@ -44,44 +73,46 @@ width:70px;
 	height: 96px;
 	background-image: url("../images/paginaMaestra/cabecera.png");
 }
+
 .contenidoPrincipal_IconoUltCon {
-	float:left;
-	margin-left:470px;
-	margin-top:50px;
+	float: left;
+	margin-left: 470px;
+	margin-top: 50px;
 	width: 18px;
 	height: 18px;
-	background-image: url("../images/paginaMaestra/iconoCabeceraUltimaConexion.png");
+	background-image:
+		url("../images/paginaMaestra/iconoCabeceraUltimaConexion.png");
 }
 
 .contenidoPrincipal_perfil {
-	float:left;
-	margin-left:5px;
-	margin-top:50px;
+	float: left;
+	margin-left: 5px;
+	margin-top: 50px;
 	width: 145px;
-	height: 30px; 
+	height: 30px;
 }
+
 .contenidoPrincipal_hora {
-	float:left;
-	margin-left:5px;
-	margin-top:50px;
+	float: left;
+	margin-left: 5px;
+	margin-top: 50px;
 	width: 110px;
 	height: 30px;
-	
 }
+
 .contenidoPrincipal_lineaCabecera {
-	float:left;
-	margin-left:10px;
-	margin-top:65px;
+	float: left;
+	margin-left: 10px;
+	margin-top: 65px;
 	width: 1px;
 	height: 17px;
 	background-image: url("../images/paginaMaestra/cabeceraLinea.png");
 }
 
 .contenidoPrincipal_IconoModificarPerfil {
-	float:left;
-	margin-left:20px;
-	margin-top:50px;
-	
+	float: left;
+	margin-left: 20px;
+	margin-top: 50px;
 }
 
 .contenidoPrincipal_FondoPrincipal { /*blanco*/
@@ -106,7 +137,6 @@ width:70px;
 	height: 30px;
 	background-image: url(../images/man_tipoCambio/super_inc_menu.png);
 	background-repeat: no-repeat;
-	
 }
 
 .contenidoPrincipal_menus {
@@ -222,7 +252,7 @@ width:70px;
 
 .contenidoPrincipal_subFondo_lblTitulox {
 	float: left;
-	margin-top: 69px;
+	margin-top: 63px;
 	margin-left: 5px;
 	font-size: 12px;
 	font-family: Arial;
@@ -254,6 +284,7 @@ width:70px;
 	margin-left: 0px;
 	margin-top: 0px;
 }
+
 .login01 {
 	margin: 0 0 0 0;
 	padding: 0 0 0 0;
@@ -262,14 +293,14 @@ width:70px;
 	background-image: url(../images/principal/parte01.png);
 }
 
-.login02 { 
+.login02 {
 	float: left;
 	height: 51px;
 	width: 337px;
 	background-image: url(../images/principal/parte02.png);
 }
 
-.login03 { 
+.login03 {
 	float: left;
 	height: 26px;
 	width: 337px;
@@ -283,19 +314,18 @@ width:70px;
 	background-image: url(../images/principal/parte04.png);
 }
 
-.login05 { 
+.login05 {
 	float: left;
 	height: 22px;
 	width: 337px;
 	background-image: url(../images/principal/parte05.png);
 }
 
-.login06_1 { 
+.login06_1 {
 	float: left;
 	width: 33px;
 	height: 50px;
 	margin-left: 50px;
-	
 }
 
 .ui-icon.entrar {
@@ -307,9 +337,9 @@ width:70px;
 }
 
 .login06_4 {
-	float:left;
-	margin-left:180px; 
-	margin-top:-30px; 
+	float: left;
+	margin-left: 180px;
+	margin-top: -30px;
 }
 
 .login06_4 a {
@@ -325,7 +355,7 @@ width:70px;
 	background-image: url(../images/principal/parte08.png);
 }
 
-#botonEnviar { 
+#botonEnviar {
 	float: left;
 	height: 16px;
 	width: 124px;
@@ -370,7 +400,6 @@ width:70px;
 /* 	height: 30px; */
 /* 	border: none; */
 /* } */
-
 .administrador_tipocambioIcono {
 	float: left;
 	background-image: url("../images/tipoCambio/iconTipocambio.png");
@@ -380,6 +409,7 @@ width:70px;
 	width: 34px;
 	height: 34px;
 }
+
 .administrador_tipocambioIconoInterior {
 	float: left;
 	margin-top: 60px;
@@ -461,15 +491,13 @@ width:70px;
 /* 	position: absolute; */
 /* 	z-index: 3; */
 /* } */
-
 .mant_subFondo {
-	float:left;
+	float: left;
 	margin-top: 0px;
 	margin-left: 0px;
 	width: 750px;
 	height: auto;
 	background-color: #fde871;
-	
 }
 
 /* .mant_subFondo_icoRegla { */
@@ -483,34 +511,30 @@ width:70px;
 /* 	position: absolute; */
 /* 	z-index: 3; */
 /* } */
-
 .mant_subFondo_formulario {
-	float:left;
+	float: left;
 	width: 504px;
 	height: auto;
 	background-color: #fdd738;
-	
 }
 
 .mant_subFondo_formulario2 {
-	float:left;
+	float: left;
 	margin-top: 0px;
 	margin-left: 5px;
 	width: 213px;
 	height: 111px;
 	background-color: #fdd738;
-	
 }
 
 .mant_subFondo_icoInfo {
-	float:right;
-	margin-top: 18px;
-	margin-right:30px;
+	float: left;
+	margin-top: 10px;
+	margin-left: 85px;
 	width: 110px;
 	height: 35px;
 	background-image: url(../images/man_tipoCambio/perfil_informacion.png);
 	background-repeat: no-repeat;
-	
 }
 
 .mant_tipoCambioTitulo {
@@ -541,15 +565,13 @@ width:70px;
 }
 
 .mant_subFondo_btnguardar {
-	float:left;
+	float: left;
 	margin-top: 5px;
 	margin-left: 0px;
 	width: 722px;
 	height: 50px;
 	background-color: #ffc600;
 }
-
-
 
 .mant_tbTipoCambio {
 	float: left;
@@ -561,7 +583,6 @@ width:70px;
 	font-size: 12px;
 	font-family: arial;
 }
-
 
 .fila_tipocambio {
 	font-family: arial, normal;
@@ -580,12 +601,12 @@ width:70px;
 	height: 26px;
 	border-style: none;
 	border-width: 0;
-	padding-top:5px;
+	padding-top: 5px;
 }
 
 .estilo_textbox1 {
-	float:left;
-	width: 130px; 
+	float: left;
+	width: 130px;
 	height: 26px;
 	box-shadow: 0px 1px 1px #ffc600;
 	border-style: none;
@@ -595,14 +616,15 @@ width:70px;
 }
 
 .mant_btnguardar {
-	float:left;
+	float: left;
 	margin-top: 10px;
 	margin-left: 40px;
 	width: 73px;
 	height: 34px;
 }
+
 .btnguardarTipoCambio {
-	float:left;
+	float: left;
 	width: 73px;
 	height: 34px;
 	margin: 0px;
@@ -731,10 +753,11 @@ width:70px;
 	width: 260px;
 	height: 28px;
 }
+
 .foto_user {
 	background-image: url("../images/contenedor/imagen.png");
 	float: left;
-	margin-left:20px;
+	margin-left: 20px;
 	margin-top: -15px;
 	width: 53px;
 	height: 56px;
@@ -743,12 +766,12 @@ width:70px;
 
 .detalle_user {
 	float: left;
-	margin-left:15px;
+	margin-left: 15px;
 	margin-top: -15px;
-	font-stretch:condensed;
+	font-stretch: condensed;
 	height: 56px;
-	
 }
+
 .lblNombre {
 	float: left;
 	margin-left: 0px;
@@ -765,7 +788,6 @@ width:70px;
 	font-size: 13px;
 	width: 170px;
 	color: #ffffff;
-	
 }
 
 .lblId {
@@ -776,8 +798,6 @@ width:70px;
 	width: 170px;
 	color: #ffffff;
 }
-
-
 
 .notif {
 	background-image: url("../images/contenedor/notificacion.png");
@@ -823,16 +843,15 @@ width:70px;
 .menuOpen_ultimo {
 	background-image: url("../images/contenedor/ultimo.png");
 	background-repeat: no-repeat;
-	margin-left:22px;
+	margin-left: 22px;
 	margin-top: 20px;
 	width: 109px;
 	height: 26px;
 }
 
 .demo {
-	
 	width: 300px;
-		height: 450px; 
+	height: 450px;
 	position: absolute;
 	z-index: 5;
 }
@@ -920,7 +939,6 @@ width:70px;
 	z-index: 2;
 }
 
-
 .perfilModulo_IconoIdentificador {
 	float: left;
 	margin-left: 22px;
@@ -940,6 +958,7 @@ width:70px;
 	background-image: url(../images/perfil/iconoInteriorPerfil.png);
 	background-repeat: no-repeat;
 }
+
 .perfil_lblIdentificador {
 	float: left;
 	margin-left: 80px;
@@ -1109,7 +1128,7 @@ width:70px;
 	float: left;
 	margin-left: 5px;
 	width: 210px;
-	height: 130px;
+	height: 200px;
 	background-color: #fdd738;
 	z-index: 3;
 }
@@ -1120,8 +1139,8 @@ width:70px;
 	margin-top: 12px;
 	margin-left: 35px;
 	width: 430px;
-	
 }
+
 .tablaPerfilActualizar {
 	float: left;
 	font-size: 11px;
@@ -1137,28 +1156,106 @@ width:70px;
 	padding-left: 40px;
 	padding-bottom: 30px;
 }
+
 .perfil_icono_informacion {
-	float :left;
+	float: left;
 	margin-top: 10px;
 	margin-left: 85px;
 	width: 110px;
 	height: 35px;
 	background-image: url(../images/perfil/perfil_informacion.png);
 	background-repeat: no-repeat;
-	
 }
+
+.icono_informacionx {
+	float: left;
+	margin-top: 10px;
+	margin-left: 85px;
+	width: 110px;
+	height: 35px;
+	background-image: url(../images/perfil/perfil_informacion.png);
+	background-repeat: no-repeat;
+}
+
+.filaNumerox {
+	float: left;
+	margin-top: 5px;
+	margin-left: 5px;
+	width: 200px;
+	height: 50px;
+	background-color: #fff;
+}
+
+.lblNumerox {
+	float: right;
+	margin-top: 5px;
+	margin-right: 5px;
+	text-align: right;
+	color: #991f22;
+	width: 60px;
+	height: 35px;
+	margin-left: 50px;
+	font-size: 11pt;
+}
+
+.lblCantidadx {
+	float: right;
+	margin-top: 5px;
+	margin-right: 20px;
+	color: #734934;
+	width: auto;
+	height: 35px;
+	font-size: 34px;
+}
+
+.filaUltimox {
+	float: left;
+	margin-top: 20px;
+	font-weight: bold;
+	width: 210px;
+	height: 50px;
+	background-color: #fff;
+}
+
+.lblUltimoDescripcionx {
+	color: #403100;
+	font-size: 11pt;
+	text-align: right;
+	float: right;
+	margin-top: 8px;
+	margin-right: 20px;
+	width: 160px;
+}
+
+.lblUltimoDetallex {
+	float: right;
+	margin-top: 2px;
+	margin-right: 20px;
+	text-align: right;
+	font-size: 9pt;
+	color: #806300;
+}
+
+.filaNumeroz {
+	float: left;
+	margin-top: 10px;
+	margin-left: 5px;
+	width: 200px;
+	height: 74px;
+	background-color: white;
+}
+
 .perfilDetaTotal {
-	float :left;
+	float: left;
 	margin-top: 10px;
 	margin-left: 5px;
 	width: 120px;
 	height: 65px;
-	
 }
 
 .lblcreado {
 	color: #029c05;
-	font-family: arial ;
+	font-family: arial;
 	font-style: normal;
 	font-size: 12px;
 	float: right;
@@ -1167,7 +1264,6 @@ width:70px;
 }
 
 .lblIdentificar {
-	
 	font-size: 12px;
 	color: #029c05;
 	font-family: arial;
@@ -1190,7 +1286,7 @@ width:70px;
 }
 
 .imagen_informacion {
-	float:left;
+	float: left;
 	width: 40px;
 	height: 39px;
 	margin-left: 5px;
@@ -1219,7 +1315,6 @@ width:70px;
 	margin-left: 40px;
 }
 
-
 .tablePerfil {
 	width: 71px;
 	height: 34px;
@@ -1236,7 +1331,6 @@ width:70px;
 	height: 34px;
 }
 
-
 .contenidoPrincipal_subFondo_IconoModulo {
 	float: left;
 	margin-top: 60px;
@@ -1247,13 +1341,11 @@ width:70px;
 	background-repeat: no-repeat;
 }
 
-
 .modulo_sub {
-	float:left;
+	float: left;
 	width: 504px;
 	height: auto;
 	background-color: #fed738;
-	
 }
 
 .perfil_fondo_formularioModulo {
@@ -1321,9 +1413,9 @@ width:70px;
 	font-size: 12px;
 	font-family: arial;
 }
+
 .paginaTabla {
 	float: left;
-	
 	cwidth: 200px;
 	height: auto;
 	margin-top: 12px;
@@ -1333,18 +1425,17 @@ width:70px;
 	font-family: arial;
 }
 
-.modulo_sub2 {
-	float:left;
+.subcontenedorInformacion {
+	float: left;
 	margin-left: 5px;
-	width: 211px;
+	width: 210px;
 	height: 170px;
 	background-color: #FED738;
-	
 }
 
 .lblNumeroModulos {
-	float:left;
-	margin-top: 10px; 
+	float: left;
+	margin-top: 10px;
 	margin-left: 100px;
 	color: #029c05;
 	width: 50px;
@@ -1352,7 +1443,7 @@ width:70px;
 }
 
 .lblCantidadModulos {
-	float:left;
+	float: left;
 	margin-top: 6px;
 	margin-left: 5px;
 	color: #029c05;
@@ -1362,21 +1453,22 @@ width:70px;
 }
 
 .lblUltimoModulo {
-	float:left;
+	float: left;
 	margin-top: 10px;
 	margin-left: 48px;
-	color:#00c305;
+	color: #00c305;
 	width: 150px;
-	font-size:12px;
+	font-size: 12px;
 }
+
 .lblUltimoModuloDetalle {
-	float:left;
+	float: left;
 	margin-top: 0px;
 	margin-left: 48px;
-	color:#00c305;
+	color: #00c305;
 	width: 123px;
 	height: 35px;
-	font-size:15px;
+	font-size: 15px;
 	font-weight: bold;
 	text-align: right;
 }
@@ -1388,7 +1480,6 @@ width:70px;
 	margin-left: 35px;
 	margin-bottom: 35px;
 	width: 435px;
-	
 }
 
 .modulo_fondo_btnGuardar {
@@ -1424,9 +1515,11 @@ width:70px;
 .ui-state-default .icon-edit {
 	background-image: url(../icons/user_edit.png);
 }
+
 .ui-state-default .icon-ver {
 	background-image: url(../icons/user_edit.png);
 }
+
 .ui-state-default .icon-save {
 	background-image: url(../icons/disk.png);
 }
@@ -1439,7 +1532,6 @@ width:70px;
 	background-image: url(../images/man_tipoCambio/super_inc_menu.png);
 	xmargin-right: 4px;
 }
-
 
 /***************ESTILO PAGINAS***************/
 .administrador_paginasContenedor {
@@ -1545,9 +1637,10 @@ width:70px;
 	margin-top: 15px;
 	padding-left: 35px;
 }
+
 .msgModulopagina {
 	float: left;
-	width:150px;
+	width: 150px;
 	margin-top: 15px;
 }
 
@@ -1560,9 +1653,9 @@ width:70px;
 
 .paginaInterior2 {
 	float: left;
-	background-color: #fed738;
+	background-color: #E0E6E2;
 	margin-left: 5px;
-	width: 212px;
+	width: 210px;
 	height: auto;
 	font-size: 12px;
 }
@@ -1572,7 +1665,7 @@ width:70px;
 	background-image: url("../icons/iconoInformacion.png");
 	background-repeat: no-repeat;
 	margin-left: 90px;
-	margin-top: 22px; 
+	margin-top: 22px;
 	width: 18px;
 	height: 18px;
 }
@@ -1582,7 +1675,6 @@ width:70px;
 	margin-right: 30px;
 	float: right;
 }
-
 
 .lblUltimaPag {
 	float: left;
@@ -1594,7 +1686,6 @@ width:70px;
 	text-align: right;
 }
 
-
 .lblCreadorPag {
 	float: left;
 	color: #029c05;
@@ -1604,7 +1695,6 @@ width:70px;
 	margin-left: 40px;
 	text-align: right;
 	font-size: 11px;
-	
 }
 
 .lblFotoCreadorPag {
@@ -1613,16 +1703,15 @@ width:70px;
 	height: 30px;
 	margin-top: 15px;
 	margin-left: 5px;
-/* 	background-color: #00f; */
+	/* 	background-color: #00f; */
 }
+
 .lblDescripcionPagina {
 	float: left;
 	margin-left: 150px;
 	text-align: right;
 	margin-bottom: 20px;
-	
 }
-
 
 /********************ESTILO DGAI**************************/
 .dgaiMonitoreo_IconoIdentificador {
@@ -1694,7 +1783,7 @@ width:70px;
 }
 
 .ui-datatable td,.ui-datatable th {
-    white-space: normal;
+	white-space: normal;
 }
 
 /***PANEL DESPACHO***/
@@ -1763,7 +1852,6 @@ width:70px;
 .dgaiMonitoreo_totalExpDerivacion {
 	margin-left: 10px;
 	float: left;
-	
 }
 
 .dgaiMonitoreo_ExpPendientes {
@@ -1855,30 +1943,31 @@ width:70px;
 
 .dgaiMonitoreo_detalleDlg {
 	margin-top: 10px;
-	margin-left:50px;
+	margin-left: 50px;
 	float: left;
 	height: 110px;
 }
+
 .dgai_DlgDetalle {
 	margin: 30px;
-	font-size:11px;
+	font-size: 11px;
 	float: left;
 	height: 110px;
-	
 }
 
 .dgaiMonitoreo_DlgTablaDer {
 	margin-top: 10px;
-	margin-left:50px;
+	margin-left: 50px;
 	float: left;
 	height: auto;
 }
+
 .dgaiMonitoreo_botonEnviarDlgDer {
 	margin-top: 10px;
-	margin-left:315px;
+	margin-left: 315px;
 	float: left;
-	
 }
+
 .dgaiMonitoreo_notificacionDlg {
 	margin-top: 5px;
 	width: 260px;
@@ -1905,7 +1994,6 @@ width:70px;
 	margin-right: 4px;
 }
 /**DIALOGO RECEPCIONA**/
-
 .dgaiMonitoreo_iconDlgRecepcion {
 	float: left;
 	width: 26px;
@@ -1915,7 +2003,6 @@ width:70px;
 	background-repeat: no-repeat;
 }
 /**DIALOGO DESPACHAR**/
-
 .dgaiMonitoreo_iconDlgDespachar {
 	float: left;
 	width: 26px;
@@ -1925,7 +2012,6 @@ width:70px;
 	background-repeat: no-repeat;
 }
 /**DIALOGO DESPACHAR**/
-
 .dgaiMonitoreo_iconDlgRechazar {
 	float: left;
 	width: 26px;
@@ -1934,7 +2020,6 @@ width:70px;
 	background-image: url("../images/dgaiMonitoreo/iconDlgRechazar.png");
 	background-repeat: no-repeat;
 }
-
 
 /*********ESTILO MENSAJE ACCESO RESTRINGIDO********/
 .contenidoPrincipal {
@@ -2015,9 +2100,6 @@ width:70px;
 	background-repeat: no-repeat;
 }
 
-
-
-
 /******ESTILOS FRANCO******/
 
 /************************************************************************ESTILOS FRANCO********************************************************************/
@@ -2029,8 +2111,6 @@ width:70px;
 	width: 814px;
 	margin: 38px auto 0 auto;
 }
-
-
 
 .admin_audi_01 {
 	width: 814px;
@@ -2045,7 +2125,6 @@ width:70px;
 	position: absolute;
 	z-index: 1;
 }
-
 
 .admin_audi_03 {
 	position: absolute;
@@ -2124,10 +2203,10 @@ width:70px;
 	position: absolute;
 	margin-top: 0px;
 	margin-left: 0px;
-	padding-left:0px;
+	padding-left: 0px;
 	width: 700px;
 	height: 190px;
-/* 	background-color:white; */
+	/* 	background-color:white; */
 	z-index: 3;
 }
 
@@ -2135,80 +2214,75 @@ width:70px;
 	position: absolute;
 	margin-top: 0px;
 	margin-left: 500px;
-	padding-left:0px;
+	padding-left: 0px;
 	width: 200px;
 	height: 190px;
-/* 	background-color:red; */
+	/* 	background-color:red; */
 	z-index: 3;
 }
 
 .admin_audi_filtro0 {
-	position: absolute;
+	float:left
 	margin-top: 0px;
 	margin-left: 0px;
 	padding-left: 0px;
-	padding-top:-5px;
-	margin-bottom:0px;
+	padding-top: 0px;
+	margin-bottom: 0px;
 	width: 500px;
 	height: 50px;
-/* 	background-color:blue; */
-	z-index: 4;
+	/* 	background-color:blue; */
+	
 }
+
 .admin_audi_filtro1 {
-	position: absolute;
+	
 	margin-top: 15px;
 	margin-left: 50px;
 	width: 400px;
 	height: 50px;
-/* 	background-color:black; */		
-	z-index: 3;
+	
 }
 
 .admin_audi_filtro1_ {
-	position: absolute;
+	float:left;
 	margin-top: 60px;
 	margin-left: 50px;
 	width: 400px;
 	height: 50px;
-/* 	background-color:black; */
-	z-index: 3;
+	
 }
 
 .admin_audi_filtro2 {
-	position: absolute;
+	
 	margin-top: 55px;
 	margin-left: 50px;
-	margin-bottom:0px;
-	padding-left: 0px;	
+	margin-bottom: 0px;
+	padding-left: 0px;
 	width: 500px;
 	height: 120px;
-/*  	background-color:purple;  */
-	z-index: 2;
+	
 }
-
 
 .admin_audi_btnGuardar {
 	position: absolute;
 	margin-top: -5px;
-	margin-left:30px;
-	width: 725px; 
+	margin-left: 30px;
+	width: 725px;
 	height: 50px;
-	background-color:#ffc600;
-/* 	position: absolute; */
-/* 	z-index: 3; */
-	}
-
+	background-color: #ffc600;
+	/* 	position: absolute; */
+	/* 	z-index: 3; */
+}
 
 .admin_audi_tabla {
-/* 	position: absolute; */
-	float:left;
+	/* 	position: absolute; */
+	float: left;
 	margin-top: 70px;
 	margin-left: 30px;
 	padding-left: 0px;
 	width: 720px;
 	height: auto;
-/* 	background-color:black; */
-	
+	/* 	background-color:black; */
 }
 
 .admin_audi_10 {
@@ -2216,7 +2290,6 @@ width:70px;
 	width: 720px;
 	height: 191px;
 	z-index: 2;
-	
 }
 
 .fondoBlancoAuditoria { /*FONDO BLANCO*/
@@ -2227,13 +2300,13 @@ width:70px;
 	z-index: 2;
 }
 
-.fondoAmarilloAuditoria { 
+.fondoAmarilloAuditoria {
 	margin-top: 0px;
 	margin-left: 15px;
 	width: 814px;
 	height: 800px;
 	position: absolute;
-	z-index: 3;	
+	z-index: 3;
 	background-color: #fde871;
 }
 
@@ -2247,98 +2320,95 @@ width:70px;
 	z-index: 2;
 }
 
-.filtroAuditoria { 
-	margin-top: 10px;
+.filtroAuditoria {
 	margin-left: 30px;
 	width: 724px;
 	height: 200px;
 	jjposition: absolute;
-/* 	z-index: 2; */
-
-
+	/* 	z-index: 2; */
 }
 
-.filtroAuditoriaIzquierda { 
+.filtroAuditoriaIzquierda {
 	margin-top: 0px;
 	margin-left: 0px;
-	width:  505px;
+	width: 505px;
 	height: 190px;
 	position: absolute;
-/* 	z-index: 3;	 */
+	/* 	z-index: 3;	 */
 	background-color: #fed738;
 }
 
-.filtroAuditoriaDerecha { 
+.filtroAuditoriaDerecha {
 	margin-top: 0px;
 	margin-left: 510px;
-	width: 215px;
+	width: 210px;
 	height: 190px;
 	position: absolute;
+	background-color: #E0E6E2;
+}
+
+.informacionfiltroDerecha {
 	background-color: #fed738;
-	
-}
-
-.informacionfiltroDerecha { 
 	margin-top: 0px;
-	margin-left: 100px;
+	float: left;
+	width: 210px;
 }
 
+.imgInformacion {
+	float: right;
+}
 
-
-
-
-.conectadosfiltroDerecha { 
+.conectadosfiltroDerecha {
 	margin-top: 0px;
 	margin-left: 95px;
 	width: 105px;
 	height: 50px;
 }
 
-.textoconectadosfiltroDerecha { 
-	float:left;
-	width: 80px;
+.textoconectadosfiltroDerecha {
+	float: right;
+	margin-right: 5px;
+	margin-top: 6px; width : 120px;
 	height: 50px;
+	text-align: right;
+	font-size: 10pt;
+	width: 120px;
 }
 
-.numeroconectadosfiltroDerecha { 
-	float:left;
+.numeroconectadosfiltroDerecha {
+	float: left;
 	width: 25px;
 	height: 50px;
 }
 
-
-.usuarioTopfiltroDerecha { 
+.usuarioTopfiltroDerecha {
 	margin-top: 0px;
 	margin-left: 25px;
 	width: 175px;
 	height: 70px;
-	
 }
 
-.detalleTopfiltroDerecha { 
-	float:left;
+.detalleTopfiltroDerecha {
+	float: right;
 	width: 110px;
-	height: 60px;
+	height: 80px;
+	margin-right: 5px;
+	margin-top: 5px;
+	text-align: right;
 }
 
-.spacerTopfiltroDerecha { 
-	float:left;
-	width: 5px;
+.fotoTopfiltroDerecha {
+	float: right;
+	margin-right: 20px; width : 60px;
 	height: 60px;
-}
-
-.fotoTopfiltroDerecha { 
-	float:left;
+	margin-top: 7px;
 	width: 60px;
-	height: 60px;
-	
 }
 
-
-.contenedorNotificaciones{ /*FONDO naranja*/
-width: 814px;
+.contenedorNotificaciones { /*FONDO naranja*/
+	width: 814px;
 	margin: 38px auto 0 auto;
- 	background-color: black; 
+	background-color: black;
 }
 
 .fondoBlancoNotificacion { /*FONDO BLANCO*/
@@ -2357,17 +2427,17 @@ width: 814px;
 	height: 110px;
 }
 
-.imagenCabecera{ 
+.imagenCabecera {
 	margin-top: 0px;
 	margin-left: 18px;
 	width: 105px;
 	height: 110px;
 	position: absolute;
 	z-index: 3;
- 	background-color: white; 
+	background-color: white;
 }
 
-.nombreCabecera{ 
+.nombreCabecera {
 	margin-top: 0px;
 	margin-left: 120px;
 	width: 440px;
@@ -2377,7 +2447,7 @@ width: 814px;
 	background-color: #ffc600;
 }
 
-.separacionCabecera { 
+.separacionCabecera {
 	margin-top: 0px;
 	margin-left: 560px;
 	width: 115px;
@@ -2387,7 +2457,7 @@ width: 814px;
 	background-color: #ffc600;
 }
 
-.nroCabecera { 
+.nroCabecera {
 	margin-top: 0px;
 	margin-left: 620px;
 	width: 176px;
@@ -2397,40 +2467,38 @@ width: 814px;
 	background-color: #ffc600;
 }
 
-
-.detalleNroCabecera { 
+.detalleNroCabecera {
 	margin-top: 30px;
 	margin-left: 0px;
 	width: 90px;
 	height: 40px;
 	position: absolute;
 	z-index: 3;
-/* 	background-color: black; */
+	/* 	background-color: black; */
 }
 
-.imagenNroCabecera { 
+.imagenNroCabecera {
 	margin-top: 35px;
 	margin-left: 100px;
 	width: 40px;
 	height: 27px;
 	position: absolute;
-	padding-top:3px;
+	padding-top: 3px;
 	z-index: 3;
-	text-align:center;
-	font-size:18px;
-	background-color: #5E6473; 
+	text-align: center;
+	font-size: 18px;
+	background-color: #5E6473;
 }
 
 .comboxNotificaciones {
-	margin-top: 20px;
-	margin-left: 307px;
-	padding-left: 0px;
-	width: 500px;
-	height: 20px;
-	text-align: center;
+	margin-top: 10px;
+	margin-left: 760px;
+	/* 	width: 500px; */
+	/* 	height: 20px; */
+	/* 	text-align: center; */
 }
+
 .xxx {
-	
 	z-index: 113;
 }
 
@@ -2440,120 +2508,108 @@ width: 814px;
 	padding-left: 0px;
 	width: 800px;
 	height: 69px;
-	
-/* 	background-color: black; */
+
+	/* 	background-color: black; */
 }
 
-.imagenCabeceraTablaUsuario { 
+.imagenCabeceraTablaUsuario {
 	margin-top: 0px;
 	margin-left: 0px;
 	width: 85px;
 	height: 69px;
 	position: absolute;
 	z-index: 3;
-/* 	background-color: green; */
+	/* 	background-color: green; */
 }
 
-.contenidoCabeceraTablaUsuario { 
+.contenidoCabeceraTablaUsuario {
 	margin-top: 0px;
 	margin-left: 93px;
 	width: 690px;
 	height: 69px;
 	position: absolute;
-	z-index: 3;	
+	z-index: 3;
 	background-color: #fde871;
 }
 
-
-.tablaNotificacion { 
+.tablaNotificacion {
 	margin-top: 0px;
 	margin-left: -2px;
 	width: 808px;
 	margin-bottom: 35px;
-	
 }
 
-.imagenRowTabla { 
+.imagenRowTabla {
 	background-color: white;
-	height:50px;
-	
+	height: 50px;
 }
-
 
 .rowNotificaciones {
-	float:left;
+	float: left;
 	margin-left: 0px;
 	padding-left: 0px;
 	height: 39px;
 	width: auto;
-/* 	background-color: green; */
+	/* 	background-color: green; */
 }
 
 .rowNotificaciones1 {
-	
-	margin-top:-58px;
+	margin-top: -58px;
 	margin-left: 0px;
 	padding-left: 5px;
 	height: 39px;
-	padding-top:50px;
-}
-.column1Notificaciones { 
-	float:left;
-	margin-top: 17px;
-	margin-left: 12px;
-	width: 400px; 
-	
-/* 	background-color: white;  */
+	padding-top: 50px;
 }
 
-.column2Notificaciones{ /*FONDO naranja*/
-float:left;
+.column1Notificaciones {
+	float: left;
+	margin-top: 17px;
+	margin-left: 12px;
+	width: 400px;
+
+	/* 	background-color: white;  */
+}
+
+.column2Notificaciones { /*FONDO naranja*/
+	float: left;
 	margin-top: 5px;
-	margin-left:200px;
+	margin-left: 200px;
 	width: 30px;
 	height: 50px;
 	background-color: #fde871;
-/* 	background-color: black;  */
+	/* 	background-color: black;  */
 }
 
-
-
-.ui-datatable.borderless .ui-datatable-data tr,
-.ui-datatable.borderless .ui-datatable-data-empty tr,
-.ui-datatable.borderless .ui-datatable-data td,
-.ui-datatable.borderless .ui-datatable-data-empty td {
-    border-style: none;
+.ui-datatable.borderless .ui-datatable-data tr,.ui-datatable.borderless .ui-datatable-data-empty tr,.ui-datatable.borderless .ui-datatable-data td,.ui-datatable.borderless .ui-datatable-data-empty td
+	{
+	border-style: none;
 }
 
 .noheader.ui-datatable table thead {
-    display: none;
+	display: none;
 }
 
-.cellSpacingTableClass table { 
-    border-collapse: separate; 
-    border-spacing: 5px; 
-    border-collapse: expression('separate', cellSpacing = '5px');
+.cellSpacingTableClass table {
+	border-collapse: separate;
+	border-spacing: 5px;
+	border-collapse: expression('separate', cellSpacing =   '5px');
 }
 
-
-.mystyle.ui-datatable .ui-datatable-header{
-background-color: #003946 !important;
-
-}
-
-.ui-datatable-header{
-	
+.mystyle.ui-datatable .ui-datatable-header {
 	background-color: #003946 !important;
-	
+}
+
+.ui-datatable-header {
+	background-color: #003946 !important;
 }
 
 /*Monitoreo Mesa partes*/
-
 .fondoBlancoMesaPartes { /*FONDO BLANCO*/
 	width: 814px;
 	height: auto;
 	background-color: #fff;
 }
+
 .cabeceraMesaPartes {
 	position: absolute;
 	margin-top: 67px;
@@ -2561,30 +2617,29 @@ background-color: #003946 !important;
 	padding-left: 0px;
 	width: 783px;
 	height: 75px;
-	background-color:#ffc600;
+	background-color: #ffc600;
 	z-index: 1;
-	
 }
 
-.iconoMesaPartesCabecera { 
+.iconoMesaPartesCabecera {
 	margin-top: 25px;
 	margin-left: 20px;
-	float:left;
+	float: left;
 	width: 31px;
 	height: 25px;
 	background-image: url(../images/monitoreoMesaPartes/iconoMesaPartes.png);
 	background-repeat: no-repeat;
-/* 	background-color: white;  */
+	/* 	background-color: white;  */
 }
 
-.descripcionMesaPartesCabecera { 
+.descripcionMesaPartesCabecera {
 	margin-top: -5px;
 	margin-left: 85px;
 	width: 250px;
 	height: 20px;
 	position: absolute;
 	z-index: 3;
-/* 	background-color: white;  */
+	/* 	background-color: white;  */
 }
 
 .cuerpoMesaPartes { /*FONDO naranja*/
@@ -2596,8 +2651,7 @@ background-color: #003946 !important;
 	z-index: 2;
 }
 
-
-.imagenAtendidosMesaPartes { 
+.imagenAtendidosMesaPartes {
 	margin-top: 60px;
 	margin-left: 31px;
 	width: 100px;
@@ -2606,72 +2660,68 @@ background-color: #003946 !important;
 	z-index: 2;
 	background-image: url(../images/monitoreoMesaPartes/iconoAtendidos.png);
 	background-repeat: no-repeat;
-/* 	background-color: white;  */
+	/* 	background-color: white;  */
 }
 
-.botonAtendido { 
-	text-align:center;
+.botonAtendido {
+	text-align: center;
 	margin-top: 60px;
 	margin-left: 545px;
 	width: 100px;
 	height: 30px;
 	position: absolute;
-	text-decoration:none;
-	color:#000;
+	text-decoration: none;
+	color: #000;
 	z-index: 3;
 }
 
-.botonPendiente { 
-	text-align:center;
+.botonPendiente {
+	text-align: center;
 	margin-top: 60px;
 	margin-left: 655px;
 	width: 100px;
 	height: 30px;
-	position: absolute;  
-	text-decoration:none;
-	color:#000;
+	position: absolute;
+	text-decoration: none;
+	color: #000;
 	z-index: 3;
 }
 
 .fondoBlancoCuerpoMesaPartes { /*FONDO BLANCO*/
-    
 	margin-left: 30px;
-	margin-top:90px;
+	margin-top: 90px;
 	width: 725px;
 	height: auto;
 	background-color: #fff;
 	z-index: 2;
 }
 
-
-.ui-menubar  {
-background: #fde871;
+.ui-menubar {
+	background: #fde871;
 }
 
 .ui-icon.iconoAdministracion {
 	background-image: url(../images/menuBar/iconoAdministracionMenuMar.png);
 	margin-right: 4px;
-	
 }
 
 .ui-icon.iconoMantenimiento {
 	background-image: url(../images/menuBar/iconoMantenimientoMenuBar.png);
 	margin-right: 4px;
-	
 }
+
 .ui-icon.iconoMesaPartes {
 	background-image: url(../images/menuBar/iconoMesaPartesMenuBar.png);
 	margin-right: 4px;
-	
 }
 
 /*Monitoreo Mesa partes*/
-
 .fondoBlancoMesaPartes { /*FONDO BLANCO*/
 	width: 814px;
 	height: auto;
 	background-color: #fff;
 }
+
 .cabeceraMesaPartes {
 	position: absolute;
 	margin-top: 67px;
@@ -2679,30 +2729,29 @@ background: #fde871;
 	padding-left: 0px;
 	width: 783px;
 	height: 75px;
-	background-color:#ffc600;
+	background-color: #ffc600;
 	z-index: 1;
-	
 }
 
-.iconoMesaPartesCabecera { 
+.iconoMesaPartesCabecera {
 	margin-top: 25px;
 	margin-left: 20px;
-	float:left;
+	float: left;
 	width: 31px;
 	height: 25px;
 	background-image: url(../images/monitoreoMesaPartes/iconoMesaPartes.png);
 	background-repeat: no-repeat;
-/* 	background-color: white;  */
+	/* 	background-color: white;  */
 }
 
-.descripcionMesaPartesCabecera { 
+.descripcionMesaPartesCabecera {
 	margin-top: -5px;
 	margin-left: 85px;
 	width: 250px;
 	height: 20px;
 	position: absolute;
 	z-index: 3;
-/* 	background-color: white;  */
+	/* 	background-color: white;  */
 }
 
 .cuerpoMesaPartes { /*FONDO naranja*/
@@ -2714,8 +2763,7 @@ background: #fde871;
 	z-index: 2;
 }
 
-
-.imagenAtendidosMesaPartes { 
+.imagenAtendidosMesaPartes {
 	margin-top: 60px;
 	margin-left: 31px;
 	width: 100px;
@@ -2724,70 +2772,65 @@ background: #fde871;
 	z-index: 2;
 	background-image: url(../images/monitoreoMesaPartes/iconoAtendidos.png);
 	background-repeat: no-repeat;
-/* 	background-color: white;  */
+	/* 	background-color: white;  */
 }
 
-.botonAtendido { 
-	text-align:center;
+.botonAtendido {
+	text-align: center;
 	margin-top: 60px;
 	margin-left: 545px;
 	width: 100px;
 	height: 30px;
 	position: absolute;
-	text-decoration:none;
-	color:#000;
+	text-decoration: none;
+	color: #000;
 	z-index: 3;
 }
 
-.botonPendiente { 
-	text-align:center;
+.botonPendiente {
+	text-align: center;
 	margin-top: 60px;
 	margin-left: 655px;
 	width: 100px;
 	height: 30px;
-	position: absolute;  
-	text-decoration:none;
-	color:#000;
+	position: absolute;
+	text-decoration: none;
+	color: #000;
 	z-index: 3;
 }
 
 .fondoBlancoCuerpoMesaPartes { /*FONDO BLANCO*/
-    
 	margin-left: 30px;
-	margin-top:90px;
+	margin-top: 90px;
 	width: 725px;
 	height: auto;
 	background-color: #fff;
 	z-index: 2;
 }
 
-
-.ui-menubar  {
-background: #fde871;
+.ui-menubar {
+	background: #fde871;
 }
 
 .ui-icon.iconoAdministracion {
 	background-image: url(../images/menuBar/iconoAdministracionMenuMar.png);
 	margin-right: 4px;
-	
 }
 
 .ui-icon.iconoMantenimiento {
 	background-image: url(../images/menuBar/iconoMantenimientoMenuBar.png);
 	margin-right: 4px;
-	
 }
+
 .ui-icon.iconoMesaPartes {
 	background-image: url(../images/menuBar/iconoMesaPartesMenuBar.png);
 	margin-right: 4px;
-	
 }
 /***************Estilo Usuario*******************/
-
 .u_icono_identificador {
 	margin-top: 24px;
 	margin-left: 31px;
-	float:left;
+	float: left;
 	width: 36px;
 	height: 29px;
 	background-image: url(../images/usuario/iconoCabeceraUsuario.png);
@@ -2799,34 +2842,34 @@ background: #fde871;
 	margin-left: 35px;
 	width: 120px;
 	height: 140px;
-/* 	background-color: white; */
+	/* 	background-color: white; */
 	float: left;
 }
 
 .u_nuevoUsuario {
-	float:left;
+	float: left;
 	margin-top: 25px;
 	margin-left: 95px;
 	width: 60px;
 	height: 30px;
-	
 }
+
 .u_imagenPrevia {
 	width: 120px;
 	height: 120px;
 	margin-left: 30px;
 	margin-top: 20px;
-/* 	background-color: white; */
+	/* 	background-color: white; */
 	float: left;
 	z-index: 2;
 }
 
-.u_inferiorImagenPrevia {xx
-	width: 20px;
+.u_inferiorImagenPrevia {
+	xx width: 20px;
 	height: 20px;
 	margin-left: 30px;
 	margin-top: 50px;
-/* 	background-color: white; */
+	/* 	background-color: white; */
 	float: left;
 }
 
@@ -2845,51 +2888,43 @@ background: #fde871;
 }
 
 .u_panelGrid1 {
-	
 	margin-top: 40px;
 	margin-left: 0px;
 	padding-top: 0px;
 	width: 440px;
 	height: w00px;
-/* 	background-color: blue; */
-	float:left;
+	/* 	background-color: blue; */
+	float: left;
 }
 
 .u_panelGrid2 {
-	
 	margin-top: 0px;
 	margin-left: 0px;
 	padding-top: 20px;
 	width: 440px;
 	height: 120px;
-/* 	background-color: green; */
-	float:left;
-	
+	/* 	background-color: green; */
+	float: left;
 }
 
 .u_panelGrid3 {
-	float:left;
+	float: left;
 	margin-top: 40px;
 	margin-left: 0px;
 	width: 440px;
 	height: 120px;
-/* 	background-color: red; */
+	/* 	background-color: red; */
 }
-
-
 
 .u_iconoLapizUsuario {
 	margin-top: 0px;
 	margin-left: 50px;
 	width: 16px;
 	height: 16px;
-	background-image: url("../images/usuario/lapizEditarUsuario.png");	
-	
+	background-image: url("../images/usuario/lapizEditarUsuario.png");
 }
 
-
-.contenidoPrincipal_SubFondoUsuario { 
-	
+.contenidoPrincipal_SubFondoUsuario {
 	margin-left: 15px;
 	padding-bottom: 25px;
 	width: 783px;
@@ -2900,7 +2935,7 @@ background: #fde871;
 .u_fondo_interno { /*Falta definir con el tama�o de la tabla*/
 	margin-left: 0px;
 	margin-top: 0px;
-	float:left;
+	float: left;
 	width: 625px;
 	height: 500px;
 	background-color: #fde871;
@@ -2926,22 +2961,19 @@ background: #fde871;
 }
 
 .u_fondo_btnGuardar {
-	float:left;
+	float: left;
 	margin-top: 65px;
 	width: 625px;
 	height: 50px;
 	background-color: #ffc600;
 }
 
-.dialogMonitoreo{
-	float:left;
+.dialogMonitoreo {
+	float: left;
 	width: 400px;
 	height: 50px;
-/* 	background-color: white; */
+	/* 	background-color: white; */
 }
-
-
-
 
 /******************/
 /******************/
@@ -2949,8 +2981,6 @@ background: #fde871;
 /* .ui-button{ */
 /*       background: none; */
 /*  } */
- 
- 
 
 /* .ui-button.ui-state-hover, .ui-button.ui-state-active{ */
 /*      border: none; */
@@ -2960,28 +2990,145 @@ background: #fde871;
 /* 	background: transparent #fff */
 /* 		no-repeat center; */
 /* 	background-color: #fff; */
-/* /* 	background-color: #fff; */ 
+/* /* 	background-color: #fff; */
 /* } */
-
 .ui-datatable td,.ui-datatable th {
-    white-space: normal;
+	white-space: normal;
 }
 
-template-upload ui-state-error{
-		display: none;
-	}
+template-upload ui-state-error {
+	display: none;
 }
 
+}
 .process_msg .ui-dialog .ui-dialog-titlebar {
-   display:none !important;
+	display: none !important;
 }
 
- .ui-fileupload .start {
-        display: none;
-    }
-    .ui-fileupload .cancel {
-        display: none;
-    }
-    .ui-fileupload .progress {
-        display: none;
-    }
+.ui-fileupload .start {
+	display: none;
+}
+
+.ui-fileupload .cancel {
+	display: none;
+}
+
+.ui-fileupload .progress {
+	display: none;
+}
+
+/********ESTILO SUBCONTENIDO INFORMATIVO*******/
+.subcontenidoInformativo {
+	float: left;
+	background-color: #fed738;
+	margin-left: 5px;
+	width: 210px;
+	height: auto;
+	font-size: 12px;
+}
+
+.subcontenidoInfo_Cabecera {
+	background-color: #FFC600;
+	margin-top: 0px;
+	float: left;
+	width: 210px;
+	height:50px;
+}
+
+.subcontenidoInfo_logoTitulo {
+	float: left;
+	background-image: url("../icons/iconoInformacion.png");
+	background-repeat: no-repeat;
+	margin-left: 20px;
+	margin-top: 16px;
+	width: 18px;
+	height: 18px;
+}
+
+.subcontenidoInfo_descripcionTitulo {
+	float: left;
+	margin-left: 5px;
+	margin-top: 18px;
+	color: #FFF;
+}
+
+.subcontenidoInfo_detContenidoFondo {
+	background-color: #FFFFFF;
+	float: left;
+	height: 50px;
+	margin-left: 5px;
+	margin-top: 5px;
+	width: 200px;
+}
+
+.subcontenidoInfo_detContenidoDesc {
+	float: right;
+	font-size: 10pt;
+	height: 50px;
+	margin-right: 5px;
+	margin-top: 6px;
+	text-align: right;
+	width: 120px;
+}
+
+.subcontenidoInfo_fila1Estilo {
+	color: #168039;
+	font-size: 11pt;
+}
+
+.subcontenidoInfo_fila2Estilo {
+	color: #45BF56;
+	font-size: 8pt;
+}
+
+.subcontenidoInfo_Numero {
+	float: right;
+	color: #044D29;
+	font-size: 24pt;
+	height: 35px;
+	margin-right: 20px;
+	margin-top: 5px;
+	width: auto;
+}
+
+.subcontenidoInfo_detUsuario {
+	background-color: white;
+	float: left;
+	height: 74px;
+	margin-left: 5px;
+	margin-top: 5px;
+	width: 200px;
+	margin-bottom: 5px;
+}
+
+.subcontenidoInfo_detUsuarioDesc {
+	float: right;
+	height: 80px;
+	margin-right: 5px;
+	margin-top: 5px;
+	text-align: right;
+	width: 110px;
+}
+
+.subcontenidoInfo_detUsuarioFila1 {
+	color: #403100;
+	font-size: 11pt;
+}
+
+.subcontenidoInfo_detUsuarioFila2 {
+	color: #806300;
+	font-size: 8pt;
+}
+
+.subcontenidoInfo_detUsuarioFila3 {
+	color: #BF9400;
+	font-size: 7pt;
+}
+
+.subcontenidoInfo_detUsuarioFoto {
+	float: right;
+	height: 60px;
+	margin-right: 20px;
+	margin-top: 7px;
+	width: 60px;
+}

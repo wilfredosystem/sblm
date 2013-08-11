@@ -4,7 +4,10 @@
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:p="http://primefaces.org/ui"
-	xmlns:ui="http://java.sun.com/jsf/facelets">
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:c="http://java.sun.com/jsp/jstl/core">
+
+
 
 <h:head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
@@ -189,26 +192,27 @@
 								<div class="foto_user">
 									<p:graphicImage width="60" height="60"
 										value="http://localhost:8080/sistemaSBLM/resources/images/usuarios/#{usuarioMB.usuariologueado.rutaimgusr}" />
-								</div >
+								</div>
 								<div class="detalle_user">
-									
+
 									<div class="lblNombre">
 										<h:outputText value=" #{usuarioMB.nombrecompleto}" />
-										
+
 									</div>
-									<br/>
+									<br />
 									<div class="lblArea">
 										<h:outputText value=" #{usuarioMB.usuariologueado.cargo}" />
-									</div><br/>
+									</div>
+									<br />
 									<div class="lblId">
 										<h:outputText value=" #{usuarioMB.usuariologueado.nombreusr}" />
 									</div>
 
 								</div>
 							</div>
-							
+
 							<p:commandLink action="/pages/superNotificaciones.jsf">
-							<div class="menuOpen_subfcrema"></div>
+								<div class="menuOpen_subfcrema"></div>
 							</p:commandLink>
 							<div class="menuOpen_subfcrema2"></div>
 
@@ -228,7 +232,7 @@
 									style="text-align: center; color: #fde871; font-size: 25pt;">
 									<h:outputText value="#{cnotificaciones.nroNotificacionesMes}" />
 								</div>
-								
+
 
 								<div>
 									<p:spacer width="65" height="35" />
@@ -238,11 +242,12 @@
 							</div>
 
 							<div class="menuOpen_subfondoRevisado">
-								<div class="cuadradoBlanco"
-									style="text-align: center; color: #32CD32; font-size: 15pt;">
-									<h:outputText value="#{cnotificaciones.nroRevisado}" />
-								</div>
-
+								<p:commandLink action="#{cnotificaciones.seleccionarItem(2)}">
+									<div class="cuadradoBlanco"
+										style="text-align: center; color: #32CD32; font-size: 15pt;">
+										<h:outputText value="#{cnotificaciones.nroRevisado}" />
+									</div>
+								</p:commandLink>
 
 								<div>
 									<p:spacer width="65" height="25" />
@@ -252,11 +257,14 @@
 							</div>
 
 							<div class="menuOpen_subfondoCancelado">
-								<div class="cuadradoBlanco"
-									style="text-align: center; color: #ff0000; font-size: 15pt;">
-									<h:outputText value="#{cnotificaciones.nroCancelado}" />
-								</div>
 
+								<p:commandLink action="#{cnotificaciones.seleccionarItem(3)}">
+									<div class="cuadradoBlanco"
+										style="text-align: center; color: #ff0000; font-size: 15pt;">
+										<h:outputText value="#{cnotificaciones.nroCancelado}" />
+									</div>
+
+								</p:commandLink>
 
 								<div>
 									<p:spacer width="65" height="25" />
@@ -266,12 +274,12 @@
 							</div>
 
 							<div class="menuOpen_subfondoPendiente">
-
-								<div class="cuadradoBlanco"
-									style="text-align: center; color: #006400; font-size: 15pt;">
-									<h:outputText value="#{cnotificaciones.nroPendiente}" />
-								</div>
-
+								<p:commandLink action="#{cnotificaciones.seleccionarItem(1)}">
+									<div class="cuadradoBlanco"
+										style="text-align: center; color: #006400; font-size: 15pt;">
+										<h:outputText value="#{cnotificaciones.nroPendiente}" />
+									</div>
+								</p:commandLink>
 								<div>
 									<p:spacer width="65" height="25" />
 									<h:outputText value="Pendientes" />
@@ -280,7 +288,7 @@
 							</div>
 						</div>
 						<div></div>
-						<div style="margin-top:20px;">
+						<div style="margin-top: 20px;">
 							<div class="menuOpen_tipoCambio"></div>
 							<div class="menuOpen_lblTipoCambio">
 

@@ -10,7 +10,7 @@
 	<link href="../resources/css/estilox.css" rel="stylesheet"
 		type="text/css" />
 
-	<title>SBLM</title>
+	<title>SBLM-SOCIEDAD DE BENEFICIANCIA DE LIMA METROPOLITANA x</title>
 </h:head>
 <h:body>
 
@@ -119,8 +119,8 @@
 											<p:dataTable id="dtbDerivacion" var="docDer"
 												value="#{documentodgaiMB.documentos}"
 												rowKey="#{docDer.iddocumento}"
-												selection="#{documentodgaiMB.listadocumentos}"
-												paginator="true" style="width:693px; font-size: 10px;"
+												selection="#{documentodgaiMB.listadocumentos}" 
+												paginator="true" style="width:693px; font-size: 10px;" 
 												paginatorTemplate=" Ir a p&aacute;gina: {JumpToPageDropdown} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {FirstPageLink} {PreviousPageLink} {NextPageLink} {LastPageLink} &nbsp;&nbsp; Registros por p&aacute;gina: {RowsPerPageDropdown}  &nbsp;  {CurrentPageReport}"
 												currentPageReportTemplate="{startRecord}-{endRecord} de {totalRecords} Registros"
 												rowsPerPageTemplate="10,15,20" 	rows="10"
@@ -150,7 +150,7 @@
 													width="450">
 													<h:outputText value="#{docDer.descripcion}" />
 												</p:column>
-												<p:column width="30">
+												<p:column width="30"> 
 													<p:commandButton icon="ui-icon-search"
 														update=":frmDlgDetalleDerivacion:iddlgDetalleDerivacion"
 														oncomplete="dlgDetalleDerivacion.show()" title="Ver">

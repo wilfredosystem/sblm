@@ -44,16 +44,17 @@ import com.sblm.util.CompDataModel;
 
 
 @ManagedBean(name = "cnotificaciones")
-@ViewScoped
+@SessionScoped
 public class superNotificacionesController implements Serializable {
 	private static final long serialVersionUID = 5524190003746598593L;
 
 	@ManagedProperty(value = "#{panelNotificacionesServiceImpl}")
 	private transient INotificacionesService panelNotificacionesServiceImpl;
  
+	
 	private int contadorFecha;
 	private String selectIdRegistroAuditoria="0";
-	private String estadoNotificacion="0";
+	private int estadoNotificacion=0;
 	private List<Auditoria> listNotificacionesPendientesInit;
 	private Auditoria selectRegistroAuditoria;
 	private CompDataModel compDataModel;
@@ -71,6 +72,20 @@ public class superNotificacionesController implements Serializable {
 	private Date instanteFecha;
 	private String mensajedeNotificaciones;
 
+	
+	public String  seleccionarItem(int val){
+		
+		System.out.println("pasooooo############################");
+		estadoNotificacion=val;
+		mesSeleccionado="";
+		anioSeleccionado="";
+				
+
+		System.out.println("xxxestadoNotificacion:"+estadoNotificacion);
+		listarNotificacionesInit();
+		return "prueba";
+	}
+	
 	public superNotificacionesController(){
 		listMeses= new ArrayList<Almanaque>();
 		listAnio =new ArrayList<String>();
@@ -88,7 +103,14 @@ public class superNotificacionesController implements Serializable {
 	
 	@PostConstruct
 	public void initObjects(){
+		System.out.println("023482053853:::::::::"+getEstadoNotificacion());
+		
 		listarNotificacionesInit();
+		
+	
+		
+		
+		
 		setNroPendiente(countPendiente());
 		setNroCancelado(countCancelado());
 		setNroRevisado(countRevisado());
@@ -100,6 +122,8 @@ public class superNotificacionesController implements Serializable {
 		
 		instanteFecha=new Date();
 		mensajeNotificacion();
+		getEstadoNotificacion();
+		
 	}
 	
 
@@ -109,9 +133,10 @@ public class superNotificacionesController implements Serializable {
 	@SuppressWarnings("unchecked")
 	public void listarNotificacionesInit(){
 		
-		System.out.println(estadoNotificacion+" "+mesSeleccionado+" "+anioSeleccionado);
+		//System.out.println(estadoNotificacion+" "+mesSeleccionado+" "+anioSeleccionado);
 		
-		if(estadoNotificacion.equals("0") || estadoNotificacion.equals("1")){
+		System.out.println(":::::::::"+getEstadoNotificacion());
+		if(estadoNotificacion==0 || estadoNotificacion==1){
 			
 			listNotificacionesPendientesInit = new ArrayList<Auditoria>();
 			
@@ -119,6 +144,8 @@ public class superNotificacionesController implements Serializable {
 				listNotificacionesPendientesInit = panelNotificacionesServiceImpl.listarNotificaciones(1,getMesSeleccionado(),getAnioSeleccionado());
 				
 				compDataModel = new CompDataModel(listNotificacionesPendientesInit);
+		
+				
 				
 			} catch (Exception e) {
 				e.printStackTrace();
@@ -126,7 +153,7 @@ public class superNotificacionesController implements Serializable {
 			
 		}
 		
-		if(estadoNotificacion.equals("3")){
+		if(estadoNotificacion==3){
 			
 					listNotificacionesPendientesInit = new ArrayList<Auditoria>();
 					
@@ -139,7 +166,7 @@ public class superNotificacionesController implements Serializable {
 						e.printStackTrace();
 					}							}
 				
-		if(estadoNotificacion.equals("2")){
+		if(estadoNotificacion==2){
 					
 			System.out.println("---->2");
 						listNotificacionesPendientesInit = new ArrayList<Auditoria>();
@@ -317,16 +344,18 @@ public class superNotificacionesController implements Serializable {
 		this.compDataModel = compDataModel;
 	}
 
-	public String getEstadoNotificacion() {
-		return estadoNotificacion;
-	}
-
-	public void setEstadoNotificacion(String estadoNotificacion) {
-		this.estadoNotificacion = estadoNotificacion;
-	}
+	
 
 
 		
+	public int getEstadoNotificacion() {
+		return estadoNotificacion;
+	}
+
+	public void setEstadoNotificacion(int estadoNotificacion) {
+		this.estadoNotificacion = estadoNotificacion;
+	}
+
 	public int getContadorFecha() {
 		return contadorFecha;
 	}
@@ -465,7 +494,7 @@ public class superNotificacionesController implements Serializable {
 	public void setMensajedeNotificaciones(String mensajedeNotificaciones) {
 		this.mensajedeNotificaciones = mensajedeNotificaciones;
 	}
-	
+
 	
 	
 }

@@ -4,13 +4,32 @@
 	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee 
 	http://java.sun.com/xml/ns/javaee/web-facesconfig_2_1.xsd"
 	version="2.1">
- 
-    <!-- JSF and Spring are integrated -->
+
+	<!-- JSF and Spring are integrated -->
 	<application>
-		<el-resolver>
-    		    org.springframework.web.jsf.el.SpringBeanFacesELResolver
-		</el-resolver>
-  	</application>
- 
+		<el-resolver>org.springframework.web.jsf.el.SpringBeanFacesELResolver</el-resolver>
+	</application>
+
+	<navigation-rule>
+		<from-view-id>/pages/*</from-view-id>
+		<navigation-case>
+			<from-outcome>prueba</from-outcome>
+			<to-view-id>/pages/superNotificaciones.jsf</to-view-id>
+
+<!-- 			<redirect> -->
+<!-- 				<view-param> -->
+<!-- 					<name>estadoNotificacion</name> -->
+<!-- 					<value>2</value> -->
+<!-- 				</view-param> -->
+<!-- 			</redirect> -->
+
+
+		</navigation-case>
+
+
+
+
+	</navigation-rule>
+
 </faces-config>
 

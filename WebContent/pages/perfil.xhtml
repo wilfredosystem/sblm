@@ -47,9 +47,10 @@
 											alt="Limpiar formulario" title="limpiar" />
 									</p:commandLink>
 								</div>
-							
+
 								<h:form id="frmRegPerfil">
-									<p:growl id="msjderivacion" showDetail="true" sticky="false" life="4000"  />
+									<p:growl id="msjderivacion" showDetail="true" sticky="false"
+										life="4000" />
 									<div class="filaPerfil">
 										<h:outputText class="lblPerfil" value="Perfil:" />
 										<p:inputText id="txtPerfil" styleClass="txtPerfil"
@@ -82,7 +83,7 @@
 											value="#{ (perfilmoduloMB.bandera) ? perfilmoduloMB.modulos   :  perfilmoduloMB.listapmp }"
 											style="font-size: 10px;">
 											<c:if test="#{!perfilmoduloMB.bandera}">
-												<f:facet name="header"  >  
+												<f:facet name="header">  
           									  Lista de modulos Creados 
         									</f:facet>
 											</c:if>
@@ -147,16 +148,15 @@
 										<p:dataTable id="dgvPerfilActualizar" var="modu"
 											rendered="#{perfilmoduloMB.activoperfil}"
 											value="#{ perfilmoduloMB.modulos}" style="font-size: 10px;">
-											
-											<f:facet name="header"  >  
+
+											<f:facet name="header">  
           									 Nueva  Lista de modulos a actualizar 
         									</f:facet>
-        									
+
 											<p:column headerText="Modulo" style="width:20%">
 												<h:outputText value="#{modu.nombremodulo}" />
 											</p:column>
-											<p:column headerText="estado" style="width:20%;"
-												>
+											<p:column headerText="estado" style="width:20%;">
 
 												<p:selectBooleanCheckbox value="#{perfilmoduloMB.miestado}">
 													<p:ajax
@@ -218,27 +218,27 @@
 
 							<div class="perfil_fondo_formulario2">
 								<div class="perfil_icono_informacion"></div>
-								<div class="perfilDetaTotal">
-									<div>
-										<label id="lblcreado" class="lblcreado">Creado por</label>
 
-									</div>
-									<div class="lblIdentificar">
+								<div class="filaNumerox">
 
-										<h:outputText value="#{usuarioMB.usuariologueado.nombres}" />
-										&nbsp;
-										<h:outputText value="#{usuarioMB.usuariologueado.apellidopat}" />
+									<div class="lblCantidadx">
+										<h:outputText value=" #{moduloMB.numModulos}" />
 									</div>
-									<div>
-										<label id="lblFechaCreacion" class="lblFechaCreacion">10/06/2013</label>
+									<div class="lblNumerox">
+										<h:outputText value=" Perfiles creados" />
 									</div>
 								</div>
-								<div class="imagen_informacion">
-									<p:graphicImage width="60" height="60"
-										value="http://localhost:8080/sistemaSBLM/resources/images/usuarios/#{usuarioMB.usuariologueado.rutaimgusr}" />
+
+								<div class="filaUltimox">
+									<div class="lblUltimoDescripcionx">
+										<h:outputText value="&Uacute;ltimo Perfil creado" />
+									</div>
+									<div class="lblUltimoDetallex">
+										<h:outputText value="#{moduloMB.ultimoModulo}" />
+									</div>
 								</div>
-								<div class="foto_userxss"></div>
 							</div>
+
 
 						</div>
 

@@ -71,7 +71,7 @@
 										</div>
 										<div class="filaBotonModulo">
 											<p:commandButton value="Guardar" id="btnGuardarModulo"
-												oncomplete="validacioModulo();"  update=":frmModulo"/>
+												oncomplete="validacioModulo();" update=":frmModulo" />
 										</div>
 									</div>
 
@@ -97,7 +97,8 @@
 											</p:column>
 											<p:column style="text-align: center;" width="30">
 
-												<p:commandButton update=":frmEliminar, :frmModulox, :frmModulo"
+												<p:commandButton
+													update=":frmEliminar, :frmModulox, :frmModulo"
 													oncomplete="dlgEliminar.show();" image="icon-delete"
 													title="Eliminar">
 													<f:setPropertyActionListener value="#{objetomodulo}"
@@ -110,7 +111,7 @@
 								</h:form>
 							</div>
 							<h:form id="frmdlgGuardarModulo">
-								
+
 								<p:confirmDialog message="¿Desea Guardar este modulo?"
 									header="Registro Modulo" severity="alert"
 									widgetVar="dlgRegistrarModulo">
@@ -127,22 +128,30 @@
 								</p:confirmDialog>
 							</h:form>
 							<h:form id="frmModulox">
-								<div class="modulo_sub2">
+								<div class="subcontenedorInformacion">
+
 									<div class="mant_subFondo_icoInfo"></div>
 
-									<div class="lblNumeroModulos">
-										<h:outputText value=" Modulos creados" />
+
+									<div class="filaNumerox">
+
+										<div class="lblCantidadx">
+											<h:outputText value=" #{moduloMB.numModulos}" />
+										</div>
+										<div class="lblNumerox">
+											<h:outputText value=" Modulos creados" />
+										</div>
 									</div>
-									<div class="lblCantidadModulos">
-										<h:outputText value=" #{moduloMB.numModulos}" />
+
+									<div class="filaUltimox">
+										<div class="lblUltimoDescripcionx">
+											<h:outputText value="&Uacute;ltimo M&oacute;dulo creado" />
+										</div>
+										<div class="lblUltimoDetallex">
+											<h:outputText value="#{moduloMB.ultimoModulo}" />
+										</div>
 									</div>
-									<div class="lblUltimoModulo">
-										<h:outputText value="&Uacute;ltimo modulo creado" />
-									</div>
-									
-									<div class="lblUltimoModuloDetalle">
-										<h:outputText value="#{moduloMB.ultimoModulo}" />
-									</div>
+
 								</div>
 							</h:form>
 
