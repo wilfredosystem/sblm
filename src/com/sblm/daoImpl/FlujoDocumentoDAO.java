@@ -12,6 +12,7 @@ import org.springframework.stereotype.Repository;
 
 import com.sblm.dao.IFlujoDocumentoDAO;
 import com.sblm.model.Auditoria;
+import com.sblm.model.Documento;
 import com.sblm.model.Estadoauditoria;
 import com.sblm.model.Eventoauditoria;
 import com.sblm.model.Flujodocumento;
@@ -171,7 +172,27 @@ public  void settingLog(int idestadoauditoria, int ideventoauditoria, int idusua
 		}
 	
 	}
+
+@Override
+public Documento obtenerUltimodocumento() {
+//	return  (Flujodocumento) getSessionFactory().openSession()
+//			.createQuery("select COUNT(IDDOCUMENTO) from Documento  where RESPUESTA ='recibido' and estado='atendido'").uniqueResult();
+	Session session = getSessionFactory().openSession();
+	return (Documento) session.createQuery("from Documento D where D.estado='atendido' and D.respuesta='en proceso' ").uniqueResult();
 	
+}
 	
+//@Override
+//public List<Documento> listarDocumentosDgai() {
+//	Session session = getSessionFactory().openSession();
+//	try {
+//		return session.createQuery("from Documento D where D.estado='atendido' and D.respuesta='en proceso' ").list();
+//	} catch (HibernateException e) {
+//		System.out.println("error:::" + e);
+//		throw e;
+//	} finally {
+//		session.close();
+//	}
+//}	
 
 }

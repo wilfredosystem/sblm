@@ -1,44 +1,15 @@
 package com.sblm.controller;
 
 import java.io.Serializable;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
-import java.util.Locale;
-import java.util.Properties;
-
 import javax.annotation.PostConstruct;
-import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
-import javax.faces.bean.RequestScoped;
 import javax.faces.bean.SessionScoped;
-import javax.faces.bean.ViewScoped;
-import javax.faces.context.FacesContext;
-import javax.faces.event.ActionEvent;
-import javax.mail.Message;
-import javax.mail.Session;
-import javax.mail.Transport;
-import javax.mail.internet.InternetAddress;
-import javax.mail.internet.MimeMessage;
-
-import org.primefaces.context.RequestContext;
-import org.primefaces.event.SelectEvent;
-import org.springframework.dao.DataAccessException;
-
-
 import com.sblm.model.Auditoria;
-import com.sblm.model.Modulo;
-import com.sblm.model.Pagina;
-import com.sblm.model.Perfilusuario;
-import com.sblm.model.Tipocambio;
-import com.sblm.model.Usuario;
-import com.sblm.service.IAuditoriaService;
 import com.sblm.service.INotificacionesService;
-import com.sblm.service.IUsuarioService;
 import com.sblm.util.Almanaque;
 import com.sblm.util.CompDataModel;
 
@@ -75,15 +46,13 @@ public class superNotificacionesController implements Serializable {
 	
 	public String  seleccionarItem(int val){
 		
-		System.out.println("pasooooo############################");
 		estadoNotificacion=val;
 		mesSeleccionado="";
 		anioSeleccionado="";
-				
 
-		System.out.println("xxxestadoNotificacion:"+estadoNotificacion);
 		listarNotificacionesInit();
-		return "prueba";
+		System.out.println("##############entro xxxxx");
+		return "pgNotificaciones?faces-redirect=true";
 	}
 	
 	public superNotificacionesController(){
@@ -103,14 +72,7 @@ public class superNotificacionesController implements Serializable {
 	
 	@PostConstruct
 	public void initObjects(){
-		System.out.println("023482053853:::::::::"+getEstadoNotificacion());
-		
 		listarNotificacionesInit();
-		
-	
-		
-		
-		
 		setNroPendiente(countPendiente());
 		setNroCancelado(countCancelado());
 		setNroRevisado(countRevisado());

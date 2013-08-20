@@ -4,7 +4,8 @@
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:p="http://primefaces.org/ui"
-	xmlns:ui="http://java.sun.com/jsf/facelets">
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:c="http://java.sun.com/jsp/jstl/core">
 
 <h:head>
 
@@ -48,7 +49,7 @@
 								</h:form>
 								<h:form id="frmModulo">
 									<p:growl id="growlModu" showDetail="true" sticky="false"
-										life="3000" />
+										life="5000" />
 
 									<div>
 
@@ -69,6 +70,18 @@
 												</p:selectOneMenu>
 											</div>
 										</div>
+										<div class="filamoduloperfiles">
+											<h:outputLabel class="lblmoduloperfil" value="Paginas:" />
+											<p:selectCheckboxMenu id="idpaginas" label="P&aacute;ginas"
+												filterText="Filter" filter="true"
+												filterMatchMode="startsWith" panelStyle="width:220px"
+												style="width:150px" showCheckbox="true"
+												value="#{moduloMB.listapaginas}">
+												<f:selectItems value="#{moduloMB.paginas}" var="pagi"
+													itemLabel="#{pagi.nombrepagina}"
+													itemValue="#{pagi.idpagina}" />
+											</p:selectCheckboxMenu>
+										</div>
 										<div class="filaBotonModulo">
 											<p:commandButton value="Guardar" id="btnGuardarModulo"
 												oncomplete="validacioModulo();" update=":frmModulo" />
@@ -84,18 +97,37 @@
 										<p:dataTable id="tbModulo" var="objetomodulo"
 											value="#{moduloMB.modulos}" rowKey="#{objetomodulo.idmodulo}"
 											selection="#{moduloMB.modulo}" selectionMode="single"
-											paginator="true" rows="5" style="font-size: 10px;">
-											<p:ajax event="rowSelect" listener="#{moduloMB.onRowSelect}"
-												update=":frmModulo" />
+											paginator="true"
+											style="width:435px; font-size: 10px;  text-align:center;"
+											paginatorTemplate="Reg. por p&aacute;gina: {RowsPerPageDropdown}  &nbsp; {FirstPageLink} {PreviousPageLink} {NextPageLink} {LastPageLink} &nbsp;&nbsp;   {CurrentPageReport}"
+											currentPageReportTemplate="{startRecord}-{endRecord} de {totalRecords} Registros"
+											rowsPerPageTemplate="10,15,20" rows="10"
+											paginatorPosition="top">
 
-											<p:column headerText="Modulo" style="text-align: center;">
+											<p:ajax event="rowSelect" listener="#{moduloMB.onRowSelect}"
+												update=":frmModulo, :frmModulo:idpaginas" />
+
+											<p:column headerText="Modulo" style="text-align: center; max-width: 100px;">
 												<h:outputText value="#{objetomodulo.nombremodulo}" />
 											</p:column>
-											<p:column headerText="Estado" style="text-align: center;">
-												<h:outputText
-													value="#{(objetomodulo.estado) ? 'Activo' : 'Inactivo'}" />
+
+											<p:column headerText="Usuario Creador"
+												style="max-width: 90px; ">
+												<h:outputText value="#{objetomodulo.usrcre}" />
 											</p:column>
-											<p:column style="text-align: center;" width="30">
+											<p:column headerText="Fecha creacion" >
+												<h:outputText value="#{objetomodulo.feccre}">
+													<f:convertDateTime pattern="dd/MM/yyyy hh:mm a" />
+												</h:outputText>
+											</p:column>
+
+											<p:column headerText="Estado" style="width: 15px;">
+
+												<p:graphicImage width="20" height="20"
+													value="/resources/icons/#{objetomodulo.estado}.png"
+													alt="Activo" title="Activo" />
+											</p:column>
+											<p:column style="text-align: center;" width="20">
 
 												<p:commandButton
 													update=":frmEliminar, :frmModulox, :frmModulo"
@@ -103,10 +135,35 @@
 													title="Eliminar">
 													<f:setPropertyActionListener value="#{objetomodulo}"
 														target="#{moduloMB.modulo}" />
-
 												</p:commandButton>
 											</p:column>
 										</p:dataTable>
+									</div>
+									<div class="perfilLeyenda">
+										<div class="perfilLeyendaTitulo">
+											<p:graphicImage width="15" height="15"
+												style="margin-top:3px;margin-left:20px;"
+												value="/resources/icons/leyendaBandera.png" alt="Activo"
+												title="Activo" />
+											<p:outputLabel style="margin-left:5px;" value="Leyenda" />
+										</div>
+										<div class="perfilLeyendaActivo">
+											<div class="perfilLeyendaActivoIcon">
+												<p:graphicImage width="20" height="20"
+													value="/resources/icons/true.png" alt="Activo"
+													title="Activo" />
+											</div>
+											<div class="perfilLeyendaActivoDes">Activo</div>
+										</div>
+
+										<div class="perfilLeyendaInactivo">
+											<div class="perfilLeyendaInactivoDesIcon">
+												<p:graphicImage width="20" height="20"
+													value="/resources/icons/false.png" alt="Inactivo"
+													title="Inactivo" />
+											</div>
+											<div class="perfilLeyendaInactivoDes">Inactivo</div>
+										</div>
 									</div>
 								</h:form>
 							</div>
@@ -117,7 +174,7 @@
 									widgetVar="dlgRegistrarModulo">
 
 									<p:commandButton value="&nbsp;Aceptar"
-										update=":frmModulo2 , :frmModulo ,:frmMaestra"
+										update=":frmModulo2 , :frmModulo ,:frmMaestra,:frmModulox"
 										actionListener="#{moduloMB.registrarModulo}"
 										oncomplete="dlgRegistrarModulo.hide()" image="icon-save">
 
@@ -128,31 +185,49 @@
 								</p:confirmDialog>
 							</h:form>
 							<h:form id="frmModulox">
-								<div class="subcontenedorInformacion">
+								<div class="paginaInterior2">
 
-									<div class="mant_subFondo_icoInfo"></div>
+									<div class="subcontenidoInfo_Cabecera">
+										<div class="subcontenidoInfo_logoTitulo" />
+										<div class="subcontenidoInfo_descripcionTitulo">
+											Informaci&oacute;n</div>
+									</div>
 
 
-									<div class="filaNumerox">
+									<div class="subcontenidoInfo_detContenidoFondo">
 
-										<div class="lblCantidadx">
-											<h:outputText value=" #{moduloMB.numModulos}" />
+										<div class="subcontenidoInfo_Numero2">
+											<h:outputText styleClass="informacion6"
+												value="#{moduloMB.numModulos}" />
 										</div>
-										<div class="lblNumerox">
-											<h:outputText value=" Modulos creados" />
+										<div class="subcontenidoInfo_textoconectadosfiltroDerecha2">
+											<h:outputText styleClass="subcontenidoInfo_fila2Estilo"
+												value="M&oacute;dulos" />
+											<br />
+											<h:outputText styleClass="subcontenidoInfo_fila2Estilo"
+												value="Creados" />
 										</div>
 									</div>
 
-									<div class="filaUltimox">
-										<div class="lblUltimoDescripcionx">
-											<h:outputText value="&Uacute;ltimo M&oacute;dulo creado" />
-										</div>
-										<div class="lblUltimoDetallex">
-											<h:outputText value="#{moduloMB.ultimoModulo}" />
-										</div>
-									</div>
+									<div class="subcontenidoInfo_detUsuario">
 
+										<div class="detalleTopfiltroDerecha2">
+											<h:outputText styleClass="subcontenidoInfo_detUsuarioFila1"
+												value="&Uacute;ltimo m&oacute;dulo" />
+											<br />
+
+											<h:outputText styleClass="subcontenidoInfo_detUsuarioFila2"
+												value="#{moduloMB.ultimoModulo}" />
+											<br />
+											<h:outputText styleClass="subcontenidoInfo_detUsuarioFila3"
+												value="#{moduloMB.fechaultimoModulo}">
+												<f:convertDateTime pattern="dd/MM/yyyy" />
+											</h:outputText>
+										</div>
+
+									</div>
 								</div>
+
 							</h:form>
 
 

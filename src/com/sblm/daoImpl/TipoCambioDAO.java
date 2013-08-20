@@ -47,6 +47,8 @@ public class TipoCambioDAO implements ITipoCambioDAO,Serializable{
 		getSessionFactory().getCurrentSession().merge(tipoCambio);
 
 	}
+	
+
 
 	public Tipocambio obtenerTipoCambio() {
 
@@ -115,7 +117,7 @@ e.printStackTrace();		}
 Session session = getSessionFactory().openSession();
 		
 	    try{
-	    	return session.createQuery("from Tipocambio").list();
+	    	return session.createQuery("from Tipocambio order by feccre desc").list();
 	    }
 	    catch(HibernateException e){
 	    	System.out.println("error:::"+e);

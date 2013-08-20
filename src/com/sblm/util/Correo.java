@@ -17,17 +17,16 @@ public class Correo {
 		try {
 			Properties props = new Properties();
 
-			props.setProperty("mail.smtp.host", "smtp.gmail.com");
-			props.setProperty("mail.smtp.starttls.enable", "true");
-			props.setProperty("mail.smtp.port", "587");
-			props.setProperty("mail.smtp.user", "wilfredohuaira@gmail.com");
+			props.setProperty("mail.smtp.host", "mail.sblm.gob.pe");
+			props.setProperty("mail.smtp.starttls.enable", "false");
+			props.setProperty("mail.smtp.port", "26");
+			props.setProperty("mail.smtp.user", "sgi@sblm.gob.pe");
 			props.setProperty("mail.smtp.auth", "false");
-
 			Session session = Session.getDefaultInstance(props, null);
 			MimeMessage message = new MimeMessage(session);
 
 			message.setFrom(new InternetAddress(
-					"wilfredohuaira@gmail.com"));
+					"sgi@sblm.gob.pe"));
 			message.addRecipient(Message.RecipientType.TO,
 					new InternetAddress(mailDestino));
 
@@ -37,8 +36,8 @@ public class Correo {
 
 			Transport t = session.getTransport("smtp");
 
-			t.connect("smtp.gmail.com", "wilfredohuaira@gmail.com",
-					"honestidad");
+			t.connect("mail.sblm.gob.pe", "sgi@sblm.gob.pe",
+					"123456");
 			t.sendMessage(message, message.getAllRecipients());
 			t.close();
 		} catch (Exception e) {

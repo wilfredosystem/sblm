@@ -7,8 +7,6 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
-import java.util.Map;
-import org.hibernate.Criteria;
 import org.hibernate.HibernateException;
 import org.hibernate.Query;
 import org.hibernate.Session;
@@ -24,6 +22,7 @@ import com.sblm.model.Modulo;
 import com.sblm.model.Pagina;
 import com.sblm.model.Perfilusuario;
 import com.sblm.model.Usuario;
+import com.sblm.util.FuncionesHelper;
 
 @Repository(value = "auditoriaDAO")
 public class AuditoriaDAOImpl implements IAuditoriaDAO, Serializable {
@@ -85,6 +84,23 @@ public class AuditoriaDAOImpl implements IAuditoriaDAO, Serializable {
 		Session session = getSessionFactory().openSession();
 		return session.createQuery("from Pagina").list();
 	}
+	
+
+	@Override
+	public Object ultimoModuloVisitado() {
+		Session session = getSessionFactory().openSession();
+		Query numero=session.createSQLQuery("select TOP 1 M.NOMBREMODULO from AUDITORIA as A inner join MODULO as M ON A.IDMODULO=M.IDMODULO where A.IDUSUARIO='"+FuncionesHelper.getUsuario().toString()+"'  order by FECENTRADA desc");
+		return numero.list().get(0);
+	}
+	
+
+	@Override
+	public Object ultimaPaginaVisitado() {
+		Session session = getSessionFactory().openSession();
+		Query numero=session.createSQLQuery("select TOP 1 A.NOMPANTALLA from AUDITORIA as A inner join MODULO as M ON A.IDMODULO=M.IDMODULO where A.IDUSUARIO='"+FuncionesHelper.getUsuario().toString()+"'  order by FECENTRADA desc");
+		return numero.list().get(0);
+	}
+
 	
 	
 	
@@ -266,7 +282,7 @@ public class AuditoriaDAOImpl implements IAuditoriaDAO, Serializable {
 		String queryFecha ="";
 		
 		
-		java.text.SimpleDateFormat sdf=new java.text.SimpleDateFormat("MM/dd/yyyy");
+		java.text.SimpleDateFormat sdf=new java.text.SimpleDateFormat("dd/MM/yyyy");
 		String fInicio = sdf.format(fechaInicio);
 		Calendar c = Calendar.getInstance();
 		String fFin= sdf.format(fechaFin);
@@ -286,7 +302,7 @@ public class AuditoriaDAOImpl implements IAuditoriaDAO, Serializable {
 		
 
 		if(!nombreUsuario.equals("")){
-			queryNombreUsuario = "u.apellidopat+' '+u.apellidomat+' '+u.nombres = '"+nombreUsuario+"' and "; 
+			queryNombreUsuario = "u.nombres+' '+u.apellidopat+' '+u.apellidomat = '"+nombreUsuario+"' and "; 
 		}
 		if(!nomPantalla.equals("")){
 		//	queryNombrePantalla = "R.nompantalla='"+nomPantalla+"' and ";
@@ -479,6 +495,9 @@ public class AuditoriaDAOImpl implements IAuditoriaDAO, Serializable {
 	} catch (HibernateException e) 	{
 			e.printStackTrace();	}
 	}
+
+
+
 	
 
 }

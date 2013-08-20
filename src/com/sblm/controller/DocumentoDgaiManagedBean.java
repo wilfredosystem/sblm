@@ -12,6 +12,7 @@ import javax.faces.context.FacesContext;
 
 import com.sblm.model.Documento;
 import com.sblm.service.IDocumentoDgaiService;
+import com.sblm.util.Almanaque;
 
 @ManagedBean(name = "documentodgaiMB")
 @ViewScoped
@@ -30,11 +31,16 @@ public class DocumentoDgaiManagedBean implements Serializable {
 	private Documento[] listadocumentos;
 	private Documento documentocapturado;
 	int totalpendientes;
-	
+	private String mesActual;
 	private Documento[] listadocumentosrechazados;
+	private String ultimoAsunto;
+	
 	@PostConstruct
 	public void initObjects(){
 		totalPendientesDerivacion();
+		Almanaque almanaque= new Almanaque();
+		mesActual=almanaque.obtenerMesActual();
+		ultimoAsunto= getDocumentodgaiService().obtenerUltimodocumento().getDescripcion();
 	}
 	public void pasarParametros(){
 		//documentoscapturados=documentos;
@@ -113,6 +119,18 @@ public class DocumentoDgaiManagedBean implements Serializable {
 	}
 	public void setListadocumentosrechazados(Documento[] listadocumentosrechazados) {
 		this.listadocumentosrechazados = listadocumentosrechazados;
+	}
+	public String getMesActual() {
+		return mesActual;
+	}
+	public void setMesActual(String mesActual) {
+		this.mesActual = mesActual;
+	}
+	public String getUltimoAsunto() {
+		return ultimoAsunto;
+	}
+	public void setUltimoAsunto(String ultimoAsunto) {
+		this.ultimoAsunto = ultimoAsunto;
 	}
 
 	

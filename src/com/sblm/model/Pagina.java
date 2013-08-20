@@ -1,15 +1,16 @@
 package com.sblm.model;
 
-// Generated 05-ago-2013 16:25:24 by Hibernate Tools 3.4.0.CR1
+// Generated 15-ago-2013 10:27:57 by Hibernate Tools 3.4.0.CR1
 
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -22,7 +23,6 @@ import javax.persistence.TemporalType;
 public class Pagina implements java.io.Serializable {
 
 	private int idpagina;
-	private Modulo modulo;
 	private String nombrepagina;
 	private String descripcionpagina;
 	private Boolean estado;
@@ -30,6 +30,7 @@ public class Pagina implements java.io.Serializable {
 	private Date fecmod;
 	private String usrcre;
 	private String usrmod;
+	private Set<Paginamodulo> paginamodulos = new HashSet<Paginamodulo>(0);
 
 	public Pagina() {
 	}
@@ -38,11 +39,10 @@ public class Pagina implements java.io.Serializable {
 		this.idpagina = idpagina;
 	}
 
-	public Pagina(int idpagina, Modulo modulo, String nombrepagina,
-			String descripcionpagina, Boolean estado, Date feccre, Date fecmod,
-			String usrcre, String usrmod) {
+	public Pagina(int idpagina, String nombrepagina, String descripcionpagina,
+			Boolean estado, Date feccre, Date fecmod, String usrcre,
+			String usrmod, Set<Paginamodulo> paginamodulos) {
 		this.idpagina = idpagina;
-		this.modulo = modulo;
 		this.nombrepagina = nombrepagina;
 		this.descripcionpagina = descripcionpagina;
 		this.estado = estado;
@@ -50,6 +50,7 @@ public class Pagina implements java.io.Serializable {
 		this.fecmod = fecmod;
 		this.usrcre = usrcre;
 		this.usrmod = usrmod;
+		this.paginamodulos = paginamodulos;
 	}
 
 	@Id @GeneratedValue
@@ -60,19 +61,6 @@ public class Pagina implements java.io.Serializable {
 
 	public void setIdpagina(int idpagina) {
 		this.idpagina = idpagina;
-	}
-
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "IDMODULO")
-	public Modulo getModulo() {
-		if (modulo == null) {
-			modulo = new Modulo();
-		}
-		return this.modulo;
-	}
-
-	public void setModulo(Modulo modulo) {
-		this.modulo = modulo;
 	}
 
 	@Column(name = "NOMBREPAGINA", length = 50)
@@ -138,6 +126,15 @@ public class Pagina implements java.io.Serializable {
 
 	public void setUsrmod(String usrmod) {
 		this.usrmod = usrmod;
+	}
+
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "pagina")
+	public Set<Paginamodulo> getPaginamodulos() {
+		return this.paginamodulos;
+	}
+
+	public void setPaginamodulos(Set<Paginamodulo> paginamodulos) {
+		this.paginamodulos = paginamodulos;
 	}
 
 }

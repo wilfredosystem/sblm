@@ -169,27 +169,43 @@ function validacioneEditarUsuario (){
 						$("#formEditarUsuario\\:idCargo").focus().after("<span class='error'>Ingrese nombre de Cargo</span>");
 						return false;
 				 }else 
-					 if( $("#formEditarUsuario\\:pwd1").val() == ""){
-							$("#formEditarUsuario\\:pwd1").focus().after("<span class='error'>Ingrese Contrase&ntilde;a</span>");
-							return false;
-					 }else 
-						 if( $("#formEditarUsuario\\:pwd2").val() == ""){
-								$("#formEditarUsuario\\:pwd2").focus().after("<span class='error'>Repita Contrase&ntilde;a</span>");
-								return false;
-						 }else if (passwordVal != checkVal ) {
-					            $("#formEditarUsuario\\:pwd2").after('<span class="error">Contrase&ntilde;as no coinciden</span>');
-					            hasError = true;
-					        }else 
-								 if( checkVal.length<5){
-										$("#formEditarUsuario\\:pwd2").focus().after("<span class='error'> Contrase&ntilde;a minima de 5 caracteres </span>");
-										return false;
-								 }else 
-						 	{
-							
-							 widgetDlgConfirmGuardar.show();
-		
-						 		}
+					 	if($("#formEditarUsuario\\:pwd1").val() == "" && $("#formEditarUsuario\\:pwd2").val()== ""){
+					 		
+					 		widgetDlgConfirmTypePass.show();
+					 		
+					 	}
+					 	
+					 	else 
+					 		
+						 {
+					 		 if( $("#formEditarUsuario\\:pwd2").val() == ""  || $("#formEditarUsuario\\:pwd1").val() == ""  ){
+									$("#formEditarUsuario\\:pwd2").focus().after("<span class='error'>Repita Contrase&ntilde;a</span>");
+									return false;
+							 }else if (passwordVal != checkVal ) {
+						            $("#formEditarUsuario\\:pwd2").after('<span class="error">Contrase&ntilde;as no coinciden</span>');
+						            hasError = true;
+						        }else 
+									 if( checkVal.length<5){
+											$("#formEditarUsuario\\:pwd2").focus().after("<span class='error'> Contrase&ntilde;a minima de 5 caracteres </span>");
+											return false;
+									 }else{
+										 widgetDlgConfirmTypePass.show();
+									 }
+					
 
+				 		}
+					 
+
+
+}
+function validarPass(){
+	if( $("#formEditarUsuario\\:idContrasenia").val() != $("#formEditarUsuario\\:idContraseniaIngresada").val()){
+		widgetDlgContraseniaIncorrecta.show(); widgetDlgConfirmGuardar.hide();
+	}else{
+		 widgetDlgConfirmGuardar.show();
+	} 
+	
+	
 }
 
 
@@ -248,3 +264,6 @@ function validacionFranco (){
 
 }
 
+
+
+		

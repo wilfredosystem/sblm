@@ -1,5 +1,6 @@
 package com.sblm.service;
 
+import java.util.Date;
 import java.util.List;
 
 import com.sblm.model.Perfil;
@@ -22,4 +23,10 @@ public interface IPerfilService {
 	
 	
 	public int obtenerUltimoIdPerfil();
+	
+	public int obtenerNumeroPerfiles();
+	public String obtenerUltimoPerfil();
+	public Date obtenerFechaUltimoPerfil();
+	
+	
 }

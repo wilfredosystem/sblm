@@ -15,6 +15,7 @@ import com.sblm.model.Auditoria;
 import com.sblm.model.Estadoauditoria;
 import com.sblm.model.Eventoauditoria;
 import com.sblm.model.Modulo;
+import com.sblm.model.Perfil;
 import com.sblm.model.Permiso;
 import com.sblm.model.Usuario;
 
@@ -46,8 +47,8 @@ public class PermisoDAO implements IPermisoDAO,Serializable{
 
 	@Override
 	public Permiso listarPermisoPorId(int id) {
-		// TODO Auto-generated method stub
-		return null;
+		Session session=getSessionFactory().openSession();
+        return (Permiso) session.load(Permiso.class, id);
 	}
 
 	@Override

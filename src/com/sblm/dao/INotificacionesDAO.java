@@ -2,8 +2,6 @@ package com.sblm.dao;
 
 import java.util.List;
 
-import com.sblm.model.Auditoria;
-
 public interface INotificacionesDAO {
 
 

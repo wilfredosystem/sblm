@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.sblm.dao.IFlujoDocumentoDAO;
+import com.sblm.model.Documento;
 import com.sblm.model.Flujodocumento;
 import com.sblm.model.Modulo;
 import com.sblm.service.IFlujoDocumentoService;
@@ -72,5 +73,9 @@ public class FlujoDocumentoService implements IFlujoDocumentoService{
 	public int obtenerNumeroRechazados() {
 		return getFlujodocumentoDAO().obtenerNumeroRechazados();
 	}
-
+	
+	public Documento obtenerUltimodocumento() {
+		return getFlujodocumentoDAO().obtenerUltimodocumento();
+	}
+	
 }

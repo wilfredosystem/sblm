@@ -111,4 +111,11 @@ e.printStackTrace();		}
 
 }
 
+	@Override
+	public Documento obtenerUltimodocumento() {
+		Session session = getSessionFactory().openSession();
+		return (Documento) session.createQuery("from Documento D where D.estado='atendido'  ").list().get(0);
+		
+	}
+
 }

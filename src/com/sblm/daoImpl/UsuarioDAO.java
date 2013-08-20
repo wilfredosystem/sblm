@@ -191,6 +191,23 @@ public class UsuarioDAO implements IUsuarioDAO, Serializable {
 
 	}
 	
+	@Override
+	public Usuario buscarUsuarioxId(int parseInt) {
+		Session session = getSessionFactory().openSession();
+		
+		try {
+			Query query = session
+					.createQuery("select u from Usuario u where u.idusuario = '"+parseInt+"'");
+		
+			return (Usuario) query.uniqueResult();
+
+		} catch (HibernateException e) {
+			System.out.println("error:::" + e);
+			throw e;
+		} 
+	}
+
+
 		
 	
 	public  void settingLog(int idestadoauditoria, int ideventoauditoria, int idusuariodestino){
@@ -212,7 +229,7 @@ public class UsuarioDAO implements IUsuarioDAO, Serializable {
 		
 		Modulo mod= new Modulo();
 		Session session = getSessionFactory().openSession();
-		Query numero=session.createSQLQuery("select M.IDMODULO from PAGINA as P inner join MODULO as M ON P.IDMODULO=M.IDMODULO where P.NOMBREPAGINA='"+url+"'");
+		Query numero=session.createSQLQuery("select  m.IDMODULO from PAGINAMODULO as pm inner join MODULO m on pm.IDMODULO= m.IDMODULO  inner join PAGINA as p on p.IDPAGINA=pm.IDPAGINA where P.NOMBREPAGINA='"+url+"'");
 		
 		int var=(Integer) numero.list().get(0);
 		
@@ -228,7 +245,11 @@ public class UsuarioDAO implements IUsuarioDAO, Serializable {
 		Adt.setFecentrada( new Date());
 		Adt.setNompantalla(url);
 		Adt.setUrl(FuncionesHelper.getURL().toString());
-		Adt.setIp(FuncionesHelper.getTerminal().toString());
+		if(FuncionesHelper.getTerminal().toString().equals("0:0:0:0:0:0:0:1")){
+			Adt.setIp("127.0.0.1");
+		}else{
+			Adt.setIp(FuncionesHelper.getTerminal().toString());
+		}
 		Adt.setEstado(true);
 		Adt.setCodauditoria(0);
 		try {

@@ -18,4 +18,5 @@ public interface IDocumentoDgaiDAO {
 	public List<Documento> listarDocumentosDgai();
 	
 	public int totalPendientesDerivacion(); 
+	public Documento obtenerUltimodocumento();
 }

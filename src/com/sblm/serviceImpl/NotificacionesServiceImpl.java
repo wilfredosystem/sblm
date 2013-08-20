@@ -1,25 +1,11 @@
 package com.sblm.serviceImpl;
 
-import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-
-import com.sblm.dao.IAuditoriaDAO;
 import com.sblm.dao.INotificacionesDAO;
-import com.sblm.dao.IUsuarioDAO;
-import com.sblm.model.Auditoria;
-import com.sblm.model.Modulo;
-import com.sblm.model.Pagina;
-import com.sblm.model.Perfilusuario;
-import com.sblm.model.Tipocambio;
-import com.sblm.model.Usuario;
-import com.sblm.service.IAuditoriaService;
 import com.sblm.service.INotificacionesService;
-import com.sblm.service.IUsuarioService;
 
 @Transactional(readOnly = true)
 @Service(value="panelNotificacionesServiceImpl")

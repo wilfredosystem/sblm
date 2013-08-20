@@ -1,5 +1,6 @@
 package com.sblm.serviceImpl;
 
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,7 +36,7 @@ public class PerfilService implements IPerfilService{
 	@Transactional(readOnly = false)
 	@Override
 	public void eliminarPerfil(Perfil perfil) {
-		// TODO Auto-generated method stub
+		getPerfilDAO().eliminarPerfil(perfil);
 		
 	}
 
@@ -64,6 +65,18 @@ public class PerfilService implements IPerfilService{
 	@Override
 	public int obtenerUltimoIdPerfil() {
 		return getPerfilDAO().obtenerUltimoIdPerfil();
+	}
+	@Override
+	public int obtenerNumeroPerfiles() {
+		return getPerfilDAO().obtenerNumeroPerfiles();
+	}
+	@Override
+	public String obtenerUltimoPerfil() {
+		return getPerfilDAO().obtenerUltimoPerfil();
+	}
+	@Override
+	public Date obtenerFechaUltimoPerfil() {
+		return getPerfilDAO().obtenerFechaUltimoPerfil();
 	}
 
 }

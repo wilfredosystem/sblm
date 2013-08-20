@@ -39,6 +39,7 @@ import com.sblm.service.IPerfilModuloService;
 import com.sblm.service.IPerfilService;
 import com.sblm.service.IUsuarioService;
 import com.sblm.util.Correo;
+import com.sblm.util.FuncionesHelper;
 
 @ManagedBean(name = "usuarioMB")
 @SessionScoped
@@ -91,9 +92,17 @@ public class UsuarioManagedBean implements Serializable {
 	
 	private List<Usuario> usuariosdgi;
 	
+	private Boolean flag=false;
+	
 	@PostConstruct
 	public void initObjects() {
-
+		
+	}
+	
+	public void actualizarDatosUsuario(){
+		
+		usuariologueado = getUsuarioService().buscarUsuarioxId(Integer.parseInt(FuncionesHelper.getUsuario().toString()));
+		nombrecompleto =usuariologueado.getNombres()+" "+usuariologueado.getApellidopat();
 		
 	}
 
@@ -122,13 +131,12 @@ public class UsuarioManagedBean implements Serializable {
 		// List <String> listauser= getUsuarioService().loguear(usuario);
 		usuario = getUsuarioService().buscarUsuario(usuario);
 		usuariologueado = usuario;
-		
+		nombrecompleto =usuariologueado.getNombres()+" "+usuariologueado.getApellidopat();
 		Date ahora = new Date();
 		SimpleDateFormat formateador = new SimpleDateFormat(
 				"dd/MM/yyyy hh:mm:ss");
 		formateador.format(ahora);
 		horaconexion = formateador.format(ahora);
-		System.out.println("user::::::::"+usuario);
 		if (usuario==null) {
 			System.out.println("paso metodo login INCORRECTO");
 			loggedIn = false;
@@ -219,14 +227,15 @@ public class UsuarioManagedBean implements Serializable {
 				Column colum = new Column();
 				Submenu submenu = new Submenu();
 
-				List<Pagina> lstpagina = getPaginaService()
-						.listarPaginasModulos(modu.getModulo().getIdmodulo());
+				List<Pagina> lstpagina = getPaginaService().listarPaginasModulos(modu.getModulo().getIdmodulo());
+				
 				for (Pagina pag : lstpagina) {
+					
 					MenuItem item = new MenuItem(); // items
-					item.setValue(pag.getNombrepagina());
+					item.setValue(pag.getDescripcionpagina());
 					item.setUrl(pag.getNombrepagina() + ".jsf");
 					submenu.getChildren().add(item);
-					System.out.println("pagina:::" + pag.getNombrepagina());
+					
 				}
 				colum.getChildren().add(submenu);
 				submenup.getChildren().add(colum);
@@ -487,4 +496,12 @@ System.out.println("cambiar::::");
 		this.nombrecompleto = nombrecompleto;
 	}
 
+	public Boolean getFlag() {
+		return flag;
+	}
+
+	public void setFlag(Boolean flag) {
+		this.flag = flag;
+	}
+	
 }

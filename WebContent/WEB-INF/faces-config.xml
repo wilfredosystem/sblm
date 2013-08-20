@@ -14,13 +14,13 @@
 		<from-view-id>/pages/*</from-view-id>
 		<navigation-case>
 			<from-outcome>prueba</from-outcome>
-			<to-view-id>/pages/superNotificaciones.jsf</to-view-id>
+			<to-view-id>/pages/superNotificaciones.xhtml</to-view-id>
 
 <!-- 			<redirect> -->
 <!-- 				<view-param> -->
 <!-- 					<name>estadoNotificacion</name> -->
 <!-- 					<value>2</value> -->
-<!-- 				</view-param> -->
+<!-- 				</view-param> -->			
 <!-- 			</redirect> -->
 
 

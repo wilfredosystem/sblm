@@ -67,13 +67,11 @@
 								<div id="clsUno" class="clsUno" style="display: visible">
 									<p:panel id="pnConsultas" widgetVar="wgConsultas">
 										<div class="dgaiMonitoreo_descripDesapcho">
-											<div class="dgaiMonitoreo_iconDespacho"
-												style="margin-top: 10px;">
+											<div class="dgaiMonitoreo_iconDespacho">
 												<p:graphicImage width="60" height="60"
-													value="http://localhost:8080/sistemaSBLM/resources/images/usuarios/#{usuarioMB.usuariologueado.rutaimgusr}" />
+													value="../resources/images/usuarios/#{usuarioMB.usuariologueado.rutaimgusr}" />
 											</div>
-											<div class="dgaiMonitoreo_descDespacho_detalle"
-												style="margin-top: 10px;">
+											<div class="dgaiMonitoreo_descDespacho_detalle">
 												<h:outputText
 													style="color:#456880; font-size: 12px; font-weight:bold;"
 													value="#{usuarioMB.usuariologueado.nombres} #{usuarioMB.usuariologueado.apellidopat}" />
@@ -86,16 +84,14 @@
 													style="color:#3399cc; font-size: 10px; font-weight:bold;"
 													value="Ultimo despacho: Expediente 222" />
 											</div>
-											<div class="dgaiMonitoreo_fechaDespacho"
-												style="margin-top: 10px;">
+											<div class="dgaiMonitoreo_fechaDespacho">
 												<div class="dgaiMonitoreo_fechaIcono"></div>
 												<br />
 												<h:outputText
 													style="color:#3399cc; font-size: 12px; font-weight:bold;"
 													value="#{cmonitoreomesapartes.mesActual}" />
 											</div>
-											<div class="dgaiMonitoreo_totalDespacho"
-												style="margin-top: 10px;">
+											<div class="dgaiMonitoreo_totalDespacho">
 												<h:outputText
 													style="color:#017514; font-size: 12px; font-weight:bold;"
 													value="#{cmonitoreomesapartes.nroAtendido} Despachados" />
@@ -171,34 +167,34 @@
 											<h:panelGrid columns="2" cellpadding="4"
 												style="font-size: 11pt; font-weight: bold">
 
-												<h:outputText value="Fecha Registro:" />
+												<h:outputText style="color:#5a0000" value="Fecha Registro:" />
 												<h:outputText
 													value="#{cmonitoreomesapartes.selectRegistroDocumento.fechadocumento}"
-													style="font-size: 10pt; font-weight: bold">
+													style="font-size: 10pt; font-weight: bold;color:#017514;">
 													<f:convertDateTime pattern="EEEEEEE dd 'de' MMMM 'de' yyyy" />
 												</h:outputText>
 
-												<h:outputText value="Nº folios:" />
+												<h:outputText style="color:#5a0000" value="Nº folios:" />
 												<h:outputText
 													value="#{cmonitoreomesapartes.selectRegistroDocumento.numerofolio}"
-													style="font-size: 8pt;" />
+													style="font-size: 8pt;color:#017514;" />
 
-												<h:outputText value="Asunto:" />
+												<h:outputText style="color:#5a0000" value="Asunto:" />
 												<h:outputText
 													value="#{cmonitoreomesapartes.selectRegistroDocumento.asunto}"
-													style="font-size: 8pt;">
+													style="font-size: 8pt;color:#017514;">
 												</h:outputText>
 
-												<h:outputText value="Despacho:" />
+												<h:outputText style="color:#5a0000" value="Despacho:" />
 												<h:outputText
 													value="#{cmonitoreomesapartes.selectRegistroDocumento.nombreremitente}"
-													style="font-size: 8pt;" />
+													style="font-size: 8pt;color:#017514;" />
 
-												<h:outputText value="Descripción:" />
-												<h:outputText
+												<h:outputText style="color:#5a0000" value="Descripción:" />
+												<h:outputText 
 													value="#{cmonitoreomesapartes.selectRegistroDocumento.descripcion}"
-													style="font-size: 8pt;" />
-											</h:panelGrid>
+													style="font-size: 8pt;color:#017514;" />
+											</h:panelGrid> 
 										</div>
 									</p:dialog>
 								</div>
@@ -212,15 +208,18 @@
 								<div id="clsDos" class="clsDos" style="display: none">
 									<p:panel id="pnlConsultas2" widgetVar="wgConsultas">
 										<div class="dgaiMonitoreo_descripDesapcho">
-											<div class="dgaiMonitoreo_iconDespacho"></div>
+											<div class="dgaiMonitoreo_iconDespacho">
+											<p:graphicImage width="60" height="60"
+													value="../resources/images/usuarios/#{usuarioMB.usuariologueado.rutaimgusr}" />
+											</div>
 											<div class="dgaiMonitoreo_descDespacho_detalle">
 												<h:outputText
 													style="color:#456880; font-size: 12px; font-weight:bold;"
-													value="Angella Martell" />
+													value="#{usuarioMB.usuariologueado.nombres} #{usuarioMB.usuariologueado.apellidopat}" />
 												<br />
 												<h:outputText
 													style="color:#979797; font-size: 12px; font-weight:bold;"
-													value="DGAI" />
+													value="#{usuarioMB.usuariologueado.cargo}" />
 												<br />
 												<h:outputText
 													style="color:#3399cc; font-size: 10px; font-weight:bold;"
@@ -231,7 +230,7 @@
 												<br />
 												<h:outputText
 													style="color:#3399cc; font-size: 12px; font-weight:bold;"
-													value="Junio" />
+													value="#{cmonitoreomesapartes.mesActual}" />
 											</div>
 											<div class="dgaiMonitoreo_totalDespacho">
 												<h:outputText
@@ -355,7 +354,7 @@
 				<p:dialog id="idDialog" widgetVar="dialogSeleccionDocumento"
 					styleClass="process_msg"
 					style="border-width:9px;border-style:solid;  border-color:#ffc600; "
-					width="500" height="250">
+					width="555" height="370">
 					<div style="margin: 10px;">
 						<p:graphicImage id="idNotificaciones"
 							value="../resources/images/monitoreoMesaPartes/iconoParlanteMesaPartes.png" />
@@ -384,23 +383,51 @@
 									value="Descripción del Expediente: " />
 								<h:outputText id="idDesc"
 									value="#{cmonitoreomesapartes.descripcionDocumento}"
-									style="font-size: 10px;font-family: fantasy ; color:#979797" />
+									style="font-size: 10px; color:#979797" />
 							</h:panelGrid>
-
+							
 						</div>
-
-						<h:panelGrid columns="5" cellpadding="4"
-							style="padding-top: 10px;">
-							<p:selectBooleanCheckbox
-								value="#{cmonitoreomesapartes.valDirectora}" />
-							<p:spacer width="10" height="0" />
-							<p:graphicImage id="idNuevoUsuario" width="40px" height="40px"
-								value="../resources/images/usuarios/DirectoriaGeneral.jpg" />
-							<p:spacer width="10" height="0" />
-							<h:outputText value="Director(a) General"></h:outputText>
-						</h:panelGrid>
+						
+						<p:commandLink title="Agregar Usuario" update="tablaUsuarios" actionListener="#{cmonitoreomesapartes.agregarUsuarioLista}"
+										style="margin-left:457px;">
+								        <img width="20" height="20" src="../resources/images/monitoreoMesaPartes/addUsuario.png"></img>
+						</p:commandLink>
+						
+						<p:scrollPanel style="width:500px;height:150px">
+						<p:dataTable id="tablaUsuarios" value="#{cmonitoreomesapartes.listaUsuarioSeleccionados}" var="d" editable="true" editMode="cell"
+										style="text-align: center;">
+							 <p:ajax event="cellEdit" listener="#{cmonitoreomesapartes.onCellEdit}" styleClass="noheader borderless cellSpacingTableClass"
+							 update="tablaUsuarios" />  
+							
+							<p:column>
+								<p:graphicImage id="imagenUsuario" width="35" height="35"
+													value="../resources/images/usuarios/#{d.rutaimgusr}" />
+							</p:column>
+							<p:spacer width="20px" />
+							<p:column>
+							<p:cellEditor>  
+								 <f:facet name="output"><h:outputText value="#{d.emailusr}" /></f:facet>
+								 <f:facet name="input"><p:autoComplete id="idCajaUsuario"
+									value="#{d.emailusr}" style="width:136px"
+									completeMethod="#{cauditoria.autoCompleteUsuario}" effect="fade">
+								</p:autoComplete></f:facet>
+						   </p:cellEditor>	
+							</p:column>
+							<p:column>
+									<h:outputText value="#{d.cargo}" />
+							</p:column>
+							<p:column>
+									<p:commandLink title="Eliminar de lista" actionListener="#{cmonitoreomesapartes.eliminarUsuarioDeLista}"
+												   update="tablaUsuarios">
+								        <img width="20" height="20" src="../resources/images/monitoreoMesaPartes/deleteUsuario.png"></img>
+								        <f:setPropertyActionListener value="#{d}" target="#{cmonitoreomesapartes.selectRegistroUsuario}"/>
+								    </p:commandLink>
+							</p:column>
+						</p:dataTable>
+						</p:scrollPanel>
+						
 						<p:spacer width="0" height="20" />
-						<div style="padding-left: 350px;">
+						<div style="margin-left: 420px;">
 							<p:commandButton icon="ui-icon-save"
 								onclick="widgetDlgConfirmEnvio.show()" value="Enviar"
 								title="Ver" />

@@ -99,6 +99,11 @@ public class UsuarioService implements IUsuarioService {
 		getUsuarioDAO().grabarLogueo();		
 	}
 
+	@Override
+	public Usuario buscarUsuarioxId(int parseInt) {
+		// TODO Auto-generated method stub
+		return getUsuarioDAO().buscarUsuarioxId(parseInt);	}
+
 	
 
 

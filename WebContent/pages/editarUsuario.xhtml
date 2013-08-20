@@ -33,19 +33,19 @@
 							
 							<div class="contenidoPrincipal_SubFondoUsuario">
 															
-							<div class="u_fondo_interno">
+							<div class="u_fondo_interno2">
 							
 							
 							
 									<div class="u_panelGrid1">
 																<div class="u_iconoLapizUsuario"></div>
-																<div style="margin-top: -15px; margin-left: 70px;	 ">Datos de Usuario</div>
+																<div style="margin-top: -15px; margin-left: 55px;	 ">Datos de Usuario</div>
 												
 												<h:panelGrid id="panelGrid1">
 					
 													<p:row>
 														<p:column>
-															<p:spacer width="50" height="30" />
+															<p:spacer width="35" height="30" />
 															<p:inputText id="idNombre" value="#{ceditarusuarios.nombreRegistro}" style="" >
 															</p:inputText>
 															<p:spacer width="50" height="10" />
@@ -66,7 +66,7 @@
 					
 													<p:row>
 														<p:column>
-															<p:spacer width="50" height="10" />
+															<p:spacer width="35" height="10" />
 															<p:inputText id="idUsuario" value="#{ceditarusuarios.usuarioRegistro}" 		style="">
 															</p:inputText>
 															<p:spacer width="50" height="10" />
@@ -85,7 +85,7 @@
 													</p:row>
 													
 																					<p:row>
-									<p:spacer width="49" height="30" />
+									<p:spacer width="35" height="30" />
 
 									<p:column>
 										<p:calendar id="idNacimiento" value="#{ceditarusuarios.fechaNacimientoUsuario}"
@@ -96,6 +96,11 @@
 									<p:spacer width="21" height="10" />
 									<p:column>
 										<p:inputText id="idCargo" value="#{ceditarusuarios.cargoRegistro}" style="" >
+										</p:inputText>
+									</p:column>
+									
+									<p:column>
+										<p:inputText id="idContrasenia" value="#{usuarioMB.usuariologueado.contrasenausr}" style="visibility:hidden" >
 										</p:inputText>
 									</p:column>
 
@@ -109,7 +114,7 @@
 							</h:panelGrid>
 								</div>		
 								<div class="imagenUsuario">
-															<div class="u_nuevoUsuario" style="text-align: justify;">
+															<div class="u_fUsuario" style="text-align: justify;">
 															
 
 																<div style="margin-top: -20px; margin-left: 20px;"></div>													
@@ -122,7 +127,7 @@
 														<p:fileUpload styleClass="ui-fileupload" style="visibility:hidden"
 															fileUploadListener="#{ceditarusuarios.uploadImagenUsuario}"
 															mode="advanced" auto="true"  update=":formEditarUsuario,uploadMensaje"
-															sizeLimit="1000000" label="" allowTypes="/(\.|\/)(png|jpg)$/" >
+															sizeLimit="1000000" label="" allowTypes="/(\.|\/)(png|jpg|jpeg)$/" >
 														</p:fileUpload>
 													</div>
 												</div>
@@ -130,7 +135,7 @@
 															<div class="u_imagenPrevia" style="">
 
 															<p:graphicImage id="idImagenUsuario" width="120" height="130"
-																value="http://localhost:8080/sistemaSBLM/resources/images/usuarios/#{ceditarusuarios.rutaImagenUsuario}" onclick="openUploadFileDialogue();"  />
+																value="../resources/images/usuarios/#{ceditarusuarios.rutaImagenUsuario}" onclick="openUploadFileDialogue();"  />
 			
 															</div>
 
@@ -138,13 +143,13 @@
 
 								<div class="u_panelGrid3">
 										<div  class="u_iconoLapizUsuario"></div>
-										<div style="margin-top: -15px; margin-left: 70px">Nuevo Password</div>
+										<div style="margin-top: -15px; margin-left: 55px">Nuevo Password</div>
 								<h:panelGrid id="panelGrid3">
 
 
 									<p:row>
 										<p:column>
-											<p:spacer width="50" height="30" />
+											<p:spacer width="35" height="30" />
 											<p:password id="pwd1" value="#{ceditarusuarios.passRegistro}" >
 											<p:watermark value="Nuevo Contraseña" for="pwd1"></p:watermark> 
 											</p:password>
@@ -165,40 +170,97 @@
 								</div>	
 								
 								<div class="u_fondo_btnGuardar">
-									<p:spacer width="55" height="30" />
+									<p:spacer width="38" />
 									<p:commandButton id="idGuardarUsuario" value="Guardar" 
-										icon="ui-icon-save" oncomplete="validacioneEditarUsuario();" />
+										icon="ui-icon-save" oncomplete="validacioneEditarUsuario();" update="idContraseniaIngresada" />
 								</div>
-					
-							
 							</div>
-										<div class="u_fondo_interno2Edicion">
-											<p:spacer width="50" height="10" />
+<!-- 										<div class="u_fondo_interno2Edicion"> -->
+<!-- 											<p:spacer width="50" height="10" /> -->
+<!-- 											<div class="u_FechaDelDia"> -->
+<!-- 												<p:graphicImage id="idFechaCreacion" style="margin-left: 4px;margin-top: 10px;" -->
+<!-- 													value="../resources/images/usuario/fecha_usuario.png" /> -->
+<!-- 												<div style="margin-top: -28px; margin-left: 37px; font-size: 10px;"> -->
+<!-- 												Fecha de modificación -->
+<!-- 												</div> -->
+<!-- 											</div> -->
+				
+<!-- 											<div class="u_contenidoFechaDelDia" style="margin-left: 37px;margin-top: -3px; "> -->
+<!-- 												<h:outputText style="font-size: 11px;" value="#{ceditarusuarios.fechaCreacionUsuario} " /> -->
+											
+<!-- 											</div> -->
+<!-- 										</div> -->
+							<div class="u_fondo_interno2Edicion">
+
+								<div class="subcontenidoInfo_Cabecera">
+									<div class="subcontenidoInfo_logoTitulo" />
+									<div class="subcontenidoInfo_descripcionTitulo">
+										Informaci&oacute;n</div>
+								</div>
+
+
+								<div class="subcontenidoInfo_detContenidoFondo">
 											<div class="u_FechaDelDia">
-												<p:graphicImage id="idFechaCreacion" style="margin-left: 4px;margin-top: 10px;"
+												<p:graphicImage id="idFechaCreacion" style="margin-left: 14px;margin-top: 10px;"
 													value="../resources/images/usuario/fecha_usuario.png" />
-												<div style="margin-top: -28px; margin-left: 37px; font-size: 10px;">
+												<div style="margin-top: -28px; margin-left: 47px; font-size: 10px;" class="informacion6">
 												Fecha de modificación
 												</div>
 											</div>
-				
-											<div class="u_contenidoFechaDelDia" style="margin-left: 37px;margin-top: -3px; ">
-												<h:outputText style="font-size: 11px;" value="#{ceditarusuarios.fechaCreacionUsuario} " />
-											
-											</div>
-										</div>
-							</div>
 
+									<div class="subcontenidoInfo_textoconectadosfiltroDerecha2">
+											<div class="u_contenidoFechaDelDia" style="margin-left: 42px;margin-top: -10px; ">
+												<h:outputText style="font-size: 11px;" value="#{ceditarusuarios.fechaCreacionUsuario} " />
+											</div>
+									</div>
+								</div>
+
+							</div>
+										
+							</div>
+							
+												<p:confirmDialog id="dialogContrasenia"  header="SBLM" severity="alert"
+												message="Ingrese contraseña para hacer cambios"
+												widgetVar="widgetDlgConfirmTypePass">
+												<div style="text-align: center;margin-top: -20px;">
+												<p:focus context="dialogContrasenia"/> 
+												<p:password id="idContraseniaIngresada" />
+												</div>
+												
+												<center>
+													<p:commandButton id="btnGrabar" value="Aceptar"
+														onclick="validarPass();" 
+														oncomplete="widgetDlgConfirmTypePass.hide();">
+														<p:resetInput target="idContraseniaIngresada" />
+														</p:commandButton>
+													<p:spacer width="10" />
+													<p:commandButton value="Cancelar"
+														onclick="widgetDlgConfirmTypePass.hide()" />
+												</center>
+												</p:confirmDialog> 
+
+												<p:confirmDialog  header="SBLM" severity="alert"
+												message="Contraseña Incorrecta"
+												widgetVar="widgetDlgContraseniaIncorrecta">
+												
+												<center>
+
+													<p:commandButton value="Aceptar"
+														onclick="widgetDlgContraseniaIncorrecta.hide()" />
+												</center>
+												</p:confirmDialog>
 
 								
 										  	<p:growl id="messagesGuardar" showDetail="true" />  
 									    		<p:confirmDialog id="confirm" header="SBLM" severity="alert"
 												message="¿Está seguro de grabar usuario?"
 												widgetVar="widgetDlgConfirmGuardar">
+												
 												<center>
-													<p:commandButton id="btnGrabar" value="Aceptar"
-														 actionListener="#{ceditarusuarios.editarUsuarioPaginaMaestra}" 
-														oncomplete="widgetDlgConfirmGuardar.hide();window.location.reload();"  onclick=""  update=":formEditarUsuario,messagesGuardar"
+													<p:commandButton id="btn" value="Aceptar"
+														 actionListener="#{ceditarusuarios.editarUsuarioPaginaMaestra}"  action="#{usuarioMB.actualizarDatosUsuario}"
+														oncomplete="window.location.reload();" update=":formEditarUsuario,messagesGuardar, :frmMaestra,:frmGadget"
+														onclick="widgetDlgConfirmGuardar.hide();"
 														/>
 													<p:spacer width="10" />
 													<p:commandButton value="Cancelar"

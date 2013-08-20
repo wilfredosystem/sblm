@@ -53,8 +53,17 @@ try {
 
 	@Override
 	public void eliminarPerfil(Perfil perfil) {
-		// TODO Auto-generated method stub
-		
+		try {
+			getSessionFactory()
+					.getCurrentSession()
+					.createSQLQuery(
+							"delete from Perfil WHERE idperfil='"
+									+ perfil.getIdperfil() + "'")
+					.executeUpdate();
+		} catch (Exception e) {
+			System.out.println("error en dao eliminar eliminarPerfil:::"
+					+ e.getMessage());
+		}
 	}
 
 	@Override
@@ -69,7 +78,7 @@ try {
 
 	
 	    try{
-	    	return session.createQuery("from Perfil").list();
+	    	return session.createQuery("from Perfil order by feccre desc").list();
 	    }
 	    catch(HibernateException e){
 	    	System.out.println("error:::"+e);
@@ -148,4 +157,22 @@ e.printStackTrace();		}
 
 }
 
+	@Override
+	public String obtenerUltimoPerfil() {
+		return (String)getSessionFactory().openSession().createQuery("select p.nombreperfil from Perfil p where p.idperfil=( select max(idperfil) from Perfil)").uniqueResult();
+	}
+	@Override
+	public Date obtenerFechaUltimoPerfil() {
+		Date fecha=(Date) getSessionFactory().openSession().createQuery("select p.feccre from Perfil p where p.idperfil=( select max(idperfil) from Perfil)").uniqueResult();
+		return fecha;
+	}
+	@Override
+	public int obtenerNumeroPerfiles() {
+		
+		Long count = (Long)getSessionFactory().openSession().createQuery("select count(*) from Perfil").uniqueResult();
+
+		return count.intValue();
+				
+	
+	}
 }

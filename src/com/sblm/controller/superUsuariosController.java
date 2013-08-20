@@ -75,7 +75,7 @@ public class superUsuariosController implements Serializable {
 		
 		//C:\Users\Informatica\git\sblm\sistemaSBLM
 		destination = curDir+"\\webapps\\sistemaSBLM\\resources\\images\\usuarios\\";
-		
+
 		Date fechaHoy= new Date();	
 		fechaCreacionUsuario = new SimpleDateFormat("dd-MM-yyyy").format(fechaHoy);
 		System.out.println(FuncionesHelper.getUsuario().toString());
@@ -495,8 +495,10 @@ public class superUsuariosController implements Serializable {
 			
 			if(getFlagNewFile()){
 				setRutaImagenUsuario(event.getFile().getFileName());
-				FacesMessage msg = new FacesMessage("Se selecciono imagen correctamente!!!");  
-		        FacesContext.getCurrentInstance().addMessage(null, msg); 
+				
+				 FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, "Exito",  "Se cargo imagen correctamente");  
+			     FacesContext.getCurrentInstance().addMessage(null, message); 
+			     
 			}else{
  
 				setRutaImagenUsuario("default.jpg");

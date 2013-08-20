@@ -1,6 +1,6 @@
 package com.sblm.model;
 
-// Generated 05-ago-2013 16:25:24 by Hibernate Tools 3.4.0.CR1
+// Generated 15-ago-2013 10:27:57 by Hibernate Tools 3.4.0.CR1
 
 import java.util.Date;
 import java.util.HashSet;
@@ -31,8 +31,8 @@ public class Modulo implements java.io.Serializable {
 	private String usrmod;
 	private Boolean tipopermiso;
 	private Set<Perfilmodulo> perfilmodulos = new HashSet<Perfilmodulo>(0);
-	private Set<Pagina> paginas = new HashSet<Pagina>(0);
 	private Set<Auditoria> auditorias = new HashSet<Auditoria>(0);
+	private Set<Paginamodulo> paginamodulos = new HashSet<Paginamodulo>(0);
 
 	public Modulo() {
 	}
@@ -44,7 +44,7 @@ public class Modulo implements java.io.Serializable {
 	public Modulo(int idmodulo, String nombremodulo, String estado,
 			Date feccre, Date fecmod, String usrcre, String usrmod,
 			Boolean tipopermiso, Set<Perfilmodulo> perfilmodulos,
-			Set<Pagina> paginas, Set<Auditoria> auditorias) {
+			Set<Auditoria> auditorias, Set<Paginamodulo> paginamodulos) {
 		this.idmodulo = idmodulo;
 		this.nombremodulo = nombremodulo;
 		this.estado = estado;
@@ -54,8 +54,8 @@ public class Modulo implements java.io.Serializable {
 		this.usrmod = usrmod;
 		this.tipopermiso = tipopermiso;
 		this.perfilmodulos = perfilmodulos;
-		this.paginas = paginas;
 		this.auditorias = auditorias;
+		this.paginamodulos = paginamodulos;
 	}
 
 	@Id @GeneratedValue
@@ -143,21 +143,21 @@ public class Modulo implements java.io.Serializable {
 	}
 
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "modulo")
-	public Set<Pagina> getPaginas() {
-		return this.paginas;
-	}
-
-	public void setPaginas(Set<Pagina> paginas) {
-		this.paginas = paginas;
-	}
-
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "modulo")
 	public Set<Auditoria> getAuditorias() {
 		return this.auditorias;
 	}
 
 	public void setAuditorias(Set<Auditoria> auditorias) {
 		this.auditorias = auditorias;
+	}
+
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "modulo")
+	public Set<Paginamodulo> getPaginamodulos() {
+		return this.paginamodulos;
+	}
+
+	public void setPaginamodulos(Set<Paginamodulo> paginamodulos) {
+		this.paginamodulos = paginamodulos;
 	}
 
 }

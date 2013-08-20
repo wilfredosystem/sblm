@@ -1,16 +1,64 @@
-	function seleccionarTipo()
+window.onload=EstadoNotificacion;
+
+function EstadoNotificacion(){
+	
+		var idTip = $("select[name*='idTipo']").val();
+		
+
+	    if(idTip==1){ 
+	    	
+	    	$(".clsRevisado").attr('style','display:visible');
+	    	$(".clsCancelado").attr('style','display:visible');
+	    	$(".nroCabeceraPendiente").attr('style','display:visible'); 
+	    	$(".nroCabeceraRevisado").attr('style','display:none'); 
+	    	$(".nroCabeceraCancelado").attr('style','display:none'); 
+
+	    }else{
+	        if(idTip==2){
+	        	$(".clsRevisado").attr('style','display:none');
+	        	$(".clsCancelado").attr('style','display:none');
+		    	$(".nroCabeceraPendiente").attr('style','display:none'); 
+		    	$(".nroCabeceraRevisado").attr('style','display:visible'); 
+		    	$(".nroCabeceraCancelado").attr('style','display:none'); 
+
+
+	        }else{
+	        	if(idTip==3){
+		        	$(".clsRevisado").attr('style','display:visible');
+		        	$(".clsCancelado").attr('style','display:none');
+			    	$(".nroCabeceraPendiente").attr('style','display:none'); 
+			    	$(".nroCabeceraRevisado").attr('style','display:none'); 
+			    	$(".nroCabeceraCancelado").attr('style','display:visible'); 
+	
+		        }else{
+	        	
+	        	$(".clsRevisado").attr('style','display:visible');
+	        	$(".clsCancelado").attr('style','display:visible');
+		    	$(".nroCabeceraPendiente").attr('style','display:visible'); 
+		    	$(".nroCabeceraRevisado").attr('style','display:none'); 
+		    	$(".nroCabeceraCancelado").attr('style','display:none'); 
+		        }
+	        }
+	    	
+	    }
+	}
+
+function seleccionarTipo()
     {        
 	    var idTipo = $("select[name*='idTipo']").val();
 		    if(idTipo==1){ 
 		        $(".clsBotonUsuario").attr('style','display:visible');
 		        $(".clsBotonPerfil").attr('style','display:none');
 		        $(".clsRestoUsuario").attr('style','display:visible');
+		        $(".mensajeDefectoAuditoria").attr('style','display:none');
+		    	
 		        }
 	        if(idTipo==2){ 
 	            $(".clsBotonUsuario").attr('style','display:none');
 	            $(".clsBotonPerfil").attr('style','display:visible');
 	            $(".clsRestoUsuario").attr('style','display:visible');
-	            }
+	            $(".mensajeDefectoAuditoria").attr('style','display:none');
+	        }
     }
 	
 	function Tipo2(){
@@ -34,37 +82,42 @@
 		$(".clsDos").attr('style','display:none');
 	}
 		
-	function EstadoNotificacion(){
+	
+	
+	function EstadoNotificacionMaestras(){
+		
 		var idTip = $("select[name*='idTipo']").val();
+    	$(".nroCabeceraRevisado").attr('style','display:none'); 
+    	$(".nroCabeceraCancelado").attr('style','display:none'); 
+    	$(".nroCabeceraPendiente").attr('style','display:none'); 
 		
 
 	    if(idTip==1){ 
-	    	
-	    	$(".clsRevisado").attr('style','display:visible');
-	    	$(".clsCancelado").attr('style','display:visible');
-
+//	    	
+    	$(".nroCabeceraPendiente").attr('style','display:visible'); 
+//	    	$(".nroCabeceraRevisado").attr('style','display:none'); 
+//	    	$(".nroCabeceraCancelado").attr('style','display:none'); 
 	    }else{
 	        if(idTip==2){
-	        	$(".clsRevisado").attr('style','display:none');
-	        	$(".clsCancelado").attr('style','display:none');
-
+//		    	$(".nroCabeceraPendiente").attr('style','display:none'); 
+		    	$(".nroCabeceraRevisado").attr('style','display:visible'); 
+//		    	$(".nroCabeceraCancelado").attr('style','display:none'); 
 
 	        }else{
 	        	if(idTip==3){
-		        	$(".clsRevisado").attr('style','display:visible');
-		        	$(".clsCancelado").attr('style','display:none');
-	
-		        }else{
-	        	
-	        	$(".clsRevisado").attr('style','display:visible');
-	        	$(".clsCancelado").attr('style','display:visible');
+//			    	$(".nroCabeceraPendiente").attr('style','display:none'); 
+//			    	$(".nroCabeceraRevisado").attr('style','display:none'); 
+			    	$(".nroCabeceraCancelado").attr('style','display:visible'); 
 		        }
 	        }
 	    	
 	    }
 	}
 	
+
+	
 	function openUploadFileDialogue(){
 		
 		$('input[type=file]').click();
 	}
+	

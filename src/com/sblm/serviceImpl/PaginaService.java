@@ -1,5 +1,6 @@
 package com.sblm.serviceImpl;
 
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,6 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.sblm.dao.IPaginaDAO;
 import com.sblm.model.Pagina;
+import com.sblm.model.Paginamodulo;
 import com.sblm.service.IPaginaService;
 @Transactional(readOnly = true)
 @Service(value="paginaService")
@@ -56,7 +58,10 @@ public class PaginaService implements IPaginaService{
 	public String obtenerUltimaPagina() {
 		return getPaginaDAO().obtenerUltimaPagina();
 	}
-
+	@Override
+	public Pagina verificarPaginaEnModulo(String descripcionpagina, int idmodulo) {
+		return getPaginaDAO().verificarPaginaEnModulo(descripcionpagina,idmodulo);
+	}
 	public IPaginaDAO getPaginaDAO() {
 		return paginaDAO;
 	} 
@@ -67,6 +72,33 @@ public class PaginaService implements IPaginaService{
 	
 	public List<Pagina> listarPaginasModulos(int idmodulo) {
 		return getPaginaDAO().listarPaginasModulos(idmodulo);
+	}
+	@Override
+	public Date obtenerFechaUltimaPagina() {
+		return getPaginaDAO().obtenerFechaUltimaPagina();
+	}
+	@Override
+	public void registrarPaginamodulo(Paginamodulo paginamodulo) {
+		 getPaginaDAO().registrarPaginamodulo(paginamodulo);
+		
+	}
+	@Override
+	public void actualizarPaginamodulo(Paginamodulo paginamodulo) {
+		 getPaginaDAO().actualizarPaginamodulo(paginamodulo);
+		
+	}
+	@Override
+	public void eliminarPaginamodulo(Paginamodulo paginamodulo) {
+		getPaginaDAO().eliminarPaginamodulo(paginamodulo);
+		
+	}
+	@Override
+	public Pagina obtenerUltimaPaginaCreada() {
+		return getPaginaDAO().obtenerUltimaPaginaCreada();
+	}
+	@Override
+	public List<Paginamodulo> listarPaginamodulos() {
+		return getPaginaDAO().listarPaginamodulos();
 	}
 
 }

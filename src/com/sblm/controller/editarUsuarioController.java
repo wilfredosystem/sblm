@@ -72,13 +72,9 @@ public class editarUsuarioController implements Serializable {
 		listPerfilSeleccionado = new ArrayList<String>();
 		
 		String curDir = System.getProperty("user.dir");
-		
 		//C:\Users\Informatica\git\sblm\sistemaSBLM
-		destination = curDir+"\\webapps\\sistemaSBLM\\resources\\images\\usuarios\\";
-
-			
-	    
-		//destination = "C:\\Program Files\\Apache Software Foundation\\Tomcat 7.0\\webapps\\sistemaSBLM\\resources\\images\\usuarios\\";
+	destination = curDir+"\\webapps\\sistemaSBLM\\resources\\images\\usuarios\\";
+//		destination = "C:\\Users\\Informatica\\Desktop\\WokspaceGit\\sistemaSBLM\\WebContent\\resources\\images\\usuarios\\";
 		Date fechaHoy= new Date();	
 		fechaCreacionUsuario = new SimpleDateFormat("dd-MM-yyyy").format(fechaHoy);
 
@@ -195,19 +191,13 @@ public class editarUsuarioController implements Serializable {
 			
 			if(getFlagNewFile()){
 				setRutaImagenUsuario(event.getFile().getFileName());
-				FacesMessage msg = new FacesMessage("Se selecciono imagen correctamente!!!");  
-		        FacesContext.getCurrentInstance().addMessage(null, msg); 
+				 FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, "Exito",  "Se cargo imagen correctamente");  
+			     FacesContext.getCurrentInstance().addMessage(null, message); 
 			}else{
- 
 				setRutaImagenUsuario("default.jpg");
 				FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_ERROR, "Error al subir imagen",  "Corrija error");  
 			     FacesContext.getCurrentInstance().addMessage(null, message);
 			}
-			
-			
-			System.out.println(getRutaImagenUsuario());
-			
-			
 			
 		} catch (IOException e) {
 			e.printStackTrace();

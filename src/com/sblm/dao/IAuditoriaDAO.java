@@ -1,9 +1,7 @@
 package com.sblm.dao;
 
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-
 import com.sblm.model.Auditoria;
 import com.sblm.model.Modulo;
 import com.sblm.model.Pagina;
@@ -35,6 +33,10 @@ public interface IAuditoriaDAO {
 	public List listAuditoriaFiltroPerfil(Date fechaInicio, Date fechaFin,
 			String nombrePerfil, String recursoBusqueda, String nomPerfil,
 			String moduloBusqueda);
+
+	public Object ultimoModuloVisitado();
+
+	public Object ultimaPaginaVisitado();
 
 	
 }

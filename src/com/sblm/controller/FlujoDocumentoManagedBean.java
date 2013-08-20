@@ -49,7 +49,7 @@ public class FlujoDocumentoManagedBean implements Serializable {
 	int numeroDespachados;
 	int numeroPendientes;
 	int numeroRechazados;
-	
+//	private String ultimoAsunto;
 	private Flujodocumento[] listadocumentosrechazados;
 	private Flujodocumento documentocapturado;
 	private Date fechaInicio;
@@ -63,8 +63,15 @@ public class FlujoDocumentoManagedBean implements Serializable {
 		numeroPendientes=getFlujodocumentoService().obtenerNumeroPendientes();
 		numeroRechazados=getFlujodocumentoService().obtenerNumeroRechazados();
 	
+		
+//		ultimoAsunto= getFlujodocumentoService().obtenerUltimodocumento().getDescripcion();
 	}
 	
+	public FlujoDocumentoManagedBean() {
+		
+		
+	}
+
 	public void notificarRecahazo(){
 		
 
@@ -265,7 +272,15 @@ public class FlujoDocumentoManagedBean implements Serializable {
 	public void setDocumentocapturado(Flujodocumento documentocapturado) {
 		this.documentocapturado = documentocapturado;
 	}
-	
 
-	
+//	public String getUltimoAsunto() {
+//		return ultimoAsunto;
+//	}
+//
+//	public void setUltimoAsunto(String ultimoAsunto) {
+//		this.ultimoAsunto = ultimoAsunto;
+//	}
+//	
+//
+//	
 }

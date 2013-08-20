@@ -67,6 +67,8 @@ public class superAuditoriaController implements Serializable {
 	private String nomPerfil;
 	private String nomModulo;
 	private String tipoBusqueda;
+	private String ultimoModulo;
+	private String ultimaPagina	;
 	
 	
 	
@@ -86,7 +88,6 @@ public class superAuditoriaController implements Serializable {
 	@PostConstruct
 	public void initObjects(){
 		listAuditoriaInit = new ArrayList<Auditoria>();
-//		listUserTop = new ArrayList<Usuario>();
 		listUsuarioTop = new Usuario();
 		
 		
@@ -134,6 +135,12 @@ public class superAuditoriaController implements Serializable {
 
 	}
 	
+	public void consultarUltimoModuloVisitado(){
+		
+	 //getUltimoModulo(String.valueOf(panelAuditoriaServiceImpl.ultimoModuloVisitado().toString()));
+		
+	}
+	
 	public List<String> autoCompleteUsuario(String query){
 		
 		List<String> result = new ArrayList<String>();
@@ -142,7 +149,7 @@ public class superAuditoriaController implements Serializable {
 		
 		for(Usuario usu : (List<Usuario>)listUsuarios){
 			
-			String nomComplusu=usu.getApellidopat()+" "+usu.getApellidomat()+" "+usu.getNombres();
+			String nomComplusu=usu.getNombres()+" "+usu.getApellidopat()+" "+usu.getApellidomat();
 			
 			if(nomComplusu.toLowerCase().contains(query.toLowerCase())){
 				result.add(nomComplusu);
@@ -164,7 +171,7 @@ public class superAuditoriaController implements Serializable {
 				for(int i=0;i<listAuditoriaInit.size();i++){
 					try {
 						String queryString=listAuditoriaInit.get(i).getUrl();
-						int index = queryString.indexOf("pages/");
+//						int index = queryString.indexOf("pages/");
 //						System.out.println(queryString);
 //						queryString=queryString.substring(index+6, queryString.length());
 						listaAuditoriaFiltro.get(i).setUrl(queryString);
@@ -532,7 +539,24 @@ public class superAuditoriaController implements Serializable {
 	public void setTxtcargoUsuario(String txtcargoUsuario) {
 		this.txtcargoUsuario = txtcargoUsuario;
 	}
+
+
+	public void setUltimoModulo(String ultimoModulo) {
+		this.ultimoModulo = ultimoModulo;
+	}
+
+	public String getUltimoModulo() {
+		return String.valueOf(panelAuditoriaServiceImpl.ultimoModuloVisitado().toString());
+	}
+
+	public String getUltimaPagina() {
+		return String.valueOf(panelAuditoriaServiceImpl.ultimaPaginaVisitado().toString());
+	}
+
+	public void setUltimaPagina(String ultimaPagina) {
+		this.ultimaPagina = ultimaPagina;
+	}
 	
-	
+		
  
 }

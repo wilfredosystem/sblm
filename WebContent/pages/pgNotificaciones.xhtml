@@ -12,7 +12,7 @@
 
 	<title>SBLM</title>
 </h:head>
-<h:body onload="EstadoNotificacion();">
+<h:body onblur="self.focus()"  onload="EstadoNotificacion();">
 	<ui:composition template="./paginaMaestra.xhtml">
 		<ui:define name="content">
 
@@ -29,7 +29,7 @@
 					<div class="cabecerasuarioNotificaciones">
 						<div class="imagenCabecera">
 							<p:graphicImage width="104" height="110"
-								value="http://localhost:8080/sistemaSBLM/resources/images/usuarios/#{usuarioMB.usuariologueado.rutaimgusr}" />
+								value="../resources/images/usuarios/#{usuarioMB.usuariologueado.rutaimgusr}" />
 
 						</div>
 
@@ -52,21 +52,54 @@
 								value="../resources/images/notificacion/lineaSeparacion.png" />
 
 						</div>
-						<div class="nroCabecera">
+						<div class="nroCabeceraPendiente" style="display: none">
 							<div class="detalleNroCabecera">
 								<h:outputText value="Notificaciones Pendientes"
 									style="font-size: 10pt;color:white"></h:outputText>
 							</div>
 							<div class="imagenNroCabecera">
-
 								<h:outputText id="idNroTotalPendientes"
-									value="#{cnotificaciones.nroPendienteTotal}"
+									value="#{cnotificaciones.nroPendiente}"
+									style="color:#a8c2d8; margin-top:10px;" />
+							</div>
+
+						</div>
+						
+						<div class="nroCabeceraRevisado" style="display: none">
+							<div class="detalleNroCabecera">
+								<h:outputText value="Notificaciones Revisadas"
+									style="font-size: 10pt;color:white"></h:outputText>
+							</div>
+							<div class="imagenNroCabecera">
+								<h:outputText id="idNroTotalRevisados"
+									value="#{cnotificaciones.nroRevisado}"
+									style="color:#a8c2d8; margin-top:10px;" />
+							</div>
+
+						</div>
+						
+						<div class="nroCabeceraCancelado" style="display: none">
+							<div class="detalleNroCabecera">
+								<h:outputText value="Notificaciones Canceladas"
+									style="font-size: 10pt;color:white"></h:outputText>
+							</div>
+							<div class="imagenNroCabecera">
+								<h:outputText id="idNroTotalCancelados"
+									value="#{cnotificaciones.nroCancelado}"
 									style="color:#a8c2d8; margin-top:10px;" />
 							</div>
 
 						</div>
 					</div>
 					<div class="comboxNotificaciones">
+							Filtros <p:commandLink id="chartBtn" style="margin-right:20px;">
+						
+							<p:graphicImage width="25" height="25"
+								value="../resources/images/notificacion/iconoLupa.png" />
+							</p:commandLink>
+					</div>		
+							
+							<p:overlayPanel id="chartPanel" for="chartBtn" hideEffect="slide"  showEffect="slide">
 						<p:selectOneMenu id="idTipo" style="width: 150px;"
 							value="#{cnotificaciones.estadoNotificacion}">
 							<f:selectItem itemLabel="Pendiente" itemValue="1" />
@@ -77,6 +110,7 @@
 								update="idTablaAuditoria,idNroTotalPendientes"
 								listener="#{cnotificaciones.listarNotificacionesInit}"
 								process="@this" />
+								<p:focus/>
 
 						</p:selectOneMenu>
 						&nbsp;&nbsp;
@@ -89,6 +123,7 @@
 								update=":formNotificaciones:idTablaAuditoria"
 								listener="#{cnotificaciones.listarNotificacionesInit}"
 								process="@this" />
+								<p:focus/>
 
 						</p:selectOneMenu>
 						&nbsp;&nbsp;
@@ -101,32 +136,36 @@
 								update=":formNotificaciones:idTablaAuditoria"
 								listener="#{cnotificaciones.listarNotificacionesInit}"
 								process="@this" />
+								<p:focus/>
 
 						</p:selectOneMenu>
-					</div>
+					
+							</p:overlayPanel>
+					
 
-					<div class="cabeceraTablaUsuarioNotificaciones">
-						<div class="imagenCabeceraTablaUsuario">
-							<p:graphicImage width="78" height="69"
-								value="../resources/images/notificacion/imagenNotificacion.png" />
-						</div>
-						<div class="contenidoCabeceraTablaUsuario">
-							<p:spacer width="20" height="30" />
-							<h:outputText value="Usted  "
-								style="color:#957400;font-size: 10pt;" />
-							<h:outputText id="idMensajedeNotificaciones"
-								value="#{cnotificaciones.mensajedeNotificaciones}"
-								style="color:#4b483a;font-size: 10pt;" />
-							<br />
-							<p:spacer width="20" height="0" />
-							<h:outputText value="#{cnotificaciones.instanteFecha}"
-								style="font-size: 8pt;color:#8a887f">
-								<f:convertDateTime
-									pattern="EEEEEEE dd 'de' MMMM 'de' yyyy 'a las ' hh:mm a" />
-							</h:outputText>
 
-						</div>
-					</div>
+<!-- 					<div class="cabeceraTablaUsuarioNotificaciones"> -->
+<!-- 						<div class="imagenCabeceraTablaUsuario"> -->
+<!-- 							<p:graphicImage width="78" height="69" -->
+<!-- 								value="../resources/images/notificacion/imagenNotificacion.png" /> -->
+<!-- 						</div> -->
+<!-- 						<div class="contenidoCabeceraTablaUsuario"> -->
+<!-- 							<p:spacer width="20" height="30" /> -->
+<!-- 							<h:outputText value="Usted  " -->
+<!-- 								style="color:#957400;font-size: 10pt;" /> -->
+<!-- 							<h:outputText id="idMensajedeNotificaciones" -->
+<!-- 								value="#{cnotificaciones.mensajedeNotificaciones}" -->
+<!-- 								style="color:#4b483a;font-size: 10pt;" /> -->
+<!-- 							<br /> -->
+<!-- 							<p:spacer width="20" height="0" /> -->
+<!-- 							<h:outputText value="#{cnotificaciones.instanteFecha}" -->
+<!-- 								style="font-size: 8pt;color:#8a887f"> -->
+<!-- 								<f:convertDateTime -->
+<!-- 									pattern="EEEEEEE dd 'de' MMMM 'de' yyyy 'a las ' hh:mm a" /> -->
+<!-- 							</h:outputText> -->
+
+<!-- 						</div> -->
+<!-- 					</div> -->
 
 
 					<div class="tablaNotificacion" style="">
@@ -135,11 +174,16 @@
 							value="#{cnotificaciones.compDataModel}"
 							styleClass="noheader borderless cellSpacingTableClass"
 							scrollHeight="140"
-							emptyMessage="&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;No  tiene  notifaciones ">
+							paginatorPosition="bottom"
+							paginator="true" rows="10"  
+                 			paginatorTemplate=" {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"  
+                 			rowsPerPageTemplate="5,10,15"  
+							emptyMessage="">
+							
 							<p:column>
 								<div class="rowNotificaciones1">
 									<p:graphicImage width="78" height="78" style="" 
-										value="http://localhost:8080/sistemaSBLM/resources/images/usuarios/#{audi.usuario.rutaimgusr}" />
+										value="../resources/images/usuarios/#{audi.usuario.rutaimgusr}" />
 								</div>
 							</p:column>
 							<p:column
@@ -200,8 +244,8 @@
 						message="¿Desea cambiar a estado a 'revisado' notificación?"
 						header="Alerta" severity="alert" widgetVar="dlgPasarRevisado">
 
-						<p:commandButton value="&nbsp;Aceptar"
-							update=":formNotificaciones:idTablaAuditoria,:formNotificaciones:idMensajedeNotificaciones,:formNotificaciones:idNroTotalPendientes"
+						<p:commandButton value="&nbsp;Aceptar" 
+							update=":formNotificaciones:idTablaAuditoria,:formNotificaciones:idNroTotalPendientes,:formNotificaciones:idNroTotalRevisados,:formNotificaciones:idNroTotalCancelados"
 							actionListener="#{cnotificaciones.actualizar}"
 							oncomplete="dlgPasarRevisado.hide()" image="icon-save">
 
@@ -214,7 +258,7 @@
 						header="Alerta" severity="alert" widgetVar="dlgPasarCancelado">
 
 						<p:commandButton value="&nbsp;Aceptar"
-							update=":formNotificaciones:idTablaAuditoria,:formNotificaciones:idMensajedeNotificaciones,:formNotificaciones:idNroTotalPendientes"
+							update=":formNotificaciones:idTablaAuditoria,:formNotificaciones:idNroTotalPendientes"
 							actionListener="#{cnotificaciones.actualizarCancelado}"
 							oncomplete="dlgPasarCancelado.hide()" image="icon-save">
 

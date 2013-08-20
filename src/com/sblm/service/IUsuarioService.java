@@ -34,5 +34,7 @@ public interface IUsuarioService {
 	public void grabarLogueo();
 	
 	public List<Usuario> listarUsuarios(int iduser);
+
+	public Usuario buscarUsuarioxId(int parseInt);
 	
 }

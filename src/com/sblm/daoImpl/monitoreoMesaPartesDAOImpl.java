@@ -12,6 +12,7 @@ import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import com.sblm.dao.IMonitoreoMesaPartesDAO;
+import com.sblm.model.Usuario;
 import com.sblm.modelMP.Documento;
 import com.sblm.modelMP.Flujodoc;
 
@@ -195,9 +196,15 @@ public class monitoreoMesaPartesDAOImpl implements IMonitoreoMesaPartesDAO, Seri
 	@Override
 	public List<com.sblm.model.Documento> listarDocumentosAtendidos() {
 		Session session = getSessionFactory().openSession();
-		System.out.println("Atendidos");
 		
 		return session.createQuery("from Documento D where D.estado='atendido'").list();
+	}
+
+
+	@Override
+	public Usuario getDirectorDGAI() {
+		Session session = getSessionFactory().openSession();
+		return (Usuario) session.createQuery("from Usuario U where U.cargo='Director DGAI'").uniqueResult();
 	}
 
 

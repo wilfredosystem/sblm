@@ -2,6 +2,7 @@ package com.sblm.service;
 
 import java.util.List;
 
+import com.sblm.model.Usuario;
 import com.sblm.modelMP.Documento;
 import com.sblm.modelMP.Flujodoc;
 
@@ -13,16 +14,18 @@ public interface IMonitoreoMesaPartesService {
 
 	public Object countInternalDB();
 
-	List<Flujodoc> getNewInserts(int val);
+	public List<Flujodoc> getNewInserts(int val);
 
-	void save(com.sblm.model.Documento doc);
+	public void save(com.sblm.model.Documento doc);
 
-	Object countPendientes();
+	public Object countPendientes();
 
-	Object countAtendidos();
+	public Object countAtendidos();
 
-	void actualizarEstadoToAtendido(int iddoc);
+	public void actualizarEstadoToAtendido(int iddoc);
 
-	List<com.sblm.model.Documento> listarDocumentosAtendidos();
+	public List<com.sblm.model.Documento> listarDocumentosAtendidos();
+
+	public Usuario getDirectorDGAI();
 
 }

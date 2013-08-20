@@ -63,6 +63,12 @@ public class TipoCambioManagedBean implements Serializable {
 			e.printStackTrace();
 		}
 	}
+	
+public String  irtipocambio(){
+		
+		return "pgTipoCambio?faces-redirect=true";
+	}
+	
 
 	public void onRowSelect(SelectEvent event) {
 		actualizado = true;
@@ -80,16 +86,20 @@ public class TipoCambioManagedBean implements Serializable {
 		
 		Date ahora = new Date();
 		
-		tipoCam.setFecha(ahora);
+		
 		if (actualizado == true) {
-			tipoCam.setUsrmod(userMB.getUsuariologueado().getNombreusr());
+			String usermodificador =userMB.getUsuariologueado().getNombres()+""+userMB.getUsuariologueado().getApellidopat();
+			tipoCam.setFeccre(ahora);
+			tipoCam.setUsrmod(usermodificador);
 			getTipocambioService().registrarTipoCambio(tipoCam);
 			FacesMessage msg = new FacesMessage(
 					"Se Actualizo correctamente el tipo de cambio.");
 
 			FacesContext.getCurrentInstance().addMessage(null, msg);
 		} else {
-			tipoCam.setUsrcre(userMB.getUsuariologueado().getNombreusr());
+			String usercreador =userMB.getUsuariologueado().getNombres()+""+userMB.getUsuariologueado().getApellidopat();
+			tipoCam.setUsrcre(usercreador);
+			tipoCam.setFeccre(ahora);
 			getTipocambioService().registrarTipoCambio(tipoCam);
 			FacesMessage msg = new FacesMessage(
 					"Se Registro correctamente el tipo de cambio.");

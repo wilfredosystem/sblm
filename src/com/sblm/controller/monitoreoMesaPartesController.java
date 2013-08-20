@@ -11,10 +11,16 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.ViewScoped;
 import javax.faces.context.FacesContext;
+import javax.faces.event.ActionEvent;
+
+import org.primefaces.event.CellEditEvent;
+import org.primefaces.event.SelectEvent;
 
 import com.sblm.model.Documento;
 import com.sblm.model.Tipodocumento;
+import com.sblm.model.Usuario;
 import com.sblm.modelMP.Flujodoc;
+import com.sblm.service.IAuditoriaService;
 import com.sblm.service.IMonitoreoMesaPartesService;
 import com.sblm.util.Almanaque;
 import com.sblm.util.CompDataModelDocumento;
@@ -26,12 +32,16 @@ public class monitoreoMesaPartesController implements Serializable {
 	@ManagedProperty(value = "#{panelDocumentoMesaPartesServiceImpl}")
 	private transient IMonitoreoMesaPartesService panelDocumentoMesaPartesServiceImpl;
 	
+	@ManagedProperty(value = "#{panelAuditoriaServiceImpl}")
+	private transient IAuditoriaService panelAuditoriaServiceImpl;
+	
 	private static final long serialVersionUID = 5524190003746598593L;
 	private List<Flujodoc> listFLujoDocumentosRegInit;
 	private List<Documento> listDocumentosRegInit;
 	private List<Documento> listDocumentosRegInitAtendido;
 	private Documento[] selectRegistrosDocumentos;
 	private Documento  selectRegistroDocumento;
+	private Usuario  selectRegistroUsuario;
 	private CompDataModelDocumento compDataModelDocumento;
 	private Object nroExternal=0;
 	private Object nroInternal=0;
@@ -43,18 +53,27 @@ public class monitoreoMesaPartesController implements Serializable {
 	private String mesActual;
 	private int iddocumento;
 	private String descripcionDocumento;
+	private List<Usuario> listaUsuarioSeleccionados;
+	private List<Usuario> listUsuarios;
+	private int indicesalvador;
+	private String nombreCompletoSeleccionado;
 
 	
 
 	
 	@PostConstruct
 	public void initObjects(){
+		listaUsuarioSeleccionados= new ArrayList<Usuario>();
+		listaUsuarioSeleccionados.add(panelDocumentoMesaPartesServiceImpl.getDirectorDGAI());
+		listaUsuarioSeleccionados.get(0).setEmailusr(listaUsuarioSeleccionados.get(0).getNombres()+" "+listaUsuarioSeleccionados.get(0).getApellidopat()+""+listaUsuarioSeleccionados.get(0).getApellidomat());
+		listUsuarios = panelAuditoriaServiceImpl.listUsuariobyNom();
 		System.out.println("intro postcontruct");
 		Almanaque almanaque= new Almanaque();
 		mesActual=almanaque.obtenerMesActual();
 		actualizarBeneficenciadb();
 		listarGrillaInit();
 		valuePendiente();
+		
 	
 	}
 
@@ -182,11 +201,77 @@ public class monitoreoMesaPartesController implements Serializable {
 		
 	}
 	
-	public void parser(String cadena){
+	public void agregarUsuarioLista(){
+		boolean usuarioVacio = false;
+//		
+//		if (!listaUsuarioSeleccionados.isEmpty()) {
+//			for (Usuario Usu : listaUsuarioSeleccionados) {
+//				if (Usu.getApellidopat().equals("")) {
+//					usuarioVacio = true;
+//					break;
+//				}
+//			}
+//		}
 		
-		//busca N°
+		if (!usuarioVacio) {
+		}
+			Usuario Usu = new Usuario();
+			Usu.setEmailusr("Escriba Nombre Usuario");
+			Usu.setRutaimgusr("default.jpg");
+			listaUsuarioSeleccionados.add(Usu);
+			
+		}
+	
+    public void onCellEdit(CellEditEvent event) {  
+        Object oldValue = event.getOldValue();  
+        Object newValue = event.getNewValue(); 
+        
+       // setNombreCompletoSeleccionado(newValue.toString());
+        
+        
+//        if(newValue != null && !newValue.equals(oldValue)) {  
+//            FacesMessage msg = new FacesMessage(FacesMessage.SEVERITY_INFO, "Cell Changed", "Old: " + oldValue + ", New:" + newValue);  
+//            FacesContext.getCurrentInstance().addMessage(null, msg);  
+//        }  
+       listUsuarios = panelAuditoriaServiceImpl.listUsuariobyNom();
+		for(int i=0;i<listaUsuarioSeleccionados.size();i++){
+			
+			if((listaUsuarioSeleccionados.get(i).getEmailusr()).equals(newValue)){
+				setIndicesalvador(i);	
+
+			}}
 		
-	}
+		
+			int f=0;
+			for(int k=0;k<listaUsuarioSeleccionados.size();k++){	
+				
+
+				if((listUsuarios.get(k).getNombres()+" "+listUsuarios.get(k).getApellidopat() +" "+listUsuarios.get(k).getApellidomat()).equals(newValue)){
+					System.out.println("--->"+f);
+					listaUsuarioSeleccionados.get(getIndicesalvador()).setRutaimgusr(listUsuarios.get(k).getRutaimgusr());
+					listaUsuarioSeleccionados.get(getIndicesalvador()).setCargo(listUsuarios.get(k).getCargo());
+				}
+        
+			}
+        
+
+    }
+
+	
+		public void eliminarUsuarioDeLista(ActionEvent event) {
+			System.out.println("Id Elemento Seleccionado"+getSelectRegistroUsuario());
+				try {
+					if (getSelectRegistroUsuario() != null) {
+						listaUsuarioSeleccionados.remove(getSelectRegistroUsuario());
+						System.out.println("Eliminado");
+					}
+				} catch (Exception e) {
+					e.getMessage();
+				}
+			}
+		
+		
+	
 	public void seleccionIdDocumento(){
 		
 		for(int i=0;i<listDocumentosRegInit.size();i++){
@@ -380,7 +465,69 @@ public class monitoreoMesaPartesController implements Serializable {
 	public void setDescripcionDocumento(String descripcionDocumento) {
 		this.descripcionDocumento = descripcionDocumento;
 	}
+
+
+	public List<Usuario> getListaUsuarioSeleccionados() {
+		return listaUsuarioSeleccionados;
+	}
+
+
+	public void setListaUsuarioSeleccionados(List<Usuario> listaUsuarioSeleccionados) {
+		this.listaUsuarioSeleccionados = listaUsuarioSeleccionados;
+	}
+
+
+	public List<Usuario> getListUsuarios() {
+		return listUsuarios;
+	}
+
+
+	public void setListUsuarios(List<Usuario> listUsuarios) {
+		this.listUsuarios = listUsuarios;
+	}
+
+
+	public IAuditoriaService getPanelAuditoriaServiceImpl() {
+		return panelAuditoriaServiceImpl;
+	}
+
+
+	public void setPanelAuditoriaServiceImpl(
+			IAuditoriaService panelAuditoriaServiceImpl) {
+		this.panelAuditoriaServiceImpl = panelAuditoriaServiceImpl;
+	}
+
+
+	public int getIndicesalvador() {
+		return indicesalvador;
+	}
+
+
+	public void setIndicesalvador(int indicesalvador) {
+		this.indicesalvador = indicesalvador;
+	}
+
+
+	public String getNombreCompletoSeleccionado() {
+		return nombreCompletoSeleccionado;
+	}
+
+
+	public void setNombreCompletoSeleccionado(String nombreCompletoSeleccionado) {
+		this.nombreCompletoSeleccionado = nombreCompletoSeleccionado;
+	}
+
+
+	public Usuario getSelectRegistroUsuario() {
+		return selectRegistroUsuario;
+	}
+
+
+	public void setSelectRegistroUsuario(Usuario selectRegistroUsuario) {
+		this.selectRegistroUsuario = selectRegistroUsuario;
+	}
+
 	
-	
+
 	
 }

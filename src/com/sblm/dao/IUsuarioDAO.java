@@ -31,6 +31,8 @@ public Perfilmodulo obtenerEstadoModulo(int idperfil , int idmodulo);
 
 public void grabarLogueo();
 
+public Usuario buscarUsuarioxId(int parseInt);
+
 
 	
 }

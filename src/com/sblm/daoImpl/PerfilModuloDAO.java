@@ -9,6 +9,7 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.sblm.dao.IPerfilModuloDAO;
 import com.sblm.model.Auditoria;
@@ -17,6 +18,7 @@ import com.sblm.model.Eventoauditoria;
 import com.sblm.model.Modulo;
 import com.sblm.model.Perfil;
 import com.sblm.model.Perfilmodulo;
+import com.sblm.model.Perfilusuario;
 import com.sblm.model.Usuario;
 
 @Repository(value = "perfilmoduloDAO")
@@ -27,12 +29,16 @@ public class PerfilModuloDAO implements IPerfilModuloDAO,Serializable{
 	@Autowired
 	private SessionFactory sessionFactory;
 	
+	
 	@Override
 	public void registrarPerfilModulo(Perfilmodulo perfilmodulo) {
 		System.out.println(":::registro perfil modulo DAO:::");
+		
 		getSessionFactory().getCurrentSession().merge(perfilmodulo);
 		
 	}
+	
+
 
 	@Override
 	public void actualizarPerfilModulo(Perfilmodulo perfilmodulo) {
@@ -82,7 +88,7 @@ public class PerfilModuloDAO implements IPerfilModuloDAO,Serializable{
 	public List<Perfilmodulo> listarPerfilModuloPorIdPerfil(int idperfil) {
 		System.out.println("paso###listarPerfilModuloPorIdPerfil###");
 		Session session = getSessionFactory().openSession();
-		return session.createQuery("from Perfilmodulo  where perfil.idperfil="+idperfil+"  and ESTADO='true'").list();
+		return session.createQuery("from Perfilmodulo  where perfil.idperfil="+idperfil+" ").list();
 	}
 
 	@Override

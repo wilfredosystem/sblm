@@ -84,19 +84,18 @@
 												<br />
 												<h:outputText
 													style="color:#750101; font-size: 12px; font-weight:bold;"
-													value="Descripcion del Expediente:" />
+													value="&Uacute;ltimo Expediente recibido:" />
 												<br />
 												<h:outputText
 													style="color:#5c5a5a; font-size: 10px; font-weight:bold;"
-													value="Ministerio de Economia y Finanzas Of Nro 0255/DSEACE 
-													infroman que a fin de actualizar la base de datos del sistema electronico de contratacuones..." />
+													value="#{documentodgaiMB.ultimoAsunto}" />
 											</div>
 											<div style="float: left; margin-left: 70px">
 												<div class="dgaiMonitoreo_fechaIcono"></div>
 												<br />
 												<h:outputText
 													style="color:#3399cc; font-size: 12px; font-weight:bold;"
-													value="#{cmonitoreomesapartes.mesActual}" />
+													value="#{documentodgaiMB.mesActual}" />
 											</div>
 
 											<div class="dgaiMonitoreo_totalExpDerivacion">
@@ -279,8 +278,7 @@
 													selection="#{flujodocumentoMB.listadousuarios}"
 													style="width:325px; font-size: 10px;"
 													emptyMessage="No existen registros"
-													paginatorTemplate=" Ir a p&aacute;gina: {JumpToPageDropdown} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {FirstPageLink} {PreviousPageLink} {NextPageLink} {LastPageLink} &nbsp;&nbsp; Registros por p&aacute;gina: {RowsPerPageDropdown}  &nbsp;  {CurrentPageReport}"
-												currentPageReportTemplate="{startRecord}-{endRecord} de {totalRecords} Registros"
+													
 												rowsPerPageTemplate="10,15,20" 	rows="10" paginator="true">
 
 													<p:column selectionMode="multiple" style="width:2%" />
@@ -741,34 +739,34 @@
 												<h:panelGrid columns="2" cellpadding="4"
 													style="font-size: 11pt; font-weight: bold">
 
-													<h:outputText value="Fecha Registro:" />
+													<h:outputText value="Fecha Registro:" style="color:#2F7501;" />
 													<h:outputText
 														value="#{documentodgaiMB.documentoseleccionado.fechadocumento}"
-														style="font-size: 10pt; font-weight: bold">
+														style="font-size: 10px;color:#5C5A5A;">
 														<f:convertDateTime
 															pattern="EEEEEEE dd 'de' MMMM 'de' yyyy" />
 													</h:outputText>
 
-													<h:outputText value="Nº folios:" />
+													<h:outputText value="Nº folios:" style="color:#2F7501;" />
 													<h:outputText
 														value="#{documentodgaiMB.documentoseleccionado.numerofolio}"
-														style="font-size: 8pt;" />
+														style="font-size: 10px;color:#5C5A5A;" />
 
-													<h:outputText value="Asunto:" />
+													<h:outputText value="Asunto:" style="color:#2F7501;" />
 													<h:outputText
 														value="#{documentodgaiMB.documentoseleccionado.asunto}"
-														style="font-size: 8pt;">
+														style="font-size: 10px;color:#5C5A5A;">
 													</h:outputText>
 
-													<h:outputText value="Despacho:" />
+													<h:outputText value="Despacho:" style="color:#2F7501;"  />
 													<h:outputText
 														value="#{documentodgaiMB.documentoseleccionado.nombreremitente}"
-														style="font-size: 8pt;" />
+														style="font-size: 10px;color:#5C5A5A;"/>
 
-													<h:outputText value="Descripción:" />
+													<h:outputText value="Descripción:" style="color:#2F7501;" />
 													<h:outputText
 														value="#{documentodgaiMB.documentoseleccionado.descripcion}"
-														style="font-size: 8pt;" />
+														style="font-size: 10px;color:#5C5A5A;" />
 												</h:panelGrid>
 											</div>
 

@@ -60,8 +60,8 @@
 									</div>
 								</h:form>
 								<h:form>
-									
-									<p:growl id="growlRegistrar" sticky="false" life="4000"  />
+
+									<p:growl id="growlRegistrar" sticky="false" life="4000" />
 									<p:confirmDialog message="¿Desea Guardar Tipo de Cambio?"
 										header="Registro Tipo Cambio" severity="alert"
 										widgetVar="dlgRegistrarTipoCambio">
@@ -84,7 +84,12 @@
 											value="#{tipocambioMB.tipocambios}"
 											rowKey="#{tipocam.idtipocambio}"
 											selection="#{tipocambioMB.tipoCam}" selectionMode="single"
-											paginator="true" rows="5" style="font-size: 10px;">
+											paginator="true"
+											style="width:435px; font-size: 10px;  text-align:center;"
+											paginatorTemplate="Reg. por p&aacute;gina: {RowsPerPageDropdown}  &nbsp; {FirstPageLink} {PreviousPageLink} {NextPageLink} {LastPageLink} &nbsp;&nbsp;   {CurrentPageReport}"
+											currentPageReportTemplate="{startRecord}-{endRecord} de {totalRecords} Registros"
+											rowsPerPageTemplate="10,15,20" rows="10"
+											paginatorPosition="top">
 											<p:ajax event="rowSelect"
 												listener="#{tipocambioMB.onRowSelect}"
 												update=":frmTipoCambio" />
@@ -93,28 +98,46 @@
 												style="text-align: center;">
 												<h:outputText value="#{tipocam.tipocambio}" />
 											</p:column>
-											<p:column headerText="Fecha Registro"
-												style="text-align: center;">
-												<h:outputText value="#{tipocam.fecha}" >
-												<f:convertDateTime pattern="EEE dd 'de' MMMM 'de' yyyy 'a las ' hh:mm a" />
+											
+											<p:column headerText="Usuario Creador" style="width: 100px; ">
+												<h:outputText value="#{tipocam.usrcre}" />
+											</p:column>
+											<p:column headerText="Fecha creacion" style="width:100px;">
+												<h:outputText value="#{tipocam.feccre}">
+													<f:convertDateTime pattern="dd/MM/yyyy hh:mm a" />
 												</h:outputText>
 											</p:column>
-
 										</p:dataTable>
 									</div>
 								</h:form>
 							</div>
 							<h:form id="frmInfoTipoCambio">
-								<div class="mant_subFondo_formulario2">
-									<div class="mant_subFondo_icoInfo"></div>
-									<div class="mant_tipoCambioTitulo">
-										<h:outputText value="Tipo de cambio #{tipocambioMB.mes}" />
+								<div class="paginaInterior2">
+
+									<div class="subcontenidoInfo_Cabecera">
+										<div class="subcontenidoInfo_logoTitulo" />
+										<div class="subcontenidoInfo_descripcionTitulo">
+											Informaci&oacute;n</div>
 									</div>
-									<div class="mant_tipoCambioValor">
-										<h:outputText id="idTip" style="color: #006400;"
-											value="S./ #{tipocambioMB.resultadoTipoCambio}" />
+
+
+									<div class="subcontenidoInfo_detContenidoFondo">
+
+
+										<div class="descripcionTipoCambio">
+											<h:outputText styleClass="subcontenidoInfo_fila2Estilo"
+												value="Tipo de cambio" />
+											<br />
+											<h:outputText styleClass="subcontenidoInfo_fila2Estilo"
+												value="#{tipocambioMB.mes}" />
+										</div>
+										<div class="valorTipoCambio">
+											<h:outputText value="S./ #{tipocambioMB.resultadoTipoCambio}" />
+										</div>
 									</div>
+
 								</div>
+
 							</h:form>
 
 

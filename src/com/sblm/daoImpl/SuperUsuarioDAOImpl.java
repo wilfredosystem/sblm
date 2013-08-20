@@ -10,8 +10,6 @@ import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
-
-import com.sblm.controller.auditoriaLogController;
 import com.sblm.dao.ISuperUsuarioDAO;
 import com.sblm.model.Auditoria;
 import com.sblm.model.Estadoauditoria;

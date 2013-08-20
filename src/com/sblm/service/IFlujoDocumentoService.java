@@ -2,6 +2,7 @@ package com.sblm.service;
 
 import java.util.List;
 
+import com.sblm.model.Documento;
 import com.sblm.model.Flujodocumento;
 import com.sblm.model.Modulo;
 
@@ -21,4 +22,5 @@ public interface IFlujoDocumentoService {
 	public int obtenerNumeroDespachados();
 	public int obtenerNumeroPendientes();
 	public int obtenerNumeroRechazados();
+	public Documento obtenerUltimodocumento();
 }

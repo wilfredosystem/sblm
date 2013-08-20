@@ -39,8 +39,7 @@ public class PermisoService implements IPermisoService{
 
 	@Override
 	public Permiso listarPermisoPorId(int id) {
-		// TODO Auto-generated method stub
-		return null;
+		return getPermisoDAO().listarPermisoPorId(id);
 	}
 
 	@Override

@@ -1,8 +1,10 @@
 package com.sblm.service;
 
+import java.util.Date;
 import java.util.List;
 
 import com.sblm.model.Pagina;
+import com.sblm.model.Paginamodulo;
 
 public interface IPaginaService {
 
@@ -19,4 +21,17 @@ public interface IPaginaService {
 	
 	public int obtenerNumeroPaginas();
 	public String obtenerUltimaPagina();
+	public Date obtenerFechaUltimaPagina();
+	 
+	public void registrarPaginamodulo(Paginamodulo paginamodulo);
+	public Pagina obtenerUltimaPaginaCreada();
+	public List<Paginamodulo> listarPaginamodulos();
+
+	void actualizarPaginamodulo(Paginamodulo paginamodulo);
+
+	void eliminarPaginamodulo(Paginamodulo paginamodulo);
+
+	Pagina verificarPaginaEnModulo(String descripcionpagina, int idmodulo);
+	
+	
 }

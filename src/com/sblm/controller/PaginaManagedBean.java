@@ -1,6 +1,7 @@
 package com.sblm.controller;
 
 import java.io.Serializable;
+import java.util.Date;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
@@ -10,169 +11,241 @@ import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.ViewScoped;
 import javax.faces.context.FacesContext;
 
-import org.primefaces.component.column.Column;
-import org.primefaces.component.menuitem.MenuItem;
-import org.primefaces.component.submenu.Submenu;
 import org.primefaces.event.SelectEvent;
 import org.primefaces.model.DefaultMenuModel;
 import org.primefaces.model.MenuModel;
 
 import com.sblm.model.Modulo;
 import com.sblm.model.Pagina;
+import com.sblm.model.Paginamodulo;
 import com.sblm.service.IModuloService;
 import com.sblm.service.IPaginaService;
 
 @ManagedBean(name = "paginaMB")
 @ViewScoped
-public class PaginaManagedBean implements Serializable{
+public class PaginaManagedBean implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 	@ManagedProperty(value = "#{paginaService}")
 	private transient IPaginaService paginaService;
-	
+
 	@ManagedProperty(value = "#{moduloService}")
 	private transient IModuloService moduloService;
-	private MenuModel model; 
+	private MenuModel model;
 	@ManagedProperty(value = "#{usuarioMB}")
 	UsuarioManagedBean userMB;
-	
+
+	@ManagedProperty(value = "#{moduloMB}")
+	ModuloManagedBean moduloMB;
+
 	private Pagina pagina;
-	private List<Pagina>paginas;
+	private List<Pagina> paginas;
 	private String ultimoPagina;
-	 
-	
-	 public PaginaManagedBean() {  
-	       
-	    }  
-		@PostConstruct
-		public void initObjects() {
+	private int numPaginas;
+	private Date fechaultimaPagina;
 
-			try {
-				
-				ultimoPagina = getPaginaService().obtenerUltimaPagina();
-				
-				 model = new DefaultMenuModel();  
-		          
-//			      List <Modulo> lstmodulo=  getModuloService().listarModulos();
-//			      
-//			         for (Modulo modu : lstmodulo) {
-//			        	 Submenu submenup = new Submenu();  
-//			        	 submenup.setLabel(modu.getNombremodulo());  //menus
-//			        	 submenup.setRendered(new Boolean(modu.getEstado() ) );
-//			        	 Column colum =new Column();
-//			        	 Submenu submenu = new Submenu();  
-//						System.out.println("modulo:::"+modu.getNombremodulo());
-//						 List <Pagina> lstpagina=  getPaginaService().listarPaginasModulos(modu.getIdmodulo());
-//				         for (Pagina pag : lstpagina) {
-//				        	  MenuItem  item = new MenuItem();  //items
-//				        	    item.setValue(pag.getNombrepagina());  
-//						        item.setUrl(pag.getNombrepagina()+".jsf");  
-//						        submenu.getChildren().add(item);
-//				        	 System.out.println("pagina:::"+pag.getNombrepagina());
-//						}
-//				         colum.getChildren().add(submenu);
-//					        submenup.getChildren().add(colum); 
-//					        model.addSubmenu(submenup);  
-//					}
-			        
-			        //First submenu  
-//			        Submenu submenup = new Submenu();  
-//			        submenup.setLabel("Administracion");  
-//			        
-//			        Column colum =new Column();
-//			        Submenu submenu = new Submenu();  
-//			        
-//			        MenuItem  item = new MenuItem();  //items
-//			        item.setValue("auditoria");  
-//			        item.setUrl("#");  
-//			        submenu.getChildren().add(item);  
-//			        
-//			        
-//			        colum.getChildren().add(submenu);
-//			        submenup.getChildren().add(colum);  
-//			          
-//			        model.addSubmenu(submenup);  
-//			          
-//			        //Second submenu  
-//			        submenu = new Submenu();  
-//			        submenu.setLabel("Mantenimiento");  
-//			          
-//			        item = new MenuItem();  
-//			        item.setValue("TipoCmabio");  
-//			        item.setUrl("#");  
-//			        submenu.getChildren().add(item);  
-//			          
-//			        item = new MenuItem();  
-//			        item.setValue("TipoCmabio 2");  
-//			        item.setUrl("#");  
-//			        submenu.getChildren().add(item);  
-//			          
-//			        model.addSubmenu(submenu);  
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
+	private Paginamodulo paginamodulo;
+	private List<Paginamodulo> paginamodulos;
+	private boolean actualizado;
+
+	public PaginaManagedBean() {
+
+	}
+
+	@PostConstruct
+	public void initObjects() {
+
+		try {
+
+			ultimoPagina = getPaginaService().obtenerUltimaPagina();
+			fechaultimaPagina = getPaginaService().obtenerFechaUltimaPagina();
+			numPaginas = getPaginaService().obtenerNumeroPaginas();
+
+			model = new DefaultMenuModel();
+
+			// List <Modulo> lstmodulo= getModuloService().listarModulos();
+			//
+			// for (Modulo modu : lstmodulo) {
+			// Submenu submenup = new Submenu();
+			// submenup.setLabel(modu.getNombremodulo()); //menus
+			// submenup.setRendered(new Boolean(modu.getEstado() ) );
+			// Column colum =new Column();
+			// Submenu submenu = new Submenu();
+			// System.out.println("modulo:::"+modu.getNombremodulo());
+			// List <Pagina> lstpagina=
+			// getPaginaService().listarPaginasModulos(modu.getIdmodulo());
+			// for (Pagina pag : lstpagina) {
+			// MenuItem item = new MenuItem(); //items
+			// item.setValue(pag.getNombrepagina());
+			// item.setUrl(pag.getNombrepagina()+".jsf");
+			// submenu.getChildren().add(item);
+			// System.out.println("pagina:::"+pag.getNombrepagina());
+			// }
+			// colum.getChildren().add(submenu);
+			// submenup.getChildren().add(colum);
+			// model.addSubmenu(submenup);
+			// }
+
+			// First submenu
+			// Submenu submenup = new Submenu();
+			// submenup.setLabel("Administracion");
+			//
+			// Column colum =new Column();
+			// Submenu submenu = new Submenu();
+			//
+			// MenuItem item = new MenuItem(); //items
+			// item.setValue("auditoria");
+			// item.setUrl("#");
+			// submenu.getChildren().add(item);
+			//
+			//
+			// colum.getChildren().add(submenu);
+			// submenup.getChildren().add(colum);
+			//
+			// model.addSubmenu(submenup);
+			//
+			// //Second submenu
+			// submenu = new Submenu();
+			// submenu.setLabel("Mantenimiento");
+			//
+			// item = new MenuItem();
+			// item.setValue("TipoCmabio");
+			// item.setUrl("#");
+			// submenu.getChildren().add(item);
+			//
+			// item = new MenuItem();
+			// item.setValue("TipoCmabio 2");
+			// item.setUrl("#");
+			// submenu.getChildren().add(item);
+			//
+			// model.addSubmenu(submenu);
+		} catch (Exception e) {
+			e.printStackTrace();
 		}
-	
-	    public MenuModel getModel() {  
-	        return model;  
-	    }     
-	    
+	}
+
+	public MenuModel getModel() {
+		return model;
+	}
+
+	public void onRowSelect(SelectEvent event) {
+		actualizado = true;
+		// FacesMessage msg = new FacesMessage("Id :" + pagina.getIdpagina());
+
+		// FacesContext.getCurrentInstance().addMessage(null, msg);
+	}
+
+	public void registrarPagina() {
+
+		if (!actualizado) {
+			// REGISTRO DE PAGINA
 
 	
-	public void onRowSelect(SelectEvent event) {
-		FacesMessage msg = new FacesMessage("Id :" + pagina.getIdpagina());
+				String usercreador = userMB.getUsuariologueado().getNombres()
+						+ " " + userMB.getUsuariologueado().getApellidopat();
+				Pagina pagi = new Pagina();
+				pagi.setDescripcionpagina(paginamodulo.getPagina()
+						.getDescripcionpagina());
+				pagi.setEstado(paginamodulo.getPagina().getEstado());
+				pagi.setNombrepagina(paginamodulo.getPagina().getNombrepagina());
+				pagi.setUsrcre(usercreador);
+				Date fechacre = new Date();
+				pagi.setFeccre(fechacre);
+				getPaginaService().registrarPagina(pagi);
+
+				// REGISTRO DE PAGINAMODULO
+				pagi.setIdpagina(getPaginaService().obtenerUltimaPaginaCreada()
+						.getIdpagina());
+				paginamodulo.setValortabla("pagina");
+				paginamodulo.setPagina(pagi);
+				getPaginaService().registrarPaginamodulo(paginamodulo);
+				FacesMessage msg = new FacesMessage(FacesMessage.SEVERITY_INFO,
+						"Exito", "Se creó la  pagina " + pagi.getDescripcionpagina()
+								+ " Correctamente.");
+				FacesContext.getCurrentInstance().addMessage(null, msg);
 		
-		
-		FacesContext.getCurrentInstance().addMessage(null, msg);
-	}
-	public void registrarPagina(){
-		
-		FacesMessage msg = new FacesMessage(FacesMessage.SEVERITY_INFO,"Exito","Se creó la  pagina "+pagina.getNombrepagina()+ " Correctamente."); 
-		getPaginaService().registrarPagina(pagina);
-		
+		} else {// ACTUALIZADO
+
+			Modulo mod = moduloMB.getModuloService().listarModuloPorId(
+					paginamodulo.getModulo().getIdmodulo());
+			mod.setIdmodulo(paginamodulo.getModulo().getIdmodulo());
+			mod.setNombremodulo(mod.getNombremodulo());
+
+			paginamodulo.setModulo(mod);
+
+			getPaginaService().registrarPagina(paginamodulo.getPagina());
+			getPaginaService().actualizarPaginamodulo(paginamodulo);
+			FacesMessage msg = new FacesMessage(FacesMessage.SEVERITY_INFO,
+					"Exito", "Se Actualizó la  pagina "
+							+ paginamodulo.getPagina().getDescripcionpagina()
+							+ " Correctamente.");
+			FacesContext.getCurrentInstance().addMessage(null, msg);
+		}
+
 		getUserMB().obtenerMenu();
-		FacesContext.getCurrentInstance().addMessage(null, msg);  
-		
-		
-		//limpiarCampos();
+
+		ultimoPagina = getPaginaService().obtenerUltimaPagina();
+		fechaultimaPagina = getPaginaService().obtenerFechaUltimaPagina();
+		numPaginas = getPaginaService().obtenerNumeroPaginas();
+
+		// limpiarCampos();
 	}
+
 	public void eliminarPagina() {
-		
-		getPaginaService().eliminarPagina(pagina);
+		getPaginaService().eliminarPaginamodulo(paginamodulo);
+		getPaginaService().eliminarPagina(paginamodulo.getPagina());
 		getUserMB().obtenerMenu();
-		FacesMessage msg = new FacesMessage(FacesMessage.SEVERITY_INFO,"Error","Se eliminó la pagina " +pagina.getNombrepagina()+ " correctamente."); 
-		
-		FacesContext.getCurrentInstance().addMessage(null, msg);  
+
+		ultimoPagina = getPaginaService().obtenerUltimaPagina();
+		fechaultimaPagina = getPaginaService().obtenerFechaUltimaPagina();
+		numPaginas = getPaginaService().obtenerNumeroPaginas();
+		FacesMessage msg = new FacesMessage(FacesMessage.SEVERITY_INFO,
+				"Exito", "Se eliminó la pagina "
+						+ paginamodulo.getPagina().getNombrepagina()
+						+ " correctamente.");
+
+		FacesContext.getCurrentInstance().addMessage(null, msg);
 		limpiarCampos();
 	}
+
 	public void limpiarCampos() {
+
 		pagina = null;
+		paginamodulo = null;
 	}
+
 	public IPaginaService getPaginaService() {
 		return paginaService;
 	}
+
 	public void setPaginaService(IPaginaService paginaService) {
 		this.paginaService = paginaService;
 	}
+
 	public Pagina getPagina() {
 		if (pagina == null) {
-			pagina = new Pagina	();
+			pagina = new Pagina();
 		}
 		return pagina;
 	}
+
 	public void setPagina(Pagina pagina) {
 		this.pagina = pagina;
 	}
+
 	public List<Pagina> getPaginas() {
-		paginas=getPaginaService().listarPaginas();
+		paginas = getPaginaService().listarPaginas();
 		return paginas;
 	}
+
 	public void setPaginas(List<Pagina> paginas) {
 		this.paginas = paginas;
 	}
+
 	public String getUltimoPagina() {
 		return ultimoPagina;
 	}
+
 	public void setUltimoPagina(String ultimoPagina) {
 		this.ultimoPagina = ultimoPagina;
 	}
@@ -184,13 +257,65 @@ public class PaginaManagedBean implements Serializable{
 	public void setModuloService(IModuloService moduloService) {
 		this.moduloService = moduloService;
 	}
+
 	public UsuarioManagedBean getUserMB() {
 		return userMB;
 	}
+
 	public void setUserMB(UsuarioManagedBean userMB) {
 		this.userMB = userMB;
 	}
-	
-	
-	
+
+	public int getNumPaginas() {
+		return numPaginas;
+	}
+
+	public void setNumPaginas(int numPaginas) {
+		this.numPaginas = numPaginas;
+	}
+
+	public Date getFechaultimaPagina() {
+		return fechaultimaPagina;
+	}
+
+	public void setFechaultimaPagina(Date fechaultimaPagina) {
+		this.fechaultimaPagina = fechaultimaPagina;
+	}
+
+	public Paginamodulo getPaginamodulo() {
+		if (paginamodulo == null) {
+			paginamodulo = new Paginamodulo();
+		}
+		return paginamodulo;
+	}
+
+	public void setPaginamodulo(Paginamodulo paginamodulo) {
+		this.paginamodulo = paginamodulo;
+	}
+
+	public List<Paginamodulo> getPaginamodulos() {
+		paginamodulos = getPaginaService().listarPaginamodulos();
+		return paginamodulos;
+	}
+
+	public void setPaginamodulos(List<Paginamodulo> paginamodulos) {
+		this.paginamodulos = paginamodulos;
+	}
+
+	public boolean isActualizado() {
+		return actualizado;
+	}
+
+	public void setActualizado(boolean actualizado) {
+		this.actualizado = actualizado;
+	}
+
+	public ModuloManagedBean getModuloMB() {
+		return moduloMB;
+	}
+
+	public void setModuloMB(ModuloManagedBean moduloMB) {
+		this.moduloMB = moduloMB;
+	}
+
 }

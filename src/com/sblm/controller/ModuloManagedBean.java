@@ -1,21 +1,28 @@
 package com.sblm.controller;
 
+import java.awt.Color;
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
-import javax.faces.bean.RequestScoped;
-import javax.faces.bean.SessionScoped;
 import javax.faces.bean.ViewScoped;
 import javax.faces.context.FacesContext;
+import javax.swing.text.DefaultStyledDocument;
+import javax.swing.text.Style;
+import javax.swing.text.StyleConstants;
+import javax.swing.text.StyleContext;
 
-import org.primefaces.event.RowEditEvent;
 import org.primefaces.event.SelectEvent;
 
 import com.sblm.model.Modulo;
+import com.sblm.model.Pagina;
+import com.sblm.model.Paginamodulo;
+import com.sblm.model.Perfilmodulo;
 import com.sblm.service.IModuloService;
 
 @ManagedBean(name = "moduloMB")
@@ -32,43 +39,64 @@ public class ModuloManagedBean implements Serializable {
 
 	private int numModulos;
 	private String ultimoModulo;
+	private Date fechaultimoModulo;
 	private Modulo modu;
+	private List<String> listapaginas;
 	
+	
+	
+	
+	public ModuloManagedBean() {
+		super();
+		listapaginas = new ArrayList<String>();
+	}
+
 	@ManagedProperty(value = "#{usuarioMB}")
 	UsuarioManagedBean userMB;
 	
-	 public void onEdit(RowEditEvent event) {  
-	       System.out.println("paso edicion dddddddddddddddddd");
-	     event.getObject().getClass().getName();
-	       final Modulo mod=(Modulo) event.getObject();
-	      // final Modulo modu= event.getClass();  
-	       System.out.println("modulo:"+modulo.getNombremodulo());
-	       System.out.println("idmodulo:"+mod.getIdmodulo());
-	       mod.setNombremodulo(modulo.getNombremodulo());
-	       getModuloService().registrarModulo(mod);
-	       
-//	       DataTable s = (DataTable) event.getSource();
-//	       System.out.println("vaorr###:::"+s.getClientId(FacesContext.getCurrentInstance()));
-//	       System.out.println("vaorr###:::"+event.getRowIndex() );
-	       
-	      // RequestContext.getCurrentInstance().update(s.getClientId(FacesContext.getCurrentInstance() + ":" + event.getRowIndex() + ":isAutomatic");
-	       
-	       Object o = event.getObject();
-	       if (o != null) {
-	    	   Modulo d = (Modulo)o;
-	    	   Modulo d1 = modulos.get(1);
-	    	   System.out.println("hhhhhhhhhhhhhhh:::"+d1.getNombremodulo());
-	    	   System.out.println("hhhhhhhhhhhhhhh:::"+d.getNombremodulo());
-	       }
-	       
-	  	
-	    } 
-	 
+	private List<Pagina>paginas;
+	
+	private boolean  actualizado;
+	
+	@PostConstruct
+	public void initObjects() {
 
+		try {
+			numModulos = getModuloService().obtenerNumeroModulos();
+			ultimoModulo = getModuloService().obtenerUltimoModulo();
+			fechaultimoModulo= getModuloService().obtenerFechaUltimoModulo();
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
 	public void onRowSelect(SelectEvent event) {
-		
+		listapaginas.clear();
+		actualizado=true;
 		System.out.println(":::::::::::::::::::::::::::::::::::::::::::::");
-		objetomodulo = modulo;
+		//objetomodulo = modulo;
+		System.out.println("####getNombremodulo::"+modulo.getNombremodulo());
+		System.out.println("####getEstado::"+modulo.getEstado());
+		
+		List <Pagina> lstpagina= getModuloService().listarPaginasDeModulos(modulo.getIdmodulo());
+		System.out.println("tamanooo::::::::."+lstpagina.size());
+		for (Pagina pag : lstpagina) {
+			System.out.println("idpagina:::::::::::::"+pag.getIdpagina());
+			System.out.println("idpagina:::::::::::::"+pag.getNombrepagina());
+			
+			
+			try {
+				listapaginas.add(String.valueOf(pag.getIdpagina()));
+			} catch (Exception e) {
+			System.out.println(e.getMessage());	
+			}
+			
+			
+			
+		}
+		
+		////paginas=lstpagina;
+		System.out.println("------------->"+paginas.size());
 		
 	}
 
@@ -77,38 +105,102 @@ public class ModuloManagedBean implements Serializable {
 	}
 
 	public void eliminarModulo() {
-		FacesMessage msg = new FacesMessage(FacesMessage.SEVERITY_INFO,"Exito","Se elimino el modulo "+modulo.getNombremodulo()+ " Correctamente."); 
-		FacesContext.getCurrentInstance().addMessage(null, msg);
+		//getModuloService().eliminarPerfilModulo(modulo.getIdmodulo());
+		List <Perfilmodulo>  listmdl=new ArrayList <Perfilmodulo> ();
+		listmdl=getModuloService().verficarModuloEnPerfil(modulo.getIdmodulo());
+	
 		
 		
 		
-		getModuloService().eliminarModulo(modulo);
-		numModulos = getModuloService().obtenerNumeroModulos();
-		ultimoModulo = getModuloService().obtenerUltimoModulo();
-		getUserMB().obtenerMenu();
-		limpiarCampos();
+		if(listmdl.isEmpty()){
+			getModuloService().eliminarPaginaModulo(modulo.getIdmodulo());
+			getModuloService().eliminarModulo(modulo);
+			FacesMessage msg = new FacesMessage(FacesMessage.SEVERITY_INFO,"Exito","Se elimino el modulo "+modulo.getNombremodulo()+ " Correctamente."); 
+			FacesContext.getCurrentInstance().addMessage(null, msg);
+			
+			numModulos = getModuloService().obtenerNumeroModulos();
+			ultimoModulo = getModuloService().obtenerUltimoModulo();
+			fechaultimoModulo= getModuloService().obtenerFechaUltimoModulo();
+			getUserMB().obtenerMenu();
+			limpiarCampos();
+			
+			
+		}else{
+			
+			
+			String listadependecias="";
+			
+			for (Perfilmodulo perfilmodulo : listmdl) {
+				System.out.println("yyyyyyyyyyy:::::::."+perfilmodulo.getPerfil().getIdperfil());
+				
+				listadependecias=listadependecias+getModuloService().listarPerfilPorId(perfilmodulo.getPerfil().getIdperfil() ).getNombreperfil()+", ";
+			}
+			FacesMessage msg = new FacesMessage(FacesMessage.SEVERITY_FATAL,"Error","El modulo tiene dependencias de los perfiles : "+listadependecias+ " Modulo no eliminado!! ."); 
+			FacesContext.getCurrentInstance().addMessage(null, msg);
+			
+			
+		}
+		
 	}
 
 	public void registrarModulo() {
-		FacesMessage msg = new FacesMessage(FacesMessage.SEVERITY_INFO,"Exito","Se creó el modulo "+modulo.getNombremodulo()+ " Correctamente."); 
-		getModuloService().registrarModulo(modulo);
-		ultimoModulo = getModuloService().obtenerUltimoModulo();//lanzamos llamdo de nuemro modulos
-		numModulos = getModuloService().obtenerNumeroModulos();
+		
+		if(!actualizado){
+			//REGISTRO DE MODULO
+			String usercreador =userMB.getUsuariologueado().getNombres()+""+userMB.getUsuariologueado().getApellidopat();
+			modulo.setUsrcre(usercreador);
+			Date fechacre = new Date();
+			modulo.setFeccre(fechacre);
+			getModuloService().registrarModulo(modulo);
+			
+			//REGISTRO PAGINAMODULO
+			Modulo modu =getModuloService().obtenerUltimoModulocreado();
+			for(String idpagina: listapaginas){
+				Pagina pagina=new Pagina();
+				pagina.setIdpagina(Integer.parseInt(idpagina));
+				Paginamodulo paginamod=new Paginamodulo();
+				paginamod.setModulo(modu);
+				paginamod.setPagina(pagina);
+				paginamod.setValortabla("modulo");
+				getModuloService().registrarPaginamodulo(paginamod);
+			}
+			FacesMessage msg = new FacesMessage(FacesMessage.SEVERITY_INFO,"Exito","Se creó el modulo "+modulo.getNombremodulo()+ " Correctamente.");
+			FacesContext.getCurrentInstance().addMessage(null, msg); 
+			ultimoModulo = getModuloService().obtenerUltimoModulo();//lanzamos llamdo de nuemro modulos
+			fechaultimoModulo= getModuloService().obtenerFechaUltimoModulo();
+			numModulos = getModuloService().obtenerNumeroModulos();
+			
+		}else{
+			//ACTUALIZADO MODULO
+			getModuloService().registrarModulo(modulo);
+			
+			getModuloService().eliminarPaginaModulo(modulo.getIdmodulo());
+			for(String idpagina: listapaginas){
+				Pagina pagina=new Pagina();
+				pagina.setIdpagina(Integer.parseInt(idpagina));
+				Paginamodulo paginamod=new Paginamodulo();
+				paginamod.setModulo(modulo);
+				paginamod.setPagina(pagina);
+				paginamod.setValortabla("modulo");
+				getModuloService().registrarPaginamodulo(paginamod);
+			}
+			
+			
+			
+			FacesMessage msg = new FacesMessage(FacesMessage.SEVERITY_INFO,"Exito","Se Actualizó el modulo "+modulo.getNombremodulo()+ " Correctamente.");
+			FacesContext.getCurrentInstance().addMessage(null, msg); 
+			System.out.println("####getNombremodulo::"+modulo.getNombremodulo());
+			System.out.println("####getEstado::"+modulo.getEstado());
+			
+		}
+		
+		
 		
 		getUserMB().obtenerMenu();
-		FacesContext.getCurrentInstance().addMessage(null, msg);
+		
 	}
 
-	@PostConstruct
-	public void initObjects() {
-
-		try {
-			numModulos = getModuloService().obtenerNumeroModulos();
-			ultimoModulo = getModuloService().obtenerUltimoModulo();
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-	}
+	
 
 	public Modulo getModulo() {
 		if (modulo == null) {
@@ -185,5 +277,45 @@ public class ModuloManagedBean implements Serializable {
 	public void setUserMB(UsuarioManagedBean userMB) {
 		this.userMB = userMB;
 	}
+
+
+	public Date getFechaultimoModulo() {
+		return fechaultimoModulo;
+	}
+
+
+	public void setFechaultimoModulo(Date fechaultimoModulo) {
+		this.fechaultimoModulo = fechaultimoModulo;
+	}
+
+
+	public List<String> getListapaginas() {
+		return listapaginas;
+	}
+
+
+	public void setListapaginas(List<String> listapaginas) {
+		this.listapaginas = listapaginas;
+	}
+
+	public boolean isActualizado() {
+		return actualizado;
+	}
+
+	public void setActualizado(boolean actualizado) {
+		this.actualizado = actualizado;
+	}
+
+	public List<Pagina> getPaginas() {
+		paginas=getModuloService().listarPaginas();
+		return paginas;
+	}
+
+	public void setPaginas(List<Pagina> paginas) {
+		this.paginas = paginas;
+	}
+
+
+	
 
 }

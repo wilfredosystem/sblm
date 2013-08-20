@@ -35,6 +35,11 @@ public interface IAuditoriaService {
 	public List listAuditoriaFiltroPerfil(Date fechaInicio,
 			Date fechaFin, String nombrePerfil, String recursoBusqueda,
 			String nomPerfil, String moduloBusqueda);
+
+	public Object ultimoModuloVisitado();
+
+	public Object ultimaPaginaVisitado();
+
 	
 
 }

@@ -90,6 +90,12 @@ public class MonitoreoMesaPartesServiceImpl implements IMonitoreoMesaPartesServi
 		return monitoreoMesaPartesDAO.listarDocumentosAtendidos();
 	}
 
+	@Override
+	public Usuario getDirectorDGAI() {
+		// TODO Auto-generated method stub
+		return monitoreoMesaPartesDAO.getDirectorDGAI();
+	}
+
 
 
 }

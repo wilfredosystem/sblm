@@ -12,6 +12,8 @@ public class PerfilModuloPermiso {
 	private boolean estado;
 	private String nombremodulo;
 	
+	private String nombrepermiso;
+	
 	public PerfilModuloPermiso() {
 	}
 
@@ -47,6 +49,16 @@ public class PerfilModuloPermiso {
 
 	public void setNombremodulo(String nombremodulo) {
 		this.nombremodulo = nombremodulo;
+	}
+
+
+
+	public String getNombrepermiso() {
+		return nombrepermiso;
+	}
+
+	public void setNombrepermiso(String nombrepermiso) {
+		this.nombrepermiso = nombrepermiso;
 	}
 
 

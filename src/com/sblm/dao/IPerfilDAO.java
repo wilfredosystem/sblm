@@ -1,5 +1,6 @@
 package com.sblm.dao;
 
+import java.util.Date;
 import java.util.List;
 
 import com.sblm.model.Perfil;
@@ -19,4 +20,8 @@ public interface IPerfilDAO {
 	public List<PerfilModuloPermiso> listarPerfilesModulosPermisos();
 	
 	public int obtenerUltimoIdPerfil();
+	public String obtenerUltimoPerfil();
+	public int obtenerNumeroPerfiles();
+	
+	public Date obtenerFechaUltimoPerfil();
 }

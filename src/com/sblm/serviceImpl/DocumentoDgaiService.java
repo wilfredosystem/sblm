@@ -55,6 +55,10 @@ public class DocumentoDgaiService implements IDocumentoDgaiService {
 	public int totalPendientesDerivacion() {
 		return getDocumentodgaiDAO().totalPendientesDerivacion();
 	}
+	@Override
+	public Documento obtenerUltimodocumento() {
+		return getDocumentodgaiDAO().obtenerUltimodocumento();
+	}
 	
 
 

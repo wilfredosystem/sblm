@@ -9,13 +9,14 @@ html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abb
 }
 
 body {
-	padding: 0.5% 0.5% 0.5% 0.5%;
+	padding: 0 0.5% 0.5% 0.5%;
 	font-family: arial;
 	font-size: 11px;
 	color: #000000;
 	font-weight: bold;
 	background-color: #dde5eb;
 }
+
 
 form {
 	padding: 0;
@@ -65,7 +66,7 @@ input,textArea,select,option {
 /*******ESTILO PLANTILLA*****/
 #contenidoPrincipal_Contenedor {
 	width: 814px;
-	margin: 10px auto 0 auto;
+	margin: 0px auto 0 auto;
 }
 
 .contenidoPrincipal_Cabecera {
@@ -126,7 +127,7 @@ input,textArea,select,option {
 	float: left;
 	width: 814px;
 	height: auto;
-	background-color: #fff;
+/* 	background-color: #fff; */
 }
 
 .contenidoPrincipal_gadget {
@@ -236,8 +237,8 @@ input,textArea,select,option {
 
 .contenidoPrincipal_SubContenido {
 	float: left;
-	margin-left: 22px;
-	margin-top: 24px;
+	margin-left: 0px;
+	margin-top: 18px;
 }
 
 .contenidoPrincipal_subFondo_Icono {
@@ -372,40 +373,13 @@ input,textArea,select,option {
 }
 
 /***************Estilo de Tipo de Cambio*******************/
-/* #contenedor3 { */
-/* 	width: 814px; */
-/* 	margin: 36px auto 0 auto; */
-/* } */
 
-/* .cabecera { */
-/* 	width: 814px; */
-/* 	height: 96px; */
-/* 	background-image: url("../images/man_tipoCambio/super_01.png"); */
-/* } */
-
-/* .fondo { blanco */
-/* 	width: 814px; */
-/* 	height: 580px; */
-/* 	background-color: #fff; */
-/* 	position: absolute; */
-/* 	z-index: 1; */
-/* } */
-
-/* .btnGadget { */
-/* 	z-index: 4; */
-/* 	background: transparent url('../images/contenedor/menu.png') no-repeat */
-/* 		center; */
-/* 	background-color: #fde871; */
-/* 	width: 31px; */
-/* 	height: 30px; */
-/* 	border: none; */
-/* } */
 .administrador_tipocambioIcono {
 	float: left;
 	background-image: url("../images/tipoCambio/iconTipocambio.png");
 	background-repeat: no-repeat;
-	margin-left: 22px;
-	margin-top: 16px;
+	margin-left: 33px;
+	margin-top: 24px;
 	width: 34px;
 	height: 34px;
 }
@@ -630,6 +604,24 @@ input,textArea,select,option {
 	margin: 0px;
 	font-size: 11px;
 }
+.valorTipoCambio {
+	float: left;
+	color: #044D29;
+	font-size: 17pt;
+	height: 35px;
+	margin-left: 5px;
+	margin-top: 10px;
+	width: auto;
+}
+.descripcionTipoCambio{
+	float: left;
+	margin-left: 20px;
+	margin-top:10px; 
+	
+	text-align: right;
+	font-size: 10pt;
+	
+}
 
 /******************/
 #menuAbierto_contenedor {
@@ -679,7 +671,7 @@ input,textArea,select,option {
 	margin-left: 0px;
 	margin-top: 3px;
 	width: 260px;
-	height: 440px;
+	height: 480px;
 }
 
 .cuadradoBlanco {
@@ -689,6 +681,7 @@ input,textArea,select,option {
 	height: 25px;
 	background-color: white;
 	position: absolute;
+	
 }
 
 .cuadradoTransparente {
@@ -701,7 +694,7 @@ input,textArea,select,option {
 
 .menuOpen_subfondMes { /* 	background-color: green; */
 	margin-left: 0px;
-	margin-top: 10px;
+	margin-top: -350px;
 	width: 250px;
 	height: 40px;
 	position: absolute;
@@ -709,7 +702,7 @@ input,textArea,select,option {
 
 .menuOpen_subfondoRevisado { /* 	background-color: blue; */
 	margin-left: 0px;
-	margin-top: 61px;
+	margin-top: -290px;
 	width: 250px;
 	height: 40px;
 	position: absolute;
@@ -717,7 +710,7 @@ input,textArea,select,option {
 
 .menuOpen_subfondoCancelado { /* 	background-color: red; */
 	margin-left: 0px;
-	margin-top: 102px;
+	margin-top: -250px;
 	width: 250px;
 	height: 40px;
 	position: absolute;
@@ -725,7 +718,7 @@ input,textArea,select,option {
 
 .menuOpen_subfondoPendiente { /* 	background-color: black; */
 	margin-left: 0px;
-	margin-top: 143px;
+	margin-top: -210px;
 	width: 250px;
 	height: 40px;
 	position: absolute;
@@ -733,10 +726,12 @@ input,textArea,select,option {
 
 .menuOpen_subfcrema {
 	background-color: #fde871;
-	margin-top: -349px;
+	margin-top: -385px;
 	margin-left: 0px;
 	width: 260px;
-	height: 28px
+	height: 28px;
+	position: absolute;
+	
 }
 
 .fondoDetalleNotificacion { /* 	background-color: black; */
@@ -748,10 +743,11 @@ input,textArea,select,option {
 
 .menuOpen_subfcrema2 {
 	background-color: #fde871;
-	margin-top: 181px;
+	margin-top: -160px;
 	margin-left: 0px;
 	width: 260px;
-	height: 28px;
+	height: 50px;
+	position: absolute;
 }
 
 .foto_user {
@@ -776,9 +772,9 @@ input,textArea,select,option {
 	float: left;
 	margin-left: 0px;
 	margin-top: 0px;
-	font-size: 17px;
+	font-size: 16px;
 	width: 170px;
-	color: #ffffff;
+	color: #000000;
 }
 
 .lblArea {
@@ -787,7 +783,7 @@ input,textArea,select,option {
 	margin-top: 0px;
 	font-size: 13px;
 	width: 170px;
-	color: #ffffff;
+	color: #B30E00;
 }
 
 .lblId {
@@ -796,24 +792,18 @@ input,textArea,select,option {
 	margin-top: 0px;
 	font-size: 12px;
 	width: 170px;
-	color: #ffffff;
+	color: #126E00;
 }
 
-.notif {
-	background-image: url("../images/contenedor/notificacion.png");
-	background-repeat: no-repeat;
-	margin-left: 20px;
-	margin-top: -227px;
-	width: 75px;
-	height: 8px;
-}
+
 
 .fondonotif {
 	margin-left: 215px;
-	margin-top: -15px;
+	margin-top: -18px;
 	width: 30px;
 	height: 20px;
 	background-color: #616877;
+	position: absolute;
 }
 
 .lblnotif {
@@ -824,11 +814,20 @@ input,textArea,select,option {
 
 .menuOpen_tipoCambio {
 	background-image: url("../images/contenedor/tipo_cambio.png");
-	background-repeat: no-repeat;
-	margin-left: 20px;
-	margin-top: 186px;
-	width: 72px;
-	height: 26px;
+    background-repeat: no-repeat;
+    height: 30px;
+    margin-left: 20px;
+    position: absolute;
+    width: 80px;
+}
+
+.menuOpen_Texto_tipoCambio {
+	color: #636A78;
+    height: 25px;
+    margin-left: 39px;
+    margin-top: 4px;
+    position: absolute;
+    width: 60px;
 }
 
 .menuOpen_lblTipoCambio {
@@ -836,22 +835,32 @@ input,textArea,select,option {
 	margin-left: 160px;
 	font-size: 25px;
 	font-family: arial, bold;
-	margin-top: -27px;
 	color: #2da100;
+	position: absolute;
 }
 
 .menuOpen_ultimo {
-	background-image: url("../images/contenedor/ultimo.png");
-	background-repeat: no-repeat;
-	margin-left: 22px;
-	margin-top: 20px;
-	width: 109px;
-	height: 26px;
+    background-image: url("../images/contenedor/banderaGadget.png");
+    background-repeat: no-repeat;
+    height: 26px;
+    margin-left: 18px;
+    margin-top: -35px;
+    position: absolute;
+    width: 109px;
+}
+
+.menuOpen_ultimoTexto {
+    height: 26px;
+    margin-left: 41px;
+    margin-top: 4px;
+    position: absolute;
+    width: 90px;
+	
 }
 
 .demo {
 	width: 300px;
-	height: 450px;
+	height: 485px;
 	position: absolute;
 	z-index: 5;
 }
@@ -941,9 +950,9 @@ input,textArea,select,option {
 
 .perfilModulo_IconoIdentificador {
 	float: left;
-	margin-left: 22px;
-	margin-top: 16px;
-	width: 34px;
+	margin-left: 33px;
+	margin-top:24px;
+	width: 30px;
 	height: 34px;
 	background-image: url("../images/perfil/iconoPerfil.png");
 	background-repeat: no-repeat;
@@ -1020,7 +1029,7 @@ input,textArea,select,option {
 	height: 19px;
 	background-repeat: no-repeat;
 	position: absolute;
-	z-index: 12;
+	z-index: 1;
 }
 
 .btnMas {
@@ -1138,9 +1147,32 @@ input,textArea,select,option {
 	font-size: 11px;
 	margin-top: 12px;
 	margin-left: 35px;
-	width: 430px;
+	width: 460px;
 }
 
+.cbxPerfilModulo {
+	float: left;
+	font-size: 11px;
+	margin-top: 12px;
+	margin-left: 0px;
+	width:140px;
+}
+
+.cbxPerfilEstado {
+	float: left;
+	font-size: 11px;
+	margin-top: 12px;
+	margin-left: 5px;
+	width: 120px;
+}
+
+.cbxPerfilPermiso {
+	float: left;
+	font-size: 11px;
+	margin-top: 12px;
+	margin-left: 5px;
+	width: 120px;
+}
 .tablaPerfilActualizar {
 	float: left;
 	font-size: 11px;
@@ -1151,12 +1183,59 @@ input,textArea,select,option {
 
 .tablaPerfil2 {
 	float: left;
-	width: 435px;
+	xxwidth: 435px;
 	height: auto;
-	padding-left: 40px;
+	padding-left: 35px;
 	padding-bottom: 30px;
+	
+}
+.perfilLeyenda {
+	float: right;
+	width: 190px;
+	margin-bottom: 30px;
+	margin-right:35px;
+	font-size:9px;
+	background-color: #E0E6E2;
 }
 
+.perfilLeyendaTitulo {
+	float: left;
+	width: 190px;
+	margin-bottom: 0px;
+	font-size:11px;
+	color:#000;
+	text-align:left;
+	background-color: #FFC600;
+}
+.perfilLeyendaActivo {
+	float: left;
+	width: 70px;
+	margin: 2px 0 0 20px;
+}
+.perfilLeyendaInactivo {
+	float: left;
+	width: 70px;
+	margin: 2px 0 2px 20px;
+	
+}
+.perfilLeyendaActivoIcon {
+	float: left;
+}
+.perfilLeyendaInactivoDesIcon {
+	float: left;
+}
+.perfilLeyendaActivoDes {
+	float: left;
+	margin-left:5px;
+	margin-top:2px;
+	background-color: #E0E6E2;
+}
+.perfilLeyendaInactivoDes {
+	float: left;
+	margin-left:5px;
+	margin-top:2px;
+	background-color: #E0E6E2;
+}
 .perfil_icono_informacion {
 	float: left;
 	margin-top: 10px;
@@ -1297,7 +1376,7 @@ input,textArea,select,option {
 	margin-left: 0px;
 	text-align: left;
 	padding-top: 10px;
-	padding-left: 50px;
+	padding-left: 35px;
 	width: auto;
 	height: 55px;
 	background-color: #fdd738;
@@ -1325,9 +1404,9 @@ input,textArea,select,option {
 	float: left;
 	background-image: url("../images/modulo/icono_paginaModulo.png");
 	background-repeat: no-repeat;
-	margin-left: 22px;
-	margin-top: 16px;
-	width: 34px;
+	margin-left: 33px;
+	margin-top: 20px;
+	width: 39px;
 	height: 34px;
 }
 
@@ -1399,6 +1478,21 @@ input,textArea,select,option {
 	height: 26px;
 	text-align: left;
 }
+.lblmoduloperfil {
+	float: left;
+	width: 70px;
+	height: 26px;
+	text-align: left;
+}
+
+.filamoduloperfiles {
+	padding-left: 40px;
+	width: 350px;
+	height: 36px;
+	margin-top: 10px;
+	font-size: 12px;
+	font-family: arial;
+}
 
 .cboEstadoModulo {
 	float: left;
@@ -1413,6 +1507,7 @@ input,textArea,select,option {
 	font-size: 12px;
 	font-family: arial;
 }
+
 
 .paginaTabla {
 	float: left;
@@ -1547,9 +1642,9 @@ input,textArea,select,option {
 	float: left;
 	background-image: url("../images/paginaModulo/icono_paginaModulo.png");
 	background-repeat: no-repeat;
-	margin-left: 22px;
-	margin-top: 16px;
-	width: 34px;
+	margin-left: 33px;
+	margin-top: 20px;
+	width: 39px;
 	height: 34px;
 }
 
@@ -1574,8 +1669,9 @@ input,textArea,select,option {
 	float: left;
 	width: 300px;
 	margin-top: 25px;
-	margin-top: 60px;
+	margin-top: 15px;
 	padding-left: 35px;
+	
 }
 
 .lblPagina {
@@ -1594,10 +1690,12 @@ input,textArea,select,option {
 }
 
 .filaDescripcionPagina {
+	
+	
 	float: left;
 	width: 300px;
 	margin-top: 25px;
-	margin-top: 15px;
+	margin-top: 60px;
 	padding-left: 35px;
 }
 
@@ -1718,9 +1816,9 @@ input,textArea,select,option {
 	float: left;
 	background-image: url("../images/dgaiMonitoreo/iconTituloDgai.png");
 	background-repeat: no-repeat;
-	margin-left: 22px;
-	margin-top: 16px;
-	width: 34px;
+	margin-left: 33px;
+	margin-top: 20px;
+	width: 39px;
 	height: 34px;
 }
 
@@ -2137,67 +2235,6 @@ input,textArea,select,option {
 	z-index: 2;
 }
 
-.admin_audi_04 {
-	position: absolute;
-	margin-top: 3px;
-	margin-left: 35px;
-	width: 124px; /*121+3*/
-	height: 30px;
-	background-image: url(../images/admin_auditoria/auditoria_ico02.png);
-	background-repeat: no-repeat;
-	z-index: 2;
-}
-
-.admin_audi_05 {
-	position: absolute;
-	margin-left: 160px;
-	margin-top: 3px;
-	width: 128px; /*125+3*/
-	height: 30px;
-	background-image: url(../images/admin_auditoria/auditoria_ico03.png);
-	background-repeat: no-repeat;
-	z-index: 2;
-}
-
-.admin_audi_06 {
-	position: absolute;
-	margin-left: 754px;
-	margin-top: 3px;
-	width: 61px;
-	height: 30px;
-	background-image: url(../images/admin_auditoria/auditoria_ico04.png);
-	z-index: 2;
-}
-
-.admin_audi_07 {
-	position: absolute;
-	margin-top: 66px;
-	margin-left: 16px;
-	width: 783px;
-	height: 74px;
-	background-image: url(../images/admin_auditoria/super_02.png);
-	z-index: 2;
-}
-
-.admin_audi_08 { /*FONDO naranja*/
-	margin-top: 144px;
-	margin-left: 16px;
-	width: 783px;
-	height: 596px;
-	background-color: #fde871;
-	position: absolute;
-	z-index: 2;
-}
-
-.admin_audi_09 {
-	position: absolute;
-	margin-top: 212px;
-	margin-left: 48px;
-	width: 720px;
-	height: 191px;
-	background-image: url(../images/admin_auditoria/fondo_03.png);
-	z-index: 2;
-}
 
 .admin_audi_contenedor_superior {
 	position: absolute;
@@ -2210,87 +2247,52 @@ input,textArea,select,option {
 	z-index: 3;
 }
 
-.admin_audi_informacion {
-	position: absolute;
-	margin-top: 0px;
-	margin-left: 500px;
-	padding-left: 0px;
-	width: 200px;
-	height: 190px;
-	/* 	background-color:red; */
-	z-index: 3;
-}
 
 .admin_audi_filtro0 {
-	float:left
-	margin-top: 0px;
-	margin-left: 0px;
-	padding-left: 0px;
-	padding-top: 0px;
-	margin-bottom: 0px;
-	width: 500px;
-	height: 50px;
-	/* 	background-color:blue; */
+	margin-top: 15px;
+	margin-left: 470px;
+	width: 20px;
+	height: 25px;
 	
 }
 
 .admin_audi_filtro1 {
-	
-	margin-top: 15px;
-	margin-left: 50px;
-	width: 400px;
-	height: 50px;
-	
+	margin-top: -26px;
+	margin-left: 35px;
+	width: 250px;
+	height: 25px;
+}
+
+.mensajeDefectoAuditoria {
+	margin-top: 50px;
+	margin-left: 85px;
+	position: absolute;
 }
 
 .admin_audi_filtro1_ {
-	float:left;
-	margin-top: 60px;
-	margin-left: 50px;
-	width: 400px;
-	height: 50px;
-	
+	margin-top: 0px;
+	margin-left: 35px;
+	width: 250px;
+	height: 25px;
 }
 
 .admin_audi_filtro2 {
-	
-	margin-top: 55px;
-	margin-left: 50px;
-	margin-bottom: 0px;
-	padding-left: 0px;
-	width: 500px;
-	height: 120px;
-	
+	margin-top: 6px;
+	margin-left: 35px;
+	width: 450px;
+	height: 100px;
 }
 
-.admin_audi_btnGuardar {
-	position: absolute;
-	margin-top: -5px;
-	margin-left: 30px;
-	width: 725px;
-	height: 50px;
-	background-color: #ffc600;
-	/* 	position: absolute; */
-	/* 	z-index: 3; */
-}
+
 
 .admin_audi_tabla {
-	/* 	position: absolute; */
 	float: left;
 	margin-top: 70px;
-	margin-left: 30px;
-	padding-left: 0px;
+	margin-left: 23px;
 	width: 720px;
 	height: auto;
-	/* 	background-color:black; */
 }
 
-.admin_audi_10 {
-	position: absolute;
-	width: 720px;
-	height: 191px;
-	z-index: 2;
-}
 
 .fondoBlancoAuditoria { /*FONDO BLANCO*/
 	width: 814px;
@@ -2300,33 +2302,7 @@ input,textArea,select,option {
 	z-index: 2;
 }
 
-.fondoAmarilloAuditoria {
-	margin-top: 0px;
-	margin-left: 15px;
-	width: 814px;
-	height: 800px;
-	position: absolute;
-	z-index: 3;
-	background-color: #fde871;
-}
 
-.cabeceraAdminitracionAuditoria {
-	position: absolute;
-	margin-top: 0px;
-	margin-left: 16px;
-	width: 783px;
-	height: 74px;
-	background-image: url(../images/admin_auditoria/super_02.png);
-	z-index: 2;
-}
-
-.filtroAuditoria {
-	margin-left: 30px;
-	width: 724px;
-	height: 200px;
-	jjposition: absolute;
-	/* 	z-index: 2; */
-}
 
 .filtroAuditoriaIzquierda {
 	margin-top: 0px;
@@ -2365,14 +2341,10 @@ input,textArea,select,option {
 	height: 50px;
 }
 
-.textoconectadosfiltroDerecha {
-	float: right;
-	margin-right: 5px;
-	margin-top: 6px; width : 120px;
+.textoconectadosfiltroDerecha { 
+	float:left;
+	width: 80px;
 	height: 50px;
-	text-align: right;
-	font-size: 10pt;
-	width: 120px;
 }
 
 .numeroconectadosfiltroDerecha {
@@ -2457,7 +2429,7 @@ input,textArea,select,option {
 	background-color: #ffc600;
 }
 
-.nroCabecera {
+.nroCabeceraPendiente { 
 	margin-top: 0px;
 	margin-left: 620px;
 	width: 176px;
@@ -2465,6 +2437,27 @@ input,textArea,select,option {
 	position: absolute;
 	z-index: 3;
 	background-color: #ffc600;
+}
+
+.nroCabeceraRevisado { 
+	margin-top: 0px;
+	margin-left: 620px;
+	width: 176px;
+	height: 110px;
+	position: absolute;
+	z-index: 3;
+	background-color: #ffc600;
+}
+
+.nroCabeceraCancelado { 
+	margin-top: 0px;
+	margin-left: 620px;
+	width: 176px;
+	height: 110px;
+	position: absolute;
+	z-index: 3;
+	background-color: #ffc600;
+
 }
 
 .detalleNroCabecera {
@@ -2580,9 +2573,13 @@ input,textArea,select,option {
 	/* 	background-color: black;  */
 }
 
-.ui-datatable.borderless .ui-datatable-data tr,.ui-datatable.borderless .ui-datatable-data-empty tr,.ui-datatable.borderless .ui-datatable-data td,.ui-datatable.borderless .ui-datatable-data-empty td
-	{
-	border-style: none;
+
+
+.ui-datatable.borderless .ui-datatable-data tr,
+.ui-datatable.borderless .ui-datatable-data-empty tr,
+.ui-datatable.borderless .ui-datatable-data td,
+.ui-datatable.borderless .ui-datatable-data-empty td {
+    border-style: none;
 }
 
 .noheader.ui-datatable table thead {
@@ -2827,10 +2824,11 @@ input,textArea,select,option {
 	margin-right: 4px;
 }
 /***************Estilo Usuario*******************/
+
 .u_icono_identificador {
 	margin-top: 24px;
 	margin-left: 31px;
-	float: left;
+	float:left;
 	width: 36px;
 	height: 29px;
 	background-image: url(../images/usuario/iconoCabeceraUsuario.png);
@@ -2849,7 +2847,7 @@ input,textArea,select,option {
 .u_nuevoUsuario {
 	float: left;
 	margin-top: 25px;
-	margin-left: 95px;
+	margin-left: 65px;
 	width: 60px;
 	height: 30px;
 }
@@ -2857,19 +2855,24 @@ input,textArea,select,option {
 .u_imagenPrevia {
 	width: 120px;
 	height: 120px;
-	margin-left: 30px;
-	margin-top: 20px;
-	/* 	background-color: white; */
+	margin-left: 0px;
+	margin-top: 72px;
 	float: left;
-	z-index: 2;
+}
+
+.u_imagenPrevia2 {
+	width: 120px;
+	height: 120px;
+	margin-left: 0px;
+	margin-top: 18px;
+	float: left;
 }
 
 .u_inferiorImagenPrevia {
-	xx width: 20px;
+	width: 20px;
 	height: 20px;
 	margin-left: 30px;
 	margin-top: 50px;
-	/* 	background-color: white; */
 	float: left;
 }
 
@@ -2891,7 +2894,7 @@ input,textArea,select,option {
 	margin-top: 40px;
 	margin-left: 0px;
 	padding-top: 0px;
-	width: 440px;
+	width: 400px;
 	height: w00px;
 	/* 	background-color: blue; */
 	float: left;
@@ -2918,10 +2921,11 @@ input,textArea,select,option {
 
 .u_iconoLapizUsuario {
 	margin-top: 0px;
-	margin-left: 50px;
+	margin-left: 35px;
 	width: 16px;
 	height: 16px;
-	background-image: url("../images/usuario/lapizEditarUsuario.png");
+	background-image: url("../images/usuario/lapizEditarUsuario.png");	
+	
 }
 
 .contenidoPrincipal_SubFondoUsuario {
@@ -2935,37 +2939,47 @@ input,textArea,select,option {
 .u_fondo_interno { /*Falta definir con el tama�o de la tabla*/
 	margin-left: 0px;
 	margin-top: 0px;
-	float: left;
-	width: 625px;
-	height: 500px;
+	float:left;
+	width: 567px;
+	height: 450px;
 	background-color: #fde871;
 	z-index: 0;
 }
 
 .u_fondo_interno2 { /*Falta definir con el tama�o de la tabla*/
-	margin-left: 630px;
-	margin-top: 122px;
-	width: 153px;
-	height: 518px;
-	background-color: #fde871;
-	background-repeat: no-repeat;
-}
-
-.u_fondo_interno2Edicion { /*Falta definir con el tama�o de la tabla*/
-	margin-left: 630px;
-	margin-top: 122px;
-	width: 153px;
+	margin-left: 0px;
+	margin-top: 0px;
+	float:left;
+	width: 567px;
 	height: 500px;
 	background-color: #fde871;
-	background-repeat: no-repeat;
+	z-index: 0;
+}
+
+
+
+.u_fondo_interno2Edicion { /*Falta definir con el tama�o de la tabla*/
+	float: left;
+	background-color: #E0E6E2;
+	margin-left: 630px;
+	margin-top: 0px;
+	width: 210px;
+	height: auto;
+	margin-left: 5px;
 }
 
 .u_fondo_btnGuardar {
-	float: left;
-	margin-top: 65px;
+	float:left;
+	margin-top: -10px;
 	width: 625px;
 	height: 50px;
-	background-color: #ffc600;
+}
+
+.u_fondo_btnGuardar2 {
+	float:left;
+	margin-top: 30px;
+	width: 625px;
+	height: 50px;
 }
 
 .dialogMonitoreo {
@@ -3018,6 +3032,7 @@ template-upload ui-state-error {
 }
 
 /********ESTILO SUBCONTENIDO INFORMATIVO*******/
+/**ESTILO 1**/
 .subcontenidoInformativo {
 	float: left;
 	background-color: #fed738;
@@ -3058,6 +3073,7 @@ template-upload ui-state-error {
 	height: 50px;
 	margin-left: 5px;
 	margin-top: 5px;
+	margin-bottom:5px;
 	width: 200px;
 }
 
@@ -3071,6 +3087,24 @@ template-upload ui-state-error {
 	width: 120px;
 }
 
+.subcontenidoInfo_Numero {
+	float: right;
+	color: #044D29;
+	font-size: 24pt;
+	height: 35px;
+	margin-right: 20px;
+	margin-top: 8px;
+	width: auto;
+}
+.subcontenidoInfo_textoconectadosfiltroDerecha {
+	float: right;
+	margin-right: 5px;
+	margin-top:8px; width : 120px;
+	height: 50px;
+	text-align: right;
+	font-size: 10pt;
+	width: 120px;
+}
 .subcontenidoInfo_fila1Estilo {
 	color: #168039;
 	font-size: 11pt;
@@ -3079,24 +3113,16 @@ template-upload ui-state-error {
 .subcontenidoInfo_fila2Estilo {
 	color: #45BF56;
 	font-size: 8pt;
+	margin-right: 5px;
 }
 
-.subcontenidoInfo_Numero {
-	float: right;
-	color: #044D29;
-	font-size: 24pt;
-	height: 35px;
-	margin-right: 20px;
-	margin-top: 5px;
-	width: auto;
-}
+
 
 .subcontenidoInfo_detUsuario {
 	background-color: white;
 	float: left;
 	height: 74px;
 	margin-left: 5px;
-	margin-top: 5px;
 	width: 200px;
 	margin-bottom: 5px;
 }
@@ -3131,4 +3157,31 @@ template-upload ui-state-error {
 	margin-right: 20px;
 	margin-top: 7px;
 	width: 60px;
+}
+/**ESTILO 2**/
+.subcontenidoInfo_textoconectadosfiltroDerecha2 {
+	float: left;
+	margin-left: 5px;
+	margin-top:10px; 
+	width : 120px;
+	text-align: left;
+	font-size: 10pt;
+	width: 120px;
+}
+
+.detalleTopfiltroDerecha2 {
+	float: left;
+	width: 170px;
+	margin-left: 20px;
+	margin-top:10px;
+	text-align: left;
+}
+.subcontenidoInfo_Numero2 {
+	float: left;
+	color: #044D29;
+	font-size: 24pt;
+	height: 35px;
+	margin-left: 20px;
+	margin-top: 6px;
+	width: auto;
 }

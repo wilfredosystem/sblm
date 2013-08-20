@@ -2,11 +2,11 @@ package com.sblm.controller;
 
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.HashMap;
+import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
-import java.util.Map;
 
+import javax.annotation.PostConstruct;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
@@ -22,6 +22,7 @@ import com.sblm.model.Permiso;
 import com.sblm.service.IModuloService;
 import com.sblm.service.IPerfilModuloService;
 import com.sblm.service.IPerfilService;
+import com.sblm.service.IPermisoService;
 import com.sblm.util.PerfilModuloPermiso;
 
 @ManagedBean(name = "perfilmoduloMB")
@@ -39,6 +40,8 @@ public class PerfilModuloManagedBean implements Serializable {
 	@ManagedProperty(value = "#{perfilService}")
 	private transient IPerfilService perfilService;
 
+	@ManagedProperty(value = "#{usuarioMB}")
+	UsuarioManagedBean userMB;
 	private Perfil perfil;
 	private List<Perfil> perfiles;
 
@@ -50,41 +53,284 @@ public class PerfilModuloManagedBean implements Serializable {
 
 	private String valor;
 
-	// para capturar el valor de estado de pagina perfil
-	private boolean miestado;
-	private List<Boolean> miestados;
-	ArrayList<Boolean> estadosCapturados = new ArrayList<Boolean>();
-	// /
-	private int codestado;
-	private int codpermiso;
-
 	private boolean activoperfil = false;// para mostrar modulos a actualizar
 
-	Map estadomodulo = new HashMap();
-	Map permisomodulo = new HashMap();
-
-	private boolean bandera = true;
-	private boolean activo = false;
+	private String ultimoPerfil;
+	private Date fechaultimoPerfil;
+	private int numPerfiles;
+	// //////***//////////
+	private int idenmodulo;
+	private boolean idenestado;
+	private int idenpermiso;
+	private boolean estadoagregar = false;
+	private List<PerfilModuloPermiso> listaperfmodperm;
+	@ManagedProperty(value = "#{permisoService}")
+	private transient IPermisoService permisoService;
 	private boolean actualizado = false;
-	private boolean modifico = false;
-	private List<PerfilModuloPermiso> listapmp;
+	private boolean mostrartabla = false;
+	private boolean mostrarboton = false;
 
-	public void cambioBandera(SelectEvent event) {
-		bandera = true;
-		System.out.println("###banderita");
+	private PerfilModuloPermiso perfilmoduPermiso;
+	private Perfil perfilmoduloeliminar;
+	private PerfilModuloPermiso moduloquitado;
+	public void actualizarRegistroSeleccionado() {// actualiza el registro
+													// existente
+		mostrarboton = false;
+		System.out.println("monbre modulo:::::::"
+				+ perfilmoduPermiso.getNombremodulo());
+		List<PerfilModuloPermiso> nuevalistaperfmodperm = new ArrayList<PerfilModuloPermiso>();
+		for (PerfilModuloPermiso pmp : listaperfmodperm) {
+			if (pmp.getIdmodulo() == perfilmoduPermiso.getIdmodulo()) {
+				FacesMessage msg = new FacesMessage(FacesMessage.SEVERITY_INFO,
+						"Advertencia", "registro actualizado...");
+				FacesContext.getCurrentInstance().addMessage(null, msg);
+
+				PerfilModuloPermiso perfmodperm2 = new PerfilModuloPermiso();
+				perfmodperm2.setEstado(idenestado);
+				perfmodperm2.setIdmodulo(idenmodulo);
+				perfmodperm2.setIdpermiso(idenpermiso);
+				Modulo mod = getModuloService().listarModuloPorId(idenmodulo);
+				perfmodperm2.setNombremodulo(mod.getNombremodulo());
+				Permiso permi = getPermisoService().listarPermisoPorId(
+						idenpermiso);
+				perfmodperm2.setNombrepermiso(permi.getValcrud());
+				nuevalistaperfmodperm.add(perfmodperm2);
+
+			} else {
+
+				nuevalistaperfmodperm.add(pmp);
+			}
+		}
+
+		listaperfmodperm = nuevalistaperfmodperm;
+		// reseteado de valores del combo
+		idenmodulo = 0;
+		idenestado = false;
+		idenpermiso = 0;
+	}
+
+	public void agregarRegistro() {
+
+		boolean esrepetido = false;
+		PerfilModuloPermiso perfmodperm = new PerfilModuloPermiso();
+		if (estadoagregar == false) {// si es el primer registro
+			listaperfmodperm = new ArrayList<PerfilModuloPermiso>();
+
+			perfmodperm.setIdmodulo(idenmodulo);
+			perfmodperm.setEstado(idenestado);
+			perfmodperm.setIdpermiso(idenpermiso);
+			Modulo mod = getModuloService().listarModuloPorId(idenmodulo);
+			perfmodperm.setNombremodulo(mod.getNombremodulo());
+			Permiso permi = getPermisoService().listarPermisoPorId(idenpermiso);
+			perfmodperm.setNombrepermiso(permi.getValcrud());
+
+			listaperfmodperm.add(perfmodperm);
+
+		} else {// si hay mas de 1 registro
+			for (PerfilModuloPermiso pfmpr : listaperfmodperm) {
+				if (pfmpr.getIdmodulo() == idenmodulo) {// verif. si exis.
+														// regis.
+					esrepetido = true;
+					FacesMessage msg = new FacesMessage(
+							FacesMessage.SEVERITY_INFO, "Advertencia",
+							"Ya existe modulo seleccionado...");
+
+					FacesContext.getCurrentInstance().addMessage(null, msg);
+				}
+			}
+
+			if (!esrepetido) {
+
+				// perfmodperm = new PerfilModuloPermiso();
+				perfmodperm.setIdmodulo(idenmodulo);
+				perfmodperm.setEstado(idenestado);
+				perfmodperm.setIdpermiso(idenpermiso);
+				Modulo mod = getModuloService().listarModuloPorId(idenmodulo);
+				perfmodperm.setNombremodulo(mod.getNombremodulo());
+				Permiso permi = getPermisoService().listarPermisoPorId(
+						idenpermiso);
+				perfmodperm.setNombrepermiso(permi.getValcrud());
+
+				listaperfmodperm.add(perfmodperm);
+
+			}
+		}
+
+		estadoagregar = true;
+		// reseteado de valores del combo
+		idenmodulo = 0;
+		idenestado = false;
+		idenpermiso = 0;
+	}
+
+	@PostConstruct
+	public void initObjects() {
+
+		try {
+			// para mostrar en el cuadro informacion
+			numPerfiles = getPerfilService().obtenerNumeroPerfiles();
+			ultimoPerfil = getPerfilService().obtenerUltimoPerfil();
+			fechaultimoPerfil = getPerfilService().obtenerFechaUltimoPerfil();
+			// isMostrartabla();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+	public void registrarPerfilModulo2() {
+
+		if (!actualizado) {// REGISTRAR
+			System.out.println("entro a nuevo registro#################");
+			registrarPerfil();
+			registrarPerfiModulos();
+			// para mostrar en el cuadro informacion
+			numPerfiles = getPerfilService().obtenerNumeroPerfiles();
+			ultimoPerfil = getPerfilService().obtenerUltimoPerfil();
+			fechaultimoPerfil = getPerfilService().obtenerFechaUltimoPerfil();
+
+			FacesMessage msg = new FacesMessage(FacesMessage.SEVERITY_INFO,
+					"Exito", "Se Registro el perfil  "
+							+ perfil.getNombreperfil() + " correctamente.");
+
+			FacesContext.getCurrentInstance().addMessage(null, msg);
+
+		} else {// ACTUALIZAR
+			System.out
+					.println("entro a actualizado#################getIdperfil:."
+							+ perfil.getIdperfil());
+			perfilmoduloService.eliminarPerfilModuloId(perfil.getIdperfil());
+			registrarPerfil();
+			actualizarPerfiModulos(perfil.getIdperfil());
+			// para mostrar en el cuadro informacion
+			numPerfiles = getPerfilService().obtenerNumeroPerfiles();
+			ultimoPerfil = getPerfilService().obtenerUltimoPerfil();
+			fechaultimoPerfil = getPerfilService().obtenerFechaUltimoPerfil();
+
+			FacesMessage msg = new FacesMessage(FacesMessage.SEVERITY_INFO,
+					"Exito", "Se Actualizo el perfil "
+							+ perfil.getNombreperfil() + "  correctamente.");
+
+			FacesContext.getCurrentInstance().addMessage(null, msg);
+
+		}
+
+	}
+
+	public void actualizarPerfiModulos(int idperfil) {
+		Perfil perf = new Perfil();
+		perf.setIdperfil(idperfil);
+		for (PerfilModuloPermiso pmodp : listaperfmodperm) {
+
+			Modulo mod = new Modulo();
+			mod.setIdmodulo(pmodp.getIdmodulo());
+
+			Permiso perm = new Permiso();
+			perm.setIdpermiso(pmodp.getIdpermiso());
+			Perfilmodulo pf = new Perfilmodulo();
+			pf.setModulo(mod);
+			pf.setPerfil(perf);
+			pf.setPermiso(perm);
+			pf.setEstado(pmodp.isEstado());
+			String userCreador = userMB.getUsuariologueado().getNombres() + " "
+					+ userMB.getUsuariologueado().getApellidopat();
+			pf.setUsrcre(userCreador);
+			Date fechacre = new Date();
+			pf.setFeccre(fechacre);
+			getPerfilmoduloService().registrarPerfilModulo(pf);
+
+		}
+	}
+
+	public void eliminarPerfiModulo() {
+
+		getPerfilService().eliminarPerfil(perfilmoduloeliminar);
+		FacesMessage msg = new FacesMessage(FacesMessage.SEVERITY_INFO,
+				"Exito", "Se Eliminó el perfil "
+						+ perfilmoduloeliminar.getNombreperfil()
+						+ " correctamente.");
+
+		FacesContext.getCurrentInstance().addMessage(null, msg);
+
+	}
+
+	public void quitarModulo() {
+		//PerfilModuloPermiso pmodper= moduloquitado;
+		System.out.println("aaaa:::"+moduloquitado);
+		System.out.println("aaaa:::"+moduloquitado.getNombremodulo());
+		
+//		for(PerfilModuloPermiso lstpmp: listaperfmodperm){
+//			System.out.println("xxxxxxxx:::"+lstpmp.getNombremodulo());
+//			if(lstpmp.equals(moduloquitado)){
+//				listaperfmodperm.remove(moduloquitado);
+//				
+//			}
+//		}
+		List<PerfilModuloPermiso> lista;
+		for (Iterator<PerfilModuloPermiso> iter = listaperfmodperm.iterator(); iter.hasNext();) {
+			PerfilModuloPermiso algo = iter.next();
+		  //hacer algo con algo
+		  if (algo.equals(moduloquitado)) {
+		    iter.remove(); //Esto quita el elemento actual de la lista, SIN causar problemas
+		  }
+		}
+		
+	
+
+	}
+
+	public void registrarPerfiModulos() {
+
+		Perfil perf = new Perfil();
+		perf.setIdperfil(getPerfilService().obtenerUltimoIdPerfil());
+
+		for (PerfilModuloPermiso pmodp : listaperfmodperm) {
+
+			Modulo mod = new Modulo();
+			mod.setIdmodulo(pmodp.getIdmodulo());
+
+			Permiso perm = new Permiso();
+			perm.setIdpermiso(pmodp.getIdpermiso());
+			Perfilmodulo pf = new Perfilmodulo();
+			pf.setModulo(mod);
+			pf.setPerfil(perf);
+			pf.setPermiso(perm);
+			pf.setEstado(pmodp.isEstado());
+			String userCreador = userMB.getUsuariologueado().getNombres() + " "
+					+ userMB.getUsuariologueado().getApellidopat();
+			pf.setUsrcre(userCreador);
+			Date fechacre = new Date();
+			pf.setFeccre(fechacre);
+			getPerfilmoduloService().registrarPerfilModulo(pf);
+
+		}
+	}
+
+	public void registrarPerfil() {
+		String usuarioCreador;
+
+		Date fechacre = new Date();
+		usuarioCreador = userMB.getUsuariologueado().getNombres()
+				+ userMB.getUsuariologueado().getApellidopat();
+		perfil.setUsrcre(usuarioCreador);
+		perfil.setFeccre(fechacre);
+		getPerfilService().registrarPerfil(perfil);
+
+	}
+
+	public void activarActualizado() {
+		mostrarboton = true;
+		idenmodulo = perfilmoduPermiso.getIdmodulo();
+		idenestado = perfilmoduPermiso.isEstado();
+		idenpermiso = perfilmoduPermiso.getIdpermiso();
+
 	}
 
 	public void onRowSelect(SelectEvent event) {
-		bandera = false;
-		activo = true;
-		actualizado = true;
-		modifico = false;
 
-		activoperfil = true;
-		 estadomodulo.clear();
-		 permisomodulo.clear();
-		System.out
-				.println("::::::::::::::::::::onRowSelect:::::::::::::::::::::::::");
+		mostrartabla = true;
+		estadoagregar = true;
+		actualizado = true;
+
 		List<Perfilmodulo> listapermod = new ArrayList<Perfilmodulo>();
 		listapermod = getPerfilmoduloService().listarPerfilModuloPorIdPerfil(
 				perfil.getIdperfil());
@@ -92,203 +338,35 @@ public class PerfilModuloManagedBean implements Serializable {
 		List<PerfilModuloPermiso> milista = new ArrayList<PerfilModuloPermiso>();
 
 		for (Perfilmodulo perfilmodulo : listapermod) {
-			miestado = perfilmodulo.getEstado();
-			codpermiso = perfilmodulo.getPermiso().getIdpermiso();
 
-			System.out.println("miestado:" + miestado);
-			System.out.println("codpermiso :" + codpermiso);
-			System.out.println("modulo :"
-					+ perfilmodulo.getModulo().getNombremodulo());
+			int idpermiso = perfilmodulo.getPermiso().getIdpermiso();
+			int idmodulo = perfilmodulo.getModulo().getIdmodulo();
+			boolean estadocap = perfilmodulo.getEstado();
 
 			PerfilModuloPermiso pmp = new PerfilModuloPermiso();
-			pmp.setEstado(miestado);
-			pmp.setIdpermiso(codpermiso);
+
+			pmp.setIdpermiso(idpermiso);
+			pmp.setIdmodulo(idmodulo);
+			pmp.setEstado(estadocap);
 			pmp.setNombremodulo(perfilmodulo.getModulo().getNombremodulo());
+			pmp.setNombrepermiso(perfilmodulo.getPermiso().getValcrud());
+
 			milista.add(pmp);
 
 		}
-		listapmp = milista;
-		miestado = false;
-		codpermiso = 0;
-		modulos = null;
-		modulo = null;
-		System.out.println("#########3pasoooo onRowSelect final##########");
-
-	}
-
-	public void capturarEstado(int id) {
-		estadomodulo.put(id, miestado);
-
-		Iterator it = estadomodulo.entrySet().iterator();
-
-		while (it.hasNext()) {
-			Map.Entry e = (Map.Entry) it.next();
-			System.out.println("SALIDA::::" + e.getKey() + " " + e.getValue());
-		}
-
-	}
-
-	public void capturarPermiso(int id) {
-		permisomodulo.put(id, codpermiso);
-		Iterator it = permisomodulo.entrySet().iterator();
-
-		while (it.hasNext()) {
-			Map.Entry e = (Map.Entry) it.next();
-			System.out.println("SALIDA::::" + e.getKey() + " " + e.getValue());
-		}
-	}
-
-	public void registrarPerfilModulo() {
-
-		if (!actualizado) {// REGISTRAR
-			
-			registrarPerfil();
-			guardadoPerfilModulo();
-			FacesMessage msg = new FacesMessage(FacesMessage.SEVERITY_INFO,"Exito","Se Registro el perfil   correctamente."); 
-			
-			FacesContext.getCurrentInstance().addMessage(null, msg);  
-
-		} else {// ACTUALIZAR
-
-			perfilmoduloService.eliminarPerfilModuloId(perfil.getIdperfil());
-			registrarPerfil();
-			guardadoPerfilModulo();
-			FacesMessage msg = new FacesMessage(FacesMessage.SEVERITY_INFO,"Exito","Se Actualizo el perfil  correctamente."); 
-			
-			FacesContext.getCurrentInstance().addMessage(null, msg);  
-
-		}
-
-	}
-
-	public void guardadoPerfilModulo() {
-
-		List<Object> listaPermisoModulo = new ArrayList<Object>();
-		List<List> listageneral = new ArrayList<List>();
-		Map mapaObjetos = new HashMap();
-		PerfilModuloPermiso permodper;
-
-		PerfilModuloPermiso permodp = new PerfilModuloPermiso();
-		// llenado de los valores capturados
-		List<Modulo> listamod = new ArrayList<Modulo>();
-		listamod = getModuloService().listarModulos();
-
-		List<PerfilModuloPermiso> milista = new ArrayList<PerfilModuloPermiso>();
-
-		Iterator itEstado = estadomodulo.entrySet().iterator();
-		while (itEstado.hasNext()) {
-			Map.Entry eEstado = (Map.Entry) itEstado.next();
-
-			Iterator itPermiso = permisomodulo.entrySet().iterator();
-			while (itPermiso.hasNext()) {
-				Map.Entry ePermiso = (Map.Entry) itPermiso.next();
-
-				if (eEstado.getKey().equals(ePermiso.getKey())) {
-					permodper = new PerfilModuloPermiso();
-					// convertimos object a string y luego a boolean
-					permodper.setEstado(new Boolean(eEstado.getValue()
-							.toString()));
-					permodper.setIdmodulo(Integer.parseInt(eEstado.getKey()
-							.toString()));
-					permodper.setIdpermiso(Integer.parseInt(ePermiso.getValue()
-							.toString()));
-					mapaObjetos.put(eEstado.getKey(), permodper);
-
-				}
-
-			}
-		}
-
-		// seteado de valores capturados
-		List<Integer> listacompleta = new ArrayList<Integer>();
-		for (Modulo mdl : modulos) {
-			listacompleta.add(mdl.getIdmodulo());
-		}
-
-		Perfilmodulo pf = new Perfilmodulo();
-		Iterator itx = mapaObjetos.entrySet().iterator();
-		while (itx.hasNext()) {
-			Map.Entry e = (Map.Entry) itx.next();
-
-			permodp = (PerfilModuloPermiso) e.getValue();
-
-			List<Integer> listaexisten = new ArrayList<Integer>();
-			for (Modulo mo : modulos) {
-				if (mo.getIdmodulo() == permodp.getIdmodulo()) {
-					listaexisten.add(mo.getIdmodulo());
-				}
-
-			}
-			List<Modulo> modu = new ArrayList<Modulo>();
-			modu = modulos;
-			for (Modulo mo : modulos) {
-
-				for (int n = 0; n < listaexisten.size(); n++) {
-					if (listaexisten.get(n) == mo.getIdmodulo()) {
-						listacompleta.remove(listaexisten.get(n));
-
-					}
-				}
-			}
-
-			Modulo mod = new Modulo();
-			Perfil perf = new Perfil();
-			Permiso permi = new Permiso();
-			mod.setIdmodulo(permodp.getIdmodulo());
-			if(!actualizado){
-				perf.setIdperfil(getPerfilService().obtenerUltimoIdPerfil());
-			}else{
-				perf.setIdperfil(getPerfil().getIdperfil());
-			}
-			
-			permi.setIdpermiso(permodp.getIdpermiso());
-
-			pf.setModulo(mod);
-			pf.setPerfil(perf);// corregir
-			pf.setPermiso(permi);
-			pf.setEstado(permodp.isEstado());
-			// pf.setUsrcre(usrcre);
-			getPerfilmoduloService().registrarPerfilModulo(pf);
-		}
-//		for (Integer idmodulito : listacompleta) {
-//			Modulo mod = new Modulo();
-//			Perfil perf = new Perfil();
-//			Permiso permi = new Permiso();
-//			mod.setIdmodulo(idmodulito);
-//			perf.setIdperfil(getPerfilService().obtenerUltimoIdPerfil());
-//			permi.setIdpermiso(1);
-//
-//			pf.setModulo(mod);
-//			pf.setPerfil(perf);// corregir
-//			pf.setPermiso(permi);
-//			pf.setEstado(false);
-//			getPerfilmoduloService().registrarPerfilModulo(pf);
-//		}
+		// listapmp = milista;
+		listaperfmodperm = milista;
 
 	}
 
 	// //////////////////
-
-	public void registrarPerfil() {
-		System.out.println(":::::registrar  Perfil  MB:::::");
-		System.out.println("id perfil:" + perfil.getIdperfil());
-		System.out.println("nombre perfil:" + perfil.getNombreperfil());
-	
-		getPerfilService().registrarPerfil(perfil);
-		
-	}
 
 	public void limpiarCampos() {
 		activoperfil = false;
 		perfilmodulo = null;
 		modulo = null;
 		perfil = null;
-		// modulos=null;
-		// miestado = false;
-		// codpermiso = 0;
-		bandera = true;
-		estadomodulo.clear();
-		permisomodulo.clear();
+
 	}
 
 	public IPerfilModuloService getPerfilmoduloService() {
@@ -311,7 +389,7 @@ public class PerfilModuloManagedBean implements Serializable {
 	}
 
 	public List<Perfilmodulo> getPerfilmodulos() {
-		
+
 		perfilmodulos = getPerfilmoduloService().listarPerfilmodulos();
 		return perfilmodulos;
 	}
@@ -356,46 +434,6 @@ public class PerfilModuloManagedBean implements Serializable {
 		this.valor = valor;
 	}
 
-	public boolean isMiestado() {
-		return miestado;
-	}
-
-	public void setMiestado(boolean miestado) {
-		this.miestado = miestado;
-	}
-
-	public List<Boolean> getMiestados() {
-		return miestados;
-	}
-
-	public void setMiestados(List<Boolean> miestados) {
-		this.miestados = miestados;
-	}
-
-	public ArrayList<Boolean> getEstadosCapturados() {
-		return estadosCapturados;
-	}
-
-	public void setEstadosCapturados(ArrayList<Boolean> estadosCapturados) {
-		this.estadosCapturados = estadosCapturados;
-	}
-
-	public int getCodpermiso() {
-		return codpermiso;
-	}
-
-	public void setCodpermiso(int codpermiso) {
-		this.codpermiso = codpermiso;
-	}
-
-	public int getCodestado() {
-		return codestado;
-	}
-
-	public void setCodestado(int codestado) {
-		this.codestado = codestado;
-	}
-
 	public IPerfilService getPerfilService() {
 		return perfilService;
 	}
@@ -425,32 +463,6 @@ public class PerfilModuloManagedBean implements Serializable {
 		this.perfiles = perfiles;
 	}
 
-	public boolean isBandera() {
-		return bandera;
-	}
-
-	public void setBandera(boolean bandera) {
-		this.bandera = bandera;
-	}
-
-	public List<PerfilModuloPermiso> getListapmp() {
-
-		return listapmp;
-
-	}
-
-	public void setListapmp(List<PerfilModuloPermiso> listapmp) {
-		this.listapmp = listapmp;
-	}
-
-	public boolean isActivo() {
-		return activo;
-	}
-
-	public void setActivo(boolean activo) {
-		this.activo = activo;
-	}
-
 	public boolean isActualizado() {
 		return actualizado;
 	}
@@ -459,20 +471,132 @@ public class PerfilModuloManagedBean implements Serializable {
 		this.actualizado = actualizado;
 	}
 
-	public boolean isModifico() {
-		return modifico;
-	}
-
-	public void setModifico(boolean modifico) {
-		this.modifico = modifico;
-	}
-
 	public boolean isActivoperfil() {
 		return activoperfil;
 	}
 
 	public void setActivoperfil(boolean activoperfil) {
 		this.activoperfil = activoperfil;
+	}
+
+	public String getUltimoPerfil() {
+		return ultimoPerfil;
+	}
+
+	public void setUltimoPerfil(String ultimoPerfil) {
+		this.ultimoPerfil = ultimoPerfil;
+	}
+
+	public Date getFechaultimoPerfil() {
+		return fechaultimoPerfil;
+	}
+
+	public void setFechaultimoPerfil(Date fechaultimoPerfil) {
+		this.fechaultimoPerfil = fechaultimoPerfil;
+	}
+
+	public int getNumPerfiles() {
+		return numPerfiles;
+	}
+
+	public void setNumPerfiles(int numPerfiles) {
+		this.numPerfiles = numPerfiles;
+	}
+
+	public UsuarioManagedBean getUserMB() {
+		return userMB;
+	}
+
+	public void setUserMB(UsuarioManagedBean userMB) {
+		this.userMB = userMB;
+	}
+
+	public int getIdenmodulo() {
+		return idenmodulo;
+	}
+
+	public void setIdenmodulo(int idenmodulo) {
+		this.idenmodulo = idenmodulo;
+	}
+
+	public int getIdenpermiso() {
+		return idenpermiso;
+	}
+
+	public void setIdenpermiso(int idenpermiso) {
+		this.idenpermiso = idenpermiso;
+	}
+
+	public boolean isEstadoagregar() {
+		return estadoagregar;
+	}
+
+	public void setEstadoagregar(boolean estadoagregar) {
+		this.estadoagregar = estadoagregar;
+	}
+
+	public List<PerfilModuloPermiso> getListaperfmodperm() {
+		return listaperfmodperm;
+	}
+
+	public void setListaperfmodperm(List<PerfilModuloPermiso> listaperfmodperm) {
+		this.listaperfmodperm = listaperfmodperm;
+	}
+
+	public boolean isIdenestado() {
+		return idenestado;
+	}
+
+	public void setIdenestado(boolean idenestado) {
+		this.idenestado = idenestado;
+	}
+
+	public IPermisoService getPermisoService() {
+		return permisoService;
+	}
+
+	public void setPermisoService(IPermisoService permisoService) {
+		this.permisoService = permisoService;
+	}
+
+	public boolean isMostrartabla() {
+		return mostrartabla;
+	}
+
+	public void setMostrartabla(boolean mostrartabla) {
+		this.mostrartabla = mostrartabla;
+	}
+
+	public PerfilModuloPermiso getPerfilmoduPermiso() {
+		return perfilmoduPermiso;
+	}
+
+	public void setPerfilmoduPermiso(PerfilModuloPermiso perfilmoduPermiso) {
+		this.perfilmoduPermiso = perfilmoduPermiso;
+	}
+
+	public boolean isMostrarboton() {
+		return mostrarboton;
+	}
+
+	public void setMostrarboton(boolean mostrarboton) {
+		this.mostrarboton = mostrarboton;
+	}
+
+	public Perfil getPerfilmoduloeliminar() {
+		return perfilmoduloeliminar;
+	}
+
+	public void setPerfilmoduloeliminar(Perfil perfilmoduloeliminar) {
+		this.perfilmoduloeliminar = perfilmoduloeliminar;
+	}
+
+	public PerfilModuloPermiso getModuloquitado() {
+		return moduloquitado;
+	}
+
+	public void setModuloquitado(PerfilModuloPermiso moduloquitado) {
+		this.moduloquitado = moduloquitado;
 	}
 
 }

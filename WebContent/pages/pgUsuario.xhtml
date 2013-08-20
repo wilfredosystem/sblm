@@ -33,7 +33,7 @@
 							
 							<div class="contenidoPrincipal_SubFondoUsuario">
 															
-							<div class="u_fondo_interno">
+							<div class="u_fondo_interno2">
 							
 							
 							
@@ -149,15 +149,15 @@
 														<p:fileUpload styleClass="ui-fileupload" style="visibility:hidden"
 															fileUploadListener="#{csuperusuarios.uploadImagenUsuario}"
 															mode="advanced" auto="true"  update=":formSuperUsuarios,uploadMensaje"
-															sizeLimit="1000000" label="" allowTypes="/(\.|\/)(png|jpg)$/" >
+															sizeLimit="1000000" label="" allowTypes="/(\.|\/)(png|jpg|jpeg)$/" >
 														</p:fileUpload>
 													</div>
 												</div>
 															
-															<div class="u_imagenPrevia">
+															<div class="u_imagenPrevia2">
 
 															<p:graphicImage id="idImagenUsuario" width="120" height="130"
-																value="http://localhost:8080/sistemaSBLM/resources/images/usuarios/#{csuperusuarios.rutaImagenUsuario}" onclick="openUploadFileDialogue();"/>
+																value="../resources/images/usuarios/#{csuperusuarios.rutaImagenUsuario}" onclick="openUploadFileDialogue();"/>
 																
 			
 															</div>
@@ -201,7 +201,7 @@
 								</h:panelGrid>
 								</div>	
 								
-								<div class="u_fondo_btnGuardar">
+								<div class="u_fondo_btnGuardar2">
 									<p:spacer width="55" height="30" />
 									<p:commandButton id="idGuardarUsuario" value="Guardar" 
 										icon="ui-icon-save" oncomplete="validacionFranco();" />
@@ -209,27 +209,60 @@
 					
 							
 							</div>
-										<div class="u_fondo_interno2">
-											<p:spacer width="50" height="10" />
+<!-- 										<div class="u_fondo_interno2"> -->
+<!-- 											<p:spacer width="50" height="10" /> -->
+<!-- 											<div class="u_FechaDelDia"> -->
+<!-- 												<p:graphicImage id="idFechaCreacion" style="margin-left: 8px;margin-top: 10px;" -->
+<!-- 													value="../resources/images/usuario/fecha_usuario.png" /> -->
+<!-- 												<div style="margin-top: -28px; margin-left: 43px; font-size: 10px;"> -->
+<!-- 												Fecha de creación -->
+<!-- 												</div> -->
+<!-- 											</div> -->
+				
+<!-- 											<div class="u_contenidoFechaDelDia" style="margin-left: 43px;margin-top: -3px; "> -->
+<!-- 												<h:outputText style="font-size: 11px;" value="#{ceditarusuarios.fechaCreacionUsuario} " /> -->
+<!-- 											</div> -->
+<!-- 										</div> -->
+										
+								<div class="u_fondo_interno2Edicion">
+
+								<div class="subcontenidoInfo_Cabecera">
+									<div class="subcontenidoInfo_logoTitulo" />
+									<div class="subcontenidoInfo_descripcionTitulo">
+										Informaci&oacute;n</div>
+								</div>
+
+
+								<div class="subcontenidoInfo_detContenidoFondo">
+								
 											<div class="u_FechaDelDia">
-												<p:graphicImage id="idFechaCreacion" style="margin-left: 8px;margin-top: 10px;"
+												<p:graphicImage id="idFechaCreacion" style="margin-left: 14px;margin-top: 10px;"
 													value="../resources/images/usuario/fecha_usuario.png" />
-												<div style="margin-top: -28px; margin-left: 43px; font-size: 10px;">
+												<div style="margin-top: -28px; margin-left: 47px; font-size: 10px;" class="informacion6">
 												Fecha de creación
 												</div>
 											</div>
-				
-											<div class="u_contenidoFechaDelDia" style="margin-left: 43px;margin-top: -3px; ">
+
+									<div class="subcontenidoInfo_textoconectadosfiltroDerecha2">
+											<div class="u_contenidoFechaDelDia" style="margin-left: 42px;margin-top: -10px; ">
 												<h:outputText style="font-size: 11px;" value="#{ceditarusuarios.fechaCreacionUsuario} " />
+											
 											</div>
-										</div>
+									</div>
+								</div>
+
+							</div>
+										
+										
+										
+										
 							</div>
 
 
 					<p:dataTable id="idListUsuarios" var="usr" styleClass="noheader"
 									rowkey="#{usr.idusuario+''}"
 									selection="#{csuperusuarios.selectRegistroUsuario}"
-									selectionMode="single" style="width:720px; text-align: center; font-size: 10px;margin-left:47px; "
+									selectionMode="single" style="width:720px; text-align: center; font-size: 10px;margin-left:47px; padding-top:20px; "
 									value="#{csuperusuarios.compDataModelUsuario}"
 									resizableColumns="true" paginator="true" rows="10">
 
